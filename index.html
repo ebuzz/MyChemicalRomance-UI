@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Chemical Romance</title>
+    <script src='jquery.js'></script>
+    <script src='jcanvas.min.js'></script>
+    <script src='my_checmical_romance.js'></script>
+    <script>
+        function addChemical() {
+
+
+            $("canvas").drawChemicalElement({
+                layer: true,
+                draggable: true,
+                fillStyle: "#fff",
+                symbol: $('#chemSymbol').val(),
+                width: 50,
+                height: 50,
+                x: 300,
+                y: 300
+            });
+        }
+    </script>
+</head>
+<body style="background-color: #FF0000">
+    <input type="text" id="chemSymbol" /> <input type="button" onclick="addChemical()" value="Add Element"/><br/>
+    <canvas id='canvas' height='400px' width='900px'></canvas>
+</body>
+</html>
