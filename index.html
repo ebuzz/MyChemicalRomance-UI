@@ -6,10 +6,18 @@
     <script src='jcanvas.min.js'></script>
     <script src='my_checmical_romance.js'></script>
     <script>
+        var currentId = 0;
         function addChemical() {
+            var chemical = {
+                id: currentId++,
+                symbol: $('#chemSymbol').val()
+            };
 
+            mixingBoard.addChemical(chemical);
 
             $("canvas").drawChemicalElement({
+                name: chemical.id,
+                chemical: chemical,
                 layer: true,
                 draggable: true,
                 fillStyle: "#fff",
@@ -17,7 +25,12 @@
                 width: 50,
                 height: 50,
                 x: 300,
-                y: 300
+                y: 300,
+                dragstop: function(event) {
+                    if(event.x < 50 && event.y < 50) {
+                        mixingBoard.removeChemical(chemical);
+                    }
+                }
             });
         }
     </script>
