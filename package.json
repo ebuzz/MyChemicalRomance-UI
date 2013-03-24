@@ -1,0 +1,13 @@
+{
+    "name": "mcr",
+    "description": "My Chemical Romance",
+    "version": "0.0.1",
+    "main": "",
+    "engines": {
+        "node": "*"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "node-static": "latest"
+    }
+}
