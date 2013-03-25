@@ -1,1 +1,19 @@
-[{"name":"Potassium perbromate"}]
+[
+    {
+        "name": "Barium titanate",
+        "formula": [
+            {
+                "symbol": "Ba",
+                "count": "1"
+            },
+            {
+                "symbol": "Ti",
+                "cßount": "1"
+            },
+            {
+                "symbol": "O",
+                "count": "3"
+            }
+        ]
+    }
+]
