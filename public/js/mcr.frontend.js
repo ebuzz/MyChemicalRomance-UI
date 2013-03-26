@@ -3,6 +3,7 @@ $(document).ready(function(){
     var currentId = 1;
 
     resetUI();
+    mcr.load();
 
     $.jCanvas.extend({
         name: "drawChemicalElement",
@@ -49,6 +50,8 @@ $(document).ready(function(){
     }
 
     $('#chemSymbol').on('change', function() {
+
+        mcr.ready.done(function() {
         var symbol = $('#chemSymbol').val();
         if(symbol === '') {
             return;
@@ -121,6 +124,7 @@ $(document).ready(function(){
                 }
             });
         }
+        });
     });
 
 });
