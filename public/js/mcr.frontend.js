@@ -75,7 +75,6 @@ $(document).ready(function(){
                 resetUI();
 
                 drawChemical(chemical);
-                mcr.reset();
                 mcr.add(chemical.symbol);
             }else {
                 var chemical = {
