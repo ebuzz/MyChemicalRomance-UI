@@ -66,7 +66,7 @@
         var result = [];
 
         for (var i= 0, n=compounds.length; i<n; i++) {
-            if (isPotentialMatch(map, compounds[i].elements)) {
+            if (!checkedOut(i) && isPotentialMatch(map, compounds[i].elements)) {
                 result.push(compounds[i]);
             }
         }
@@ -125,18 +125,6 @@
         elements = data;
         $.each(data, function (idx, element) {
             mcr.symbols[element.SYMBOL] = element;
-        });
-        buildDiscoveryTree();
-    }
-
-    function buildDiscoveryTree() {
-        discoveries =  {
-            count: 0,
-            symbols: {}
-        };
-
-        $.each(compounds, function(idx, compound) {
-            discoveries.count++;
         });
     }
 

@@ -62,6 +62,16 @@ describe('mcr.backend', function () {
             expect(result.potential).toEqual(1);
         });
 
+        it('potential will decrement after compound found', function() {
+            addH2O();
+
+            mcr.clearWorkspace();
+
+            var result = mcr.add('H');
+
+            expect(result.potential).toBe(0);
+        });
+
     });
 
     describe('remove', function() {
@@ -105,6 +115,8 @@ describe('mcr.backend', function () {
 
         it('should return 1 undiscovered compound after H2O is discovered', function() {
             addH2O();
+
+            mcr.clearWorkspace();
 
             expect(mcr.undiscoveredCompounds()).toBe(1);
         });
