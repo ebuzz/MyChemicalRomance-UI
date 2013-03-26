@@ -68,7 +68,7 @@
         return {
             workspace: workspace,
             discovered: discoveries,
-            potential: findPotentialCompounds().length - discoveries.length
+            potential: findPotentialCompounds().length
         };
     }
 
