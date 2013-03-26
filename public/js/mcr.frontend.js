@@ -1,8 +1,6 @@
 $(document).ready(function(){
     'use strict';
-
     var currentId = 1;
-    //Why doesnt this stay on the Canvas
 
     $("canvas").drawImage({
         name:'trashcan',
@@ -43,17 +41,6 @@ $(document).ready(function(){
         }
     });
 
-//    $("canvas").drawChemicalElement({
-//        layer: true,
-//        draggable: true,
-//        fillStyle: "#fff",
-//        symbol: "H",
-//        width: 50,
-//        height: 50,
-//        x: 150,
-//        y: 130
-//    });
-
     $('#chemSymbol').on('change', function() {
         var symbol = $('#chemSymbol').val();
         if(symbol === '') {
@@ -79,7 +66,7 @@ $(document).ready(function(){
             y: 300,
             dragstop: function(event) {
                 var withinXBoundry = (event.x < 800 && event.x > 770);
-                var withinYBoundry = (event.y > 15 && event.y < 45);
+                var withinYBoundry = (event.y < 45);
                 if(withinXBoundry && withinYBoundry) {
                     mixingBoard.removeChemical(chemical);
                 }
