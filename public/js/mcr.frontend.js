@@ -65,14 +65,10 @@ $(document).ready(function(){
             if(symbol === '') {
                 return;
             }
-            var chemical = {
-                id: currentId++,
-                symbol: symbol
-            };
 
             var result = mcr.add($('#chemSymbol').val());
             if(result.discovered.length > 0) {
-                var element = {
+                var chemical = {
                     id: currentId++,
                     symbol: result.discovered[0].name
                 };
@@ -81,9 +77,13 @@ $(document).ready(function(){
                 resetUI();
 
                 drawChemical(chemical);
-                mcr.reset();
-                mcr.add(element.symbol);
+                mcr.add(chemical.symbol);
             }else {
+                var chemical = {
+                    id: currentId++,
+                    symbol: symbol
+                };
+
                 var x = Math.floor((Math.random()*700)+100);
                 var y = Math.floor((Math.random()*200)+100);
 
