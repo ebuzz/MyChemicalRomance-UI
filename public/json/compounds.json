@@ -1,19 +1,20 @@
 [
     {
-        "name": "Barium titanate",
-        "formula": [
-            {
-                "symbol": "Ba",
-                "count": "1"
-            },
-            {
-                "symbol": "Ti",
-                "count": "1"
-            },
-            {
-                "symbol": "O",
-                "count": "3"
-            }
-        ]
+        "group": "ionic",
+        "elements":{
+            "Ba":1,
+            "Ti":1,
+            "O":3
+        },
+        "name":"Barium Titanate"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "H":2,
+            "O":1
+        },
+        "name":"Water"
     }
 ]
+
