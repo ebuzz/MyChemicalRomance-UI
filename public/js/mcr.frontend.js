@@ -174,7 +174,7 @@ $(document).ready(function(){
 var mixingBoard = {
     chemicals: [],
 
-    addChemicalToCanvas: function(chemical) {
+    addChemical: function(chemical) {
         this.chemicals.push(chemical);
     },
 

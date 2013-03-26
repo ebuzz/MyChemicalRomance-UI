@@ -7588,8 +7588,8 @@
                         responseText );
 
                 }).complete( callback && function( jqXHR, status ) {
-                    self.each( callback, response || [ jqXHR.responseText, status, jqXHR ] );
-                });
+                self.each( callback, response || [ jqXHR.responseText, status, jqXHR ] );
+            });
         }
 
         return this;
@@ -9361,12 +9361,12 @@
             }).length;
         };
     }
-    jQuery.fn.gridOffset = function( options ) {
+    jQuery.fn.offset = function( options ) {
         if ( arguments.length ) {
             return options === undefined ?
                 this :
                 this.each(function( i ) {
-                    jQuery.gridOffset.setOffset( this, options, i );
+                    jQuery.offset.setOffset( this, options, i );
                 });
         }
 
@@ -9398,7 +9398,7 @@
         };
     };
 
-    jQuery.gridOffset = {
+    jQuery.offset = {
 
         setOffset: function( elem, options, i ) {
             var position = jQuery.css( elem, "position" );
@@ -9409,7 +9409,7 @@
             }
 
             var curElem = jQuery( elem ),
-                curOffset = curElem.gridOffset(),
+                curOffset = curElem.offset(),
                 curCSSTop = jQuery.css( elem, "top" ),
                 curCSSLeft = jQuery.css( elem, "left" ),
                 calculatePosition = ( position === "absolute" || position === "fixed" ) && jQuery.inArray("auto", [curCSSTop, curCSSLeft]) > -1,
@@ -9465,9 +9465,9 @@
                 offsetParent = this.offsetParent();
 
                 // Get correct offsets
-                offset = this.gridOffset();
+                offset = this.offset();
                 if ( !jQuery.nodeName( offsetParent[ 0 ], "html" ) ) {
-                    parentOffset = offsetParent.gridOffset();
+                    parentOffset = offsetParent.offset();
                 }
 
                 // Add offsetParent borders
