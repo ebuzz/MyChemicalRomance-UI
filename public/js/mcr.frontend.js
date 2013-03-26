@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    'use strict';
 
     //Why doesnt this stay on the Canvas
     $("canvas").drawRect({

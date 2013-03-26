@@ -1,4 +1,4 @@
-(function (root) {
+(function (root, $) {
     'use strict';
 
     var compounds, discoveries, elements, ready = $.Deferred();
@@ -39,7 +39,7 @@
         initElements(data2[0].PERIODIC_TABLE.ATOM);
         ready.resolve();
     }, function () {
-        console.log('error')
+        console.log('error');
     });
 
-})(this);
+})(this, this.jQuery);
