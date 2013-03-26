@@ -50,8 +50,15 @@ describe('mcr.backend', function () {
             var result = mcr.add('O');
 
             expect(result.discovered).toEqual([]);
-            //expect(result.potential).toEqual(1);
         });
+
+        it('potential will return # of possible matches', function() {
+            mcr.add('H');
+            var result = mcr.add('O');
+
+            expect(result.potential).toEqual(1);
+        });
+
     });
 });
 

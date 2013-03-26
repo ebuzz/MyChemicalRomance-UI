@@ -117,7 +117,7 @@ PeriodicMatch.elementSize = 50;
             PeriodicMatch.addChemical(table[i].symbol);
         }
     }, function () {
-        console.log('error')
+        console.log('pm.init.js: error');
     });
 
 //    PeriodicMatch.addChemical('H');

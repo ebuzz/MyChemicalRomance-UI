@@ -13,9 +13,10 @@
             return {
                 workspace: workspace,
                 discovered: discovered,
-                potential: 0
+                potential: findPotentialCompounds().length
             };
         },
+
         remove: function(symbol) {
             return {};
         },
@@ -29,6 +30,31 @@
         load: load,
         docRoot: ''
     };
+
+    function findPotentialCompounds() {
+        var map = parseWorkspace();
+        var result = [];
+
+        for (var i= 0, n=compounds.length; i<n; i++) {
+            if (isPotentialMatch(map, compounds[i].elements)) {
+                result.push(compounds[i]);
+            }
+        }
+
+        return result;
+    }
+
+    function isPotentialMatch(potentialCompound, compound) {
+        var potKeys = _.keys(potentialCompound);
+
+        for(var i= 0, n=potKeys.length; i<n; i++) {
+            var key= potKeys[i];
+
+            if (! compound[key]) return false;
+            if (potentialCompound[key] > compound[key]) return false;
+        }
+        return true;
+    }
 
     function findMatchedCompounds() {
         var map = parseWorkspace();
@@ -89,7 +115,7 @@
             initElements(data2[0].PERIODIC_TABLE.ATOM);
             ready.resolve();
         }, function () {
-            console.log('error');
+            console.log('mcr.backend.js: error');
         });
     }
 })(this, this.jQuery, this._);
