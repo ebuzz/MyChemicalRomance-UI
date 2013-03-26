@@ -52,7 +52,8 @@ $(document).ready(function(){
         };
 
         mixingBoard.addChemical(chemical);
-
+        var x = Math.floor((Math.random()*800)+100);
+        var y = Math.floor((Math.random()*300)+100);
         $("canvas").drawChemicalElement({
             name: ''+chemical.id,
             chemical: chemical,
@@ -62,8 +63,8 @@ $(document).ready(function(){
             symbol: $('#chemSymbol').val(),
             width: 50,
             height: 50,
-            x: 300,
-            y: 300,
+            x: x,
+            y: y,
             dragstop: function(event) {
                 var withinXBoundry = (event.x < 800 && event.x > 770);
                 var withinYBoundry = (event.y < 45);
