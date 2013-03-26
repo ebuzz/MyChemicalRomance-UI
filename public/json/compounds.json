@@ -1,19 +1,328 @@
 [
     {
-        "name": "Barium titanate",
-        "formula": [
-            {
-                "symbol": "Ba",
-                "count": "1"
-            },
-            {
-                "symbol": "Ti",
-                "count": "1"
-            },
-            {
-                "symbol": "O",
-                "count": "3"
-            }
-        ]
+        "group":"ionic",
+        "elements":{
+            "Ba":1,
+            "Ti":1,
+            "O":3
+        },
+        "name":"Barium Titanate",
+        "formula":"BaTiO3"
+    },
+    {
+        "group":"covalent",
+        "elements":{
+            "H":2,
+            "O":1
+        },
+        "name":"Water",
+        "formula":"H2O"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Al":1,
+            "Br":3
+        },
+        "name":"Aluminum Bromide",
+        "formula":"AlBr3"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Al":1,
+            "Cl":3
+        },
+        "name":"Aluminum Chloride",
+        "formula":"AlCl3"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Al":1,
+            "I":3
+        },
+        "name":"Aluminum Iodide",
+        "formula":"AlI3"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Ba":1,
+            "Br":2
+        },
+        "name":"Barium Bromide",
+        "formula":"BaBr2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Ba":1,
+            "Cl":2
+        },
+        "name":"Barium Chloride",
+        "formula":"BaCl2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Ba":1,
+            "F":2
+        },
+        "name":"Barium Floride",
+        "formula":"BaF2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Ba":1,
+            "I":2
+        },
+        "name":"Barium Iodide",
+        "formula":"BaI2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Ba":1,
+            "S":1
+        },
+        "name":"Barium Sulfide",
+        "formula":"BaS"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Ca":1,
+            "Br":2
+        },
+        "name":"Calcium Bromide",
+        "formula":"CaBr2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Ca":1,
+            "Cl":2
+        },
+        "name":"Calcium Chloride",
+        "formula":"CaCl2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Ca":1,
+            "F":2
+        },
+        "name":"Calcium Fluoride",
+        "formula":"CaF2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Ca":1,
+            "I":2
+        },
+        "name":"Calcium Iodide",
+        "formula":"CaI2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Ca":1,
+            "S":1
+        },
+        "name":"Calcium Sulfide",
+        "formula":"CaS"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Cr":1,
+            "Br":2
+        },
+        "name":"Chromium(II) Bromide",
+        "formula":"CrBr2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Cr":1,
+            "Cl":2
+        },
+        "name":"Chromium(II) Chloride",
+        "formula":"CrCl2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Cr":1,
+            "I":2
+        },
+        "name":"Chromium(II) iodide",
+        "formula":"CrI2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Co":1,
+            "Br":2
+        },
+        "name":"Cobalt(II) Bromide",
+        "formual":"CoBr2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Co":1,
+            "Cl":2
+        },
+        "name":"Cobalt(II) Chloride",
+        "formula":"CoCl2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Co":1,
+            "F":2
+        },
+        "name":"Cobalt(II) Fluoride",
+        "formula":"CoF2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Co":1,
+            "I":2
+        },
+        "name":"Cobalt(II) Iodide",
+        "formula":"CoI2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Co":1,
+            "S":1
+        },
+        "name":"Cobalt(II) Sulfide",
+        "formula":"CoS"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Cu":1,
+            "Br":2
+        },
+        "name":"Copper(II) Bromide",
+        "formula":"CuBr2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Cu":1,
+            "Cl":2
+        },
+        "name":"Copper(II) Chloride",
+        "formula":"CuCl2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Cu":1,
+            "F":2
+        },
+        "name":"Copper(II) Fluoride",
+        "formula":"CuF2"
+
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Cu":1,
+            "I":2
+        },
+        "name":"Copper(II) Iodide",
+        "formula":"CuI2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Cu":1,
+            "S":1
+        },
+        "name":"Copper(II) Sulfide",
+        "formula":"CuS"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Fe":1,
+            "Br":2
+        },
+        "name":"Iron(II) Bromide",
+        "formula":"FeBr2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Fe":1,
+            "Cl":2
+        },
+        "name":"Iron(II) Chloride",
+        "formula":"FeCl2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Fe":1,
+            "I":2
+        },
+        "name":"Iron(II) Iodide",
+        "formula":"FeI2"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Fe":1,
+            "S":1
+        },
+        "name":"Iron(II) Sulfide",
+        "formula":"FeS"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Fe":1,
+            "Br":3
+        },
+        "name":"Iron(III) Bromide",
+        "formula":"FeBr3"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Fe":1,
+            "Cl":3
+        },
+        "name":"Iron(III) Chloride",
+        "formula":"FeCl3"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Fe":1,
+            "F":3
+        },
+        "name":"Iron(III) Fluoride",
+        "formula":"FeF3"
+    },
+    {
+        "group":"ionic",
+        "elements":{
+            "Fe":2,
+            "S":3
+        },
+        "name":"Iron(III) Sulfide",
+        "formula":"Fe2S3"
     }
 ]

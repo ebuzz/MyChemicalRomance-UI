@@ -98,7 +98,7 @@
         elements = tableElements[0];
         periods = tablePeriods[0];
     }, function () {
-        console.log('error')
+        console.log('pm.init.js: error');
     });
 
     $('#start-matching').click(function() {
