@@ -1,7 +1,7 @@
 (function (root, $, _) {
     'use strict';
 
-    var compounds, discoveries, elements, ready = $.Deferred();
+    var compounds, checkedOutCompounds = {}, discoveries, elements, ready = $.Deferred();
     var workspace= [];
 
     var mcr = root.mcr = {
@@ -22,20 +22,38 @@
             return buildResult();
         },
         reset: function() {
-            workspace = [];
+            clearWorkspace();
+            returnCompounds();
         },
-
+        clearWorkspace: clearWorkspace,
         ready: ready,
         symbols: {},
         load: load,
         docRoot: ''
     };
 
+    function clearWorkspace() {
+        workspace = [];
+    }
+
+    function checkoutCompound(idx) {
+        checkedOutCompounds[idx] = true;
+    }
+
+    function checkedOut(idx) {
+        return !!checkedOutCompounds[idx];
+    }
+
+    function returnCompounds() {
+        checkedOutCompounds = {};
+    }
+
     function buildResult() {
+        var discoveries = findMatchedCompounds();
         return {
             workspace: workspace,
-            discovered: findMatchedCompounds(),
-            potential: findPotentialCompounds().length
+            discovered: discoveries,
+            potential: findPotentialCompounds().length - discoveries.length
         };
     }
 
@@ -69,7 +87,8 @@
         var result = [];
 
         for (var i= 0, n=compounds.length; i<n; i++) {
-            if (isMatch(map, compounds[i])) {
+            if (isMatch(map, compounds[i]) && !checkedOut(i)) {
+                checkoutCompound(i);
                 result.push(compounds[i]);
             }
         }

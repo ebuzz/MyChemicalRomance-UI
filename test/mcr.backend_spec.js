@@ -76,5 +76,29 @@ describe('mcr.backend', function () {
             expect(result.discovered).toEqual(water);
         });
     });
+
+    describe('previous discoveries', function() {
+
+        beforeEach(function() {
+
+        });
+
+        it('should not allow me to discover previous discoveries', function() {
+            mcr.add('H');
+            mcr.add('H');
+            var result = mcr.add('O');
+
+            expect(result.discovered).toEqual(water);
+
+            mcr.clearWorkspace();
+
+            mcr.add('H');
+            mcr.add('H');
+            var result = mcr.add('O');
+
+            expect(result.discovered).toEqual([]);
+        });
+    });
+
 });
 
