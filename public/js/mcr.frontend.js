@@ -101,6 +101,14 @@ $(document).ready(function(){
         });
     }
 
+    //Attach Events to Table
+    $(".symbol").each(function(i, periodicElement) {
+        $(periodicElement).on('click', function(event) {
+            var symbol = $(this).find("abbr").text();
+            addElementToCanvas(symbol);
+        });
+    });
+
     $('#chemSymbol').on('change', function() {
         addElementToCanvas();
     });
@@ -109,13 +117,14 @@ $(document).ready(function(){
         addElementToCanvas();
     });
 
-    function addElementToCanvas() {
-        var symbol = $('#chemSymbol').val();
+    function addElementToCanvas(addedSymbol) {
+        var symbol = addedSymbol ? addedSymbol : $('#chemSymbol').val();
+        console.log(addedSymbol);
         if(symbol === '') {
             return;
         }
 
-        var result = mcr.add($('#chemSymbol').val());
+        var result = mcr.add(symbol);
 
         if(result.discovered.length > 0) {
             var chemical = {
