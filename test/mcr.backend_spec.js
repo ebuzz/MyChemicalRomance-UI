@@ -122,5 +122,15 @@ describe('mcr.backend', function () {
         });
     });
 
+    describe('discovered compounds', function() {
+        it('should return a list of compounds for a given group', function() {
+            addH2O();
+            mcr.clearWorkspace();
+            
+            var result = mcr.discoveredCompounds('covalent');
+
+            expect(result).toEqual(water);
+        })
+    })
 });
 

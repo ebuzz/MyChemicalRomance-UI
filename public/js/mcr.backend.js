@@ -5,6 +5,16 @@
     var workspace= [];
 
     var mcr = root.mcr = {
+        discoveredCompounds: function(group) {
+            var result = [];
+            for(var key in checkedOutCompounds) {
+                var compound = compounds[key];
+                if (compound.group === group) {
+                    result.push(compound);
+                }
+            }
+            return result;
+        },
         undiscoveredCompounds: function() {
             return findPotentialCompounds().length;
         },
@@ -29,6 +39,7 @@
             returnCompounds();
         },
         clearWorkspace: clearWorkspace,
+        elements: elements,
         ready: ready,
         symbols: {},
         load: load,
