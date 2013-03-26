@@ -5,7 +5,7 @@
     var workspace= [];
 
     var mcr = root.mcr = {
-
+        workspace: workspace,
         add: function (symbol) {
             workspace.push(symbol);
 

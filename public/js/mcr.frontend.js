@@ -140,7 +140,7 @@ var mixingBoard = {
         for(var i = 0; i < this.chemicals.length; i++) {
             $("canvas").removeLayer(''+this.chemicals[i].id);
         }
-
+        mcr.reset();
         this.chemicals = [];
     },
 
@@ -148,6 +148,7 @@ var mixingBoard = {
         for(var i = 0; i < this.chemicals.length; i++) {
             if(this.chemicals[i].id === chemical.id) {
                 $("canvas").removeLayer(''+this.chemicals[i].id);
+                mcr.remove(this.chemicals[i].symbol);
                 this.chemicals.splice(i, 1);
             }
         }
