@@ -33,48 +33,48 @@
     },
     {
         "atomicNumber": 5,
-        "group": 2,
-        "period": 13,
+        "group": 13,
+        "period": 2,
         "name": "Boron",
         "symbol": "B",
         "atomicWeight": 10.811
     },
     {
         "atomicNumber": 6,
-        "group": 2,
-        "period": 14,
+        "group": 14,
+        "period": 2,
         "name": "Carbon",
         "symbol": "C",
         "atomicWeight": 12.0107
     },
     {
         "atomicNumber": 7,
-        "group": 2,
-        "period": 15,
+        "group": 15,
+        "period": 2,
         "name": "Nitrogen",
         "symbol": "N",
         "atomicWeight": 14.0067
     },
     {
         "atomicNumber": 8,
-        "group": 2,
-        "period": 16,
+        "group": 16,
+        "period": 2,
         "name": "Oxygen",
         "symbol": "O",
         "atomicWeight": 15.9994
     },
     {
         "atomicNumber": 9,
-        "group": 2,
-        "period": 17,
+        "group": 17,
+        "period": 2,
         "name": "Fluorine",
         "symbol": "F",
         "atomicWeight": 18.9984
     },
     {
         "atomicNumber": 10,
-        "group": 2,
-        "period": 18,
+        "group": 18,
+        "period": 2,
         "name": "Neon",
         "symbol": "Ne",
         "atomicWeight": 20.1797
