@@ -9361,12 +9361,12 @@
             }).length;
         };
     }
-    jQuery.fn.offset = function( options ) {
+    jQuery.fn.gridOffset = function( options ) {
         if ( arguments.length ) {
             return options === undefined ?
                 this :
                 this.each(function( i ) {
-                    jQuery.offset.setOffset( this, options, i );
+                    jQuery.gridOffset.setOffset( this, options, i );
                 });
         }
 
@@ -9398,7 +9398,7 @@
         };
     };
 
-    jQuery.offset = {
+    jQuery.gridOffset = {
 
         setOffset: function( elem, options, i ) {
             var position = jQuery.css( elem, "position" );
@@ -9409,7 +9409,7 @@
             }
 
             var curElem = jQuery( elem ),
-                curOffset = curElem.offset(),
+                curOffset = curElem.gridOffset(),
                 curCSSTop = jQuery.css( elem, "top" ),
                 curCSSLeft = jQuery.css( elem, "left" ),
                 calculatePosition = ( position === "absolute" || position === "fixed" ) && jQuery.inArray("auto", [curCSSTop, curCSSLeft]) > -1,
@@ -9465,9 +9465,9 @@
                 offsetParent = this.offsetParent();
 
                 // Get correct offsets
-                offset = this.offset();
+                offset = this.gridOffset();
                 if ( !jQuery.nodeName( offsetParent[ 0 ], "html" ) ) {
-                    parentOffset = offsetParent.offset();
+                    parentOffset = offsetParent.gridOffset();
                 }
 
                 // Add offsetParent borders

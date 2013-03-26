@@ -1,8 +1,3 @@
-PeriodicMatch = {};
-PeriodicMatch.offset = 10;
-PeriodicMatch.gridSize = 60;
-PeriodicMatch.elementSize = 50;
-
 (function(){
 
     $.jCanvas.extend({
@@ -23,12 +18,12 @@ PeriodicMatch.elementSize = 50;
                     fromCenter: false
                 })
                 .drawText({
-                    fillStyle: "#9cf",
-                    strokeStyle: "#25a",
-                    strokeWidth: 2,
-                    x: params.x + 25,
-                    y: params.y + 25,
-                    font: "36pt Verdana, sans-serif",
+                    fillStyle: "black",
+                    strokeStyle: "black",
+                    strokeWidth: 1,
+                    x: params.x + 20,
+                    y: params.y + 20,
+                    font: "20pt Verdana, sans-serif",
                     text: params.symbol
 
                 });
@@ -38,88 +33,137 @@ PeriodicMatch.elementSize = 50;
         }
     });
 
-    PeriodicMatch.data = {
-        chemicals: [],
+    var gridOffset = 10;
+    var gridSize = 50;
+    var elementSize = 40;
+    var difficultyLevel;
 
-        addChemical: function(chemical) {
-            this.chemicals.push(chemical);
-        },
+    var periods = [];
+    var elements = [];
 
-        removeChemical: function(chemical) {
-            for(var i = 0; i < this.chemicals.length; i++) {
-                if(this.chemicals[i].id === chemical.id) {
-                    $("canvas").removeLayer(this.chemicals[i].id);
-                    this.chemicals.splice(i, 1);
-                }
-            }
-        },
-
-        updateChemical: function(chemical) {
-            for(var i = 0; i < this.chemicals.length; i++) {
-                if(this.chemicals[i].id === chemical.id) {
-                    this.chemicals[i] = chemical;
-                }
-            }
-        }
-    };
-
-    var currentId = 0;
-    PeriodicMatch.addChemical = function(symbol) {
-        var chemical = {
-            id: currentId++,
-            symbol: symbol
-        };
-
-//        PeriodicMatch.data.addChemical(chemical);
-
+    function addChemicalToCanvas(symbol, x, y) {
         $("canvas").drawChemicalElement({
-            name: chemical.id,
-            chemical: chemical,
+            name: symbol,
             layer: true,
             draggable: true,
             fillStyle: "#fff",
             symbol: symbol,
-            width: 50,
-            height: 50,
-            x: 300,
-            y: 300,
+            width: elementSize,
+            height: elementSize,
+            x: x,
+            y: y,
             dragstop: function(event) {
-                if(event.x < 50 && event.y < 50) {
-                    PeriodicMatch.data.removeChemical(chemical);
-                }
+                console.log(event);
             }
         });
     };
 
-    PeriodicMatch.targetGrid = function(width, height) {
-        for (var row = 0; row < height; row++) {
-            for (var col = 0; col < width; col++) {
-                var x = col * PeriodicMatch.gridSize + PeriodicMatch.offset;
-                var y = row * PeriodicMatch.gridSize + PeriodicMatch.offset;
+    function drawTable(totalPeriods) {
+        for (var row = 0; row < totalPeriods; row++) {
+            var groups = periods[row].groups;
+            for (var col = 0; col < groups.length; col++) {
+                var x = (groups[col] - 1) * gridSize + gridOffset;
+                var y = row * gridSize + gridOffset;
                 $("canvas").drawRect({
                     strokeStyle: "black",
                     strokeWidth: 1,
                     x: x, y: y,
-                    width: PeriodicMatch.gridSize,
-                    height: PeriodicMatch.gridSize,
+                    width: gridSize,
+                    height: gridSize,
                     layer: true,
                     fromCenter: false
                 });
             }
+
         }
     };
 
-    PeriodicMatch.targetGrid(18, 2);
+    function shuffleElements(lastElement){ //v1.0
+        for(var j, x, i = lastElement; i; j = parseInt(Math.random() * i), x = elements[--i], elements[i] = elements[j], elements[j] = x);
+    };
 
-    $.when($.ajax('json/periodic.table.json')).then(function (table) {
-        PeriodicMatch.table = table;
-        for (var i= 0; i < table.length; i++) {
-            PeriodicMatch.addChemical(table[i].symbol);
+    function drawElements(row) {
+        var i = 0;
+        var y = (row + 1) * gridSize;
+        var x = 0;
+        var lastElement = periods[row - 1].lastElement;
+        shuffleElements(lastElement);
+        for (; i < lastElement; i++) {
+            x = gridOffset + (gridSize * i)
+            addChemicalToCanvas(elements[i].symbol, x, y);
         }
+    }
+
+    $.when($.ajax('json/periodic-table-elements.json'), $.ajax('json/periodic-table-grid.json')).then(function (tableElements, tablePeriods) {
+        elements = tableElements[0];
+        periods = tablePeriods[0];
     }, function () {
         console.log('error')
     });
 
-//    PeriodicMatch.addChemical('H');
+    $('#start-matching').click(function() {
+        $('canvas').removeLayers();
+        $('canvas').clearCanvas();
+        difficultyLevel = parseInt($('#matching-difficulty').val());
+        drawTable(difficultyLevel);
+        drawElements(difficultyLevel);
+    });
+
+    function getElement(symbol) {
+        for (var i = 0; i < elements.length; i++) {
+            if (elements[i].symbol === symbol) {
+                return elements[i];
+            }
+        }
+    }
+
+    $('#finish-matching').click(function() {
+        for (var i = 0; i < periods[difficultyLevel - 1].lastElement; i++) {
+            var element = elements[i];
+            var layer = $('canvas').getLayer(element.symbol);
+            var targetX = (periods[element.period - 1].groups[element.group - 1] - 1) * gridSize + gridOffset;
+            var targetY = (element.period - 1) * gridSize + gridOffset;
+
+            console.log("element: ".concat(element.symbol));
+            console.log("x: ".concat(layer.x));
+            console.log("y: ".concat(layer.y));
+            console.log("group: ".concat(element.group));
+            console.log("period: ".concat(element.period));
+            console.log("targetX: ".concat(targetX));
+            console.log("targetY: ".concat(targetY));
+
+            if ((layer.x >= targetX && layer.x <= (targetX + 20)) &&
+                (layer.y >= targetY && layer.y <= (targetY + 20))) {
+                $('#canvas').setLayer(element.symbol, {
+                    fillStyle: 'green'
+                })
+            } else {
+                $('#canvas').setLayer(element.symbol, {
+                    fillStyle: 'red'
+                })
+            }
+        }
+
+
+//        var layer = $('canvas').getLayer('H');
+//        var element = getElement('H');
+//        var x = (groups[col] - 1) * gridSize + gridOffset;
+//        var y = row * gridSize + gridOffset;
+//        var targetX = (periods[element.period - 1].groups[element.group - 1] - 1) * gridSize + gridOffset;
+//        var targetY = (element.period - 1) * gridSize + gridOffset;
+
+
+//        if ((layer.x >= targetX && layer.x <= (targetX + 20)) &&
+//            (layer.y >= targetY && layer.y <= (targetY + 20))) {
+//            $('#canvas').setLayer('H', {
+//                fillStyle: 'green'
+//            })
+//        } else {
+//            $('#canvas').setLayer('H', {
+//                fillStyle: 'red'
+//            })
+//        }
+
+    });
 })();
 

@@ -8,7 +8,17 @@
 </head>
 
 <body style="background-color: gray">
-    <canvas id='canvas' height='420px' width='1200'></canvas>
+    <div>
+        <span>Select Difficulty: </span>
+        <select id="matching-difficulty">
+            <option value="1">Level 1</option>
+            <option value="2">Level 2</option>
+            <option value="3">Level 3</option>
+        </select>
+        <button id="start-matching">Start</button>
+        <button id="finish-matching">Check Answers</button>
+    </div>
+    <canvas id='canvas' height='420px' width='920'></canvas>
 </body>
 
 <script src='lib/jquery/1.9.1/jquery.js'></script>

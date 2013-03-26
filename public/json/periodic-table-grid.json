@@ -1,0 +1,18 @@
+[
+    {
+        "period": 1,
+        "groups": [1, 18],
+        "answers": ["H", "He"],
+        "lastElement": 2
+    },
+    {
+        "period": 2,
+        "groups": [1, 2, 13, 14, 15, 16, 17, 18],
+        "lastElement": 10
+    },
+    {
+        "period": 3,
+        "groups": [1, 2, 13, 14, 15, 16, 17, 18],
+        "lastElement": 18
+    }
+]
