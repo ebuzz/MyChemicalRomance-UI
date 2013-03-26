@@ -3,6 +3,7 @@ $(document).ready(function(){
 
     mcr.ready.done(function() {
     'use strict';
+    resetUI();
 
     $( "#tabs" ).tabs();
     var searchDialog = $( "#searchDialog" ).dialog({
@@ -14,8 +15,6 @@ $(document).ready(function(){
         position: {at:'center', of:$("canvas")}
     });
     var currentId = 1;
-
-    resetUI();
 
     $.jCanvas.extend({
         name: "drawChemicalElement",
@@ -51,7 +50,7 @@ $(document).ready(function(){
         $("canvas").removeLayers();
         $("canvas").clearCanvas();
 
-        drawPotentialCount(mcr.undiscoveredCompounds());
+
         $("canvas").drawImage({
             name:'background',
             layer: true,
@@ -87,6 +86,8 @@ $(document).ready(function(){
             scale: 0.3
         });
 
+        drawPotentialCount(mcr.undiscoveredCompounds());
+
     }
 
     function drawPotentialCount(count) {
@@ -95,7 +96,7 @@ $(document).ready(function(){
             name: "potentialCount",
             layer: true,
             fillStyle: "#fff",
-            x: 50, y: 390,
+            x: 50, y: 15,
             font: "10pt Verdana, sans-serif",
             text: "Potential: " + count
         });
@@ -125,7 +126,6 @@ $(document).ready(function(){
         }
 
         var result = mcr.add(symbol);
-
         if(result.discovered.length > 0) {
             var chemical = {
                 id: currentId++,
