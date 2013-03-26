@@ -1,0 +1,83 @@
+[
+    {
+        "atomicNumber": 1,
+        "group": 1,
+        "period": 1,
+        "name": "Hydrogen",
+        "symbol": "H",
+        "atomicWeight": 1.0079
+    },
+    {
+        "atomicNumber": 2,
+        "group": 18,
+        "period": 1,
+        "name": "Helium",
+        "symbol": "He",
+        "atomicWeight": 4.0026
+    },
+    {
+        "atomicNumber": 3,
+        "group": 1,
+        "period": 2,
+        "name": "Lithium",
+        "symbol": "Li",
+        "atomicWeight": 6.941
+    },
+    {
+        "atomicNumber": 4,
+        "group": 2,
+        "period": 2,
+        "name": "Beryllium",
+        "symbol": "Be",
+        "atomicWeight": 9.0122
+    },
+    {
+        "atomicNumber": 5,
+        "group": 2,
+        "period": 13,
+        "name": "Boron",
+        "symbol": "B",
+        "atomicWeight": 10.811
+    },
+    {
+        "atomicNumber": 6,
+        "group": 2,
+        "period": 14,
+        "name": "Carbon",
+        "symbol": "C",
+        "atomicWeight": 12.0107
+    },
+    {
+        "atomicNumber": 7,
+        "group": 2,
+        "period": 15,
+        "name": "Nitrogen",
+        "symbol": "N",
+        "atomicWeight": 14.0067
+    },
+    {
+        "atomicNumber": 8,
+        "group": 2,
+        "period": 16,
+        "name": "Oxygen",
+        "symbol": "O",
+        "atomicWeight": 15.9994
+    },
+    {
+        "atomicNumber": 9,
+        "group": 2,
+        "period": 17,
+        "name": "Fluorine",
+        "symbol": "F",
+        "atomicWeight": 18.9984
+    },
+    {
+        "atomicNumber": 10,
+        "group": 2,
+        "period": 18,
+        "name": "Neon",
+        "symbol": "Ne",
+        "atomicWeight": 20.1797
+    }
+]
+

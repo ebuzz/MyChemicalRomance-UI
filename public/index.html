@@ -7,38 +7,121 @@
     <script src='lib/jcanvas/13.03.20/jcanvas.js'></script>
     <script src='js/mcr.backend.js'></script>
     <script src='js/mcr.frontend.js'></script>
-    <script>
-        var currentId = 0;
-        function addChemical() {
-            var chemical = {
-                id: currentId++,
-                symbol: $('#chemSymbol').val()
-            };
-
-            mixingBoard.addChemical(chemical);
-
-            $("canvas").drawChemicalElement({
-                name: chemical.id,
-                chemical: chemical,
-                layer: true,
-                draggable: true,
-                fillStyle: "#fff",
-                symbol: $('#chemSymbol').val(),
-                width: 50,
-                height: 50,
-                x: 300,
-                y: 300,
-                dragstop: function(event) {
-                    if(event.x < 50 && event.y < 50) {
-                        mixingBoard.removeChemical(chemical);
-                    }
-                }
-            });
-        }
-    </script>
 </head>
-<body style="background-color: #FF0000">
-    <input type="text" id="chemSymbol" /> <input type="button" onclick="addChemical()" value="Add Element"/><br/>
-    <canvas id='canvas' height='400px' width='900px'></canvas>
+<body style="background-image:url('./images/blackboard.jpg')">
+    <select id="chemSymbol">
+        <option value=''>--Select--</option>
+        <option value='H'>Hydrogen</option>
+        <option value='He'>Helium</option>
+        <option value='Li'>Lithium</option>
+        <option value='Be'>Beryllium</option>
+        <option value='B'>Boron</option>
+        <option value='C'>Carbon</option>
+        <option value='N'>Nitrogen</option>
+        <option value='O'>Oxygen</option>
+        <option value='F'>Fluorine</option>
+        <option value='Ne'>Neon</option>
+        <option value='Na'>Sodium</option>
+        <option value='Mg'>Magnesium</option>
+        <option value='Al'>Aluminum</option>
+        <option value='Si'>Silicon</option>
+        <option value='P'>Phosphorus</option>
+        <option value='S'>Sulfur</option>
+        <option value='Cl'>Chlorine</option>
+        <option value='Ar'>Argon</option>
+        <option value='K'>Potassium</option>
+        <option value='Ca'>Calcium</option>
+        <option value='Sc'>Scandium</option>
+        <option value='Ti'>Titanium</option>
+        <option value='V'>Vanadium</option>
+        <option value='Cr'>Chromium</option>
+        <option value='Mn'>Manganese</option>
+        <option value='Fe'>Iron</option>
+        <option value='Co'>Cobalt</option>
+        <option value='Ni'>Nickel</option>
+        <option value='Cu'>Copper</option>
+        <option value='Zn'>Zinc</option>
+        <option value='Ga'>Gallium</option>
+        <option value='Ge'>Germanium</option>
+        <option value='As'>Arsenic</option>
+        <option value='Se'>Selenium</option>
+        <option value='Br'>Bromine</option>
+        <option value='Kr'>Krypton</option>
+        <option value='Rb'>Rubidium</option>
+        <option value='Sr'>Strontium</option>
+        <option value='Y'>Yttrium</option>
+        <option value='Zr'>Zirconium</option>
+        <option value='Nb'>Niobium</option>
+        <option value='Mo'>Molybdenum</option>
+        <option value='Tc'>Technetium</option>
+        <option value='Ru'>Ruthenium</option>
+        <option value='Rh'>Rhodium</option>
+        <option value='Pd'>Palladium</option>
+        <option value='Ag'>Silver</option>
+        <option value='Cd'>Cadmium</option>
+        <option value='In'>Indium</option>
+        <option value='Sn'>Tin</option>
+        <option value='Sb'>Antimony</option>
+        <option value='Te'>Tellurium</option>
+        <option value='I'>Iodine</option>
+        <option value='Xe'>Xenon</option>
+        <option value='Cs'>Cesium</option>
+        <option value='Ba'>Barium</option>
+        <option value='La'>Lanthanum</option>
+        <option value='Ce'>Cerium</option>
+        <option value='Pr'>Praseodymium</option>
+        <option value='Nd'>Neodymium</option>
+        <option value='Pm'>Promethium</option>
+        <option value='Sm'>Samarium</option>
+        <option value='Eu'>Europium</option>
+        <option value='Gd'>Gadolinium</option>
+        <option value='Tb'>Terbium</option>
+        <option value='Dy'>Dysprosium</option>
+        <option value='Ho'>Holmium</option>
+        <option value='Er'>Erbium</option>
+        <option value='Tm'>Thulium</option>
+        <option value='Yb'>Ytterbium</option>
+        <option value='Lu'>Lutetium</option>
+        <option value='Hf'>Hafnium</option>
+        <option value='Ta'>Tantalum</option>
+        <option value='W'>Tungsten</option>
+        <option value='Re'>Rhenium</option>
+        <option value='Os'>Osmium</option>
+        <option value='Ir'>Iridium</option>
+        <option value='Pt'>Platinum</option>
+        <option value='Au'>Gold</option>
+        <option value='Hg'>Mercury</option>
+        <option value='Tl'>Thallium</option>
+        <option value='Pb'>Lead</option>
+        <option value='Bi'>Bismuth</option>
+        <option value='Po'>Polonium</option>
+        <option value='At'>Astatine</option>
+        <option value='Rn'>Radon</option>
+        <option value='Fr'>Francium</option>
+        <option value='Ra'>Radium</option>
+        <option value='Ac'>Actinium</option>
+        <option value='Th'>Thorium</option>
+        <option value='Pa'>Protactinium</option>
+        <option value='U'>Uranium</option>
+        <option value='Np'>Neptunium</option>
+        <option value='Pu'>Plutonium</option>
+        <option value='Am'>Americium</option>
+        <option value='Cm'>Curium</option>
+        <option value='Bk'>Berkelium</option>
+        <option value='Cf'>Californium</option>
+        <option value='Es'>Einsteinium</option>
+        <option value='Fm'>Fermium</option>
+        <option value='Md'>Mendelevium</option>
+        <option value='No'>Nobelium</option>
+        <option value='Lr'>Lawrencium</option>
+        <option value='Rf'>Rutherfordium</option>
+        <option value='Db'>Dubnium</option>
+        <option value='Sg'>Seaborgium</option>
+        <option value='Bh'>Bohrium</option>
+        <option value='Hs'>Hassium</option>
+        <option value='Mt'>Meitnerium</option>
+    </select>
+    <br/>
+    <canvas id='canvas' height='400px' width='900px' style="border-bottom-width: 1;border-color: black"></canvas>
 </body>
 </html>

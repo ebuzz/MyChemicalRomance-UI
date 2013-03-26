@@ -1,14 +1,13 @@
 $(document).ready(function(){
     'use strict';
+    var currentId = 1;
 
-    //Why doesnt this stay on the Canvas
-    $("canvas").drawRect({
-        fillStyle: "#000",
-        x: 0,
-        y: 0,
-        width: 50,
-        height: 50,
-        fromCenter: false
+    $("canvas").drawImage({
+        name:'trashcan',
+        layer: true,
+        source: "images/trashcan_full.png",
+        x: 800, y: 30,
+        scale: 0.3
     });
 
     $.jCanvas.extend({
@@ -16,9 +15,7 @@ $(document).ready(function(){
         props: {},
         fn: function(ctx, params) {
 
-            $("canvas")
-
-            .drawRect({
+            $("canvas").drawRect({
                 fillStyle: params.fillStyle,
                 x: params.x,
                 y: params.y,
@@ -34,7 +31,7 @@ $(document).ready(function(){
                 strokeWidth: 2,
                 x: params.x + 25,
                 y: params.y + 25,
-                font: "36pt Verdana, sans-serif",
+                font: "28pt Verdana, sans-serif",
                 text: params.symbol
 
             });
@@ -44,17 +41,39 @@ $(document).ready(function(){
         }
     });
 
-//    $("canvas").drawChemicalElement({
-//        layer: true,
-//        draggable: true,
-//        fillStyle: "#fff",
-//        symbol: "H",
-//        width: 50,
-//        height: 50,
-//        x: 150,
-//        y: 130
-//    });
+    $('#chemSymbol').on('change', function() {
+        var symbol = $('#chemSymbol').val();
+        if(symbol === '') {
+            return;
+        }
+        var chemical = {
+            id: currentId++,
+            symbol: symbol
+        };
 
+        mixingBoard.addChemical(chemical);
+        var x = Math.floor((Math.random()*800)+100);
+        var y = Math.floor((Math.random()*300)+100);
+        $("canvas").drawChemicalElement({
+            name: ''+chemical.id,
+            chemical: chemical,
+            layer: true,
+            draggable: true,
+            fillStyle: "#fff",
+            symbol: $('#chemSymbol').val(),
+            width: 50,
+            height: 50,
+            x: x,
+            y: y,
+            dragstop: function(event) {
+                var withinXBoundry = (event.x < 800 && event.x > 770);
+                var withinYBoundry = (event.y < 45);
+                if(withinXBoundry && withinYBoundry) {
+                    mixingBoard.removeChemical(chemical);
+                }
+            }
+        });
+    });
 
 });
 
@@ -68,7 +87,7 @@ var mixingBoard = {
     removeChemical: function(chemical) {
         for(var i = 0; i < this.chemicals.length; i++) {
             if(this.chemicals[i].id === chemical.id) {
-                $("canvas").removeLayer(this.chemicals[i].id);
+                $("canvas").removeLayer(''+this.chemicals[i].id);
                 this.chemicals.splice(i, 1);
             }
         }
