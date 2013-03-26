@@ -1,5 +1,7 @@
 $(document).ready(function(){
     'use strict';
+
+    $( "#tabs" ).tabs();
     var currentId = 1;
 
     resetUI();
