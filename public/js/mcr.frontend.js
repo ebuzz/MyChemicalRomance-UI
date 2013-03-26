@@ -44,88 +44,76 @@ $(document).ready(function(){
             name:'trashcan',
             layer: true,
             source: "images/trashcan_full.png",
-            x: 800, y: 30,
+            x: 875, y: 375,
             scale: 0.3
         });
     }
 
     $('#chemSymbol').on('change', function() {
+        addElementToCanvas();
+    });
 
+    $('#addElement').on('click', function() {
+        addElementToCanvas();
+    });
+
+    function addElementToCanvas() {
         mcr.ready.done(function() {
-        var symbol = $('#chemSymbol').val();
-        if(symbol === '') {
-            return;
-        }
-        var chemical = {
-            id: currentId++,
-            symbol: symbol
-        };
-
-        var result = mcr.add($('#chemSymbol').val());
-        console.log(result);
-        if(result.discovered.length > 0) {
-            var element = {
-                id: currentId++,
-                symbol: result.discovered[0].name
-            };
-            mixingBoard.removeAll();
-            mixingBoard.addChemical(element);
-            //animateExplosion();
-            resetUI();
-            $("canvas").drawChemicalElement({
-                name: ''+element.id,
-                chemical: element,
-                layer: true,
-                draggable: true,
-                fillStyle: "#fff",
-                symbol: element.symbol,
-                width: 50,
-                height: 50,
-                x: 300,
-                y: 300,
-                dragstop: function(event) {
-                    var withinXBoundry = (event.x < 800 && event.x > 770);
-                    var withinYBoundry = (event.y < 45);
-                    if(withinXBoundry && withinYBoundry) {
-                        mixingBoard.removeChemical(element);
-                    }
-                }
-            });
-            mcr.reset();
-            mcr.add(element.symbol);
-        }else {
-
-            
+            var symbol = $('#chemSymbol').val();
+            if(symbol === '') {
+                return;
+            }
             var chemical = {
                 id: currentId++,
                 symbol: symbol
             };
 
-            mixingBoard.addChemical(chemical);
-            var x = Math.floor((Math.random()*800)+100);
-            var y = Math.floor((Math.random()*300)+100);
-            $("canvas").drawChemicalElement({
-                name: ''+chemical.id,
-                chemical: chemical,
-                layer: true,
-                draggable: true,
-                fillStyle: "#fff",
-                symbol: $('#chemSymbol').val(),
-                width: 50,
-                height: 50,
-                x: x,
-                y: y,
-                dragstop: function(event) {
-                    var withinXBoundry = (event.x < 800 && event.x > 770);
-                    var withinYBoundry = (event.y < 45);
-                    if(withinXBoundry && withinYBoundry) {
-                        mixingBoard.removeChemical(chemical);
-                    }
-                }
-            });
-        }
+            var result = mcr.add($('#chemSymbol').val());
+            if(result.discovered.length > 0) {
+                var element = {
+                    id: currentId++,
+                    symbol: result.discovered[0].name
+                };
+                mixingBoard.removeAll();
+                //animateExplosion();
+                resetUI();
+
+                drawChemical(chemical);
+                mcr.reset();
+                mcr.add(element.symbol);
+            }else {
+                var x = Math.floor((Math.random()*700)+100);
+                var y = Math.floor((Math.random()*200)+100);
+
+                drawChemical(chemical,x,y);
+            }
         });
-    });
+    }
+
+    function drawChemical(chemical,x,y) {
+        mixingBoard.addChemical(chemical);
+        var x = x !==undefined? x : Math.floor((Math.random()*700)+100);
+        var y = y!==undefined? y : Math.floor((Math.random()*200)+100);
+        $("canvas").drawChemicalElement({
+            name: ''+chemical.id,
+            chemical: chemical,
+            layer: true,
+            draggable: true,
+            fillStyle: "#fff",
+            symbol: chemical.symbol,
+            width: 50,
+            height: 50,
+            x: x,
+            y: y,
+            dragstop: function(event) {
+                var withinXBoundary = (event.x > 810);
+                var withinYBoundary = (event.y > 315);
+                if(withinXBoundary && withinYBoundary) {
+                    mixingBoard.removeChemical(chemical);
+                }
+            }
+        });
+    }
 
 });
 
