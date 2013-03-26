@@ -1,7 +1,14 @@
-mcr.docRoot = 'public/';
+mcr.compoundsUrl = 'test/json/compounds.json';
+mcr.elementsUrl = 'test/json/elements.json';
 mcr.load();
 
 describe('mcr.backend', function () {
+
+    function addH2O() {
+        mcr.add('H');
+        mcr.add('H');
+        return mcr.add('O');
+    }
 
     var water = [
         {
@@ -27,7 +34,6 @@ describe('mcr.backend', function () {
         waitsFor(function(){
             return done;
         });
-
     });
 
     describe('add', function () {
@@ -39,11 +45,7 @@ describe('mcr.backend', function () {
         });
 
         it('finds water when given HHO', function () {
-            mcr.add('H');
-            mcr.add('H');
-            var result = mcr.add('O');
-
-            expect(result.discovered).toEqual(water);
+            expect(addH2O().discovered).toEqual(water);
         });
 
         it('finds nothing when no match', function () {
@@ -84,19 +86,27 @@ describe('mcr.backend', function () {
         });
 
         it('should not allow me to discover previous discoveries', function() {
-            mcr.add('H');
-            mcr.add('H');
-            var result = mcr.add('O');
+            var result = addH2O();
 
             expect(result.discovered).toEqual(water);
 
             mcr.clearWorkspace();
 
-            mcr.add('H');
-            mcr.add('H');
-            var result = mcr.add('O');
+            result = addH2O();
 
             expect(result.discovered).toEqual([]);
+        });
+    });
+
+    describe('undiscovered compounds', function() {
+        it('should return the current potentially undiscovered compound count when taking the workspace into consideration', function() {
+            expect(mcr.undiscoveredCompounds()).toBe(2);
+        });
+
+        it('should return 1 undiscovered compound after H2O is discovered', function() {
+            addH2O();
+
+            expect(mcr.undiscoveredCompounds()).toBe(1);
         });
     });
 

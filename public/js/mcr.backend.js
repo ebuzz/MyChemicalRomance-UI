@@ -5,6 +5,9 @@
     var workspace= [];
 
     var mcr = root.mcr = {
+        undiscoveredCompounds: function() {
+            return findPotentialCompounds().length;
+        },
         workspace: function() {
             return workspace;
         },
@@ -29,7 +32,8 @@
         ready: ready,
         symbols: {},
         load: load,
-        docRoot: ''
+        compoundsUrl: 'json/compounds.json',
+        elementsUrl: 'json/elements.json'
     };
 
     function clearWorkspace() {
@@ -137,7 +141,7 @@
     }
 
     function load() {
-        $.when($.ajax(mcr.docRoot + 'json/compounds.json'), $.ajax(mcr.docRoot + 'json/elements.json')).then(function (data1, data2) {
+        $.when($.ajax(mcr.compoundsUrl), $.ajax(mcr.elementsUrl)).then(function (data1, data2) {
             initCompounds(data1[0]);
             initElements(data2[0].PERIODIC_TABLE.ATOM);
             ready.resolve();
