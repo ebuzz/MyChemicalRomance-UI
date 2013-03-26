@@ -5,7 +5,9 @@
     var workspace= [];
 
     var mcr = root.mcr = {
-        workspace: workspace,
+        workspace: function() {
+            return workspace;
+        },
         add: function (symbol) {
             workspace.push(symbol);
             return buildResult();
