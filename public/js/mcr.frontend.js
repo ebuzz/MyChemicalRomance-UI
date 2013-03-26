@@ -31,7 +31,7 @@ $(document).ready(function(){
                 strokeWidth: 2,
                 x: params.x + 25,
                 y: params.y + 25,
-                font: "36pt Verdana, sans-serif",
+                font: "28pt Verdana, sans-serif",
                 text: params.symbol
 
             });
