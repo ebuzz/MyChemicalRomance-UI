@@ -36,10 +36,37 @@
     var gridOffset = 10;
     var gridSize = 50;
     var elementSize = 40;
+    var elementTargetRange = 20;
     var difficultyLevel;
 
     var periods = [];
     var elements = [];
+
+    function getElement(symbol) {
+        for (var i = 0; i < elements.length; i++) {
+            if (elements[i].symbol === symbol) {
+                return elements[i];
+            }
+        }
+    };
+
+    function snapToGrid(layer) {
+        console.log(layer);
+        var element = getElement(layer.name);
+        var targetX = (element.group - 1) * gridSize + gridOffset;
+//                    var targetY = (element.period - 1) * gridSize + gridOffset;
+//        console.log('targetX: '.concat(targetX));
+        for (var x = 0; x < 18; x++) {
+            var currentX = x * gridSize + gridOffset
+//            console.log('currentX: '.concat(currentX));
+            if (axisWithinTargetRange(x, targetX)) {
+//                console.log('setLayer');
+                $('#canvas').setLayer({
+                    x: targetX
+                });
+            }
+        }
+    };
 
     function addChemicalToCanvas(symbol, x, y) {
         $("canvas").drawChemicalElement({
@@ -52,9 +79,7 @@
             height: elementSize,
             x: x,
             y: y,
-            dragstop: function(event) {
-                console.log(event);
-            }
+            dragstop: snapToGrid
         });
     };
 
@@ -79,6 +104,9 @@
     };
 
     function shuffleElements(lastElement){ //v1.0
+        elements.sort(function(a, b) {
+            return a.atomicNumber - b.atomicNumber;
+        });
         for(var j, x, i = lastElement; i; j = parseInt(Math.random() * i), x = elements[--i], elements[i] = elements[j], elements[j] = x);
     };
 
@@ -109,60 +137,37 @@
         drawElements(difficultyLevel);
     });
 
-    function getElement(symbol) {
-        for (var i = 0; i < elements.length; i++) {
-            if (elements[i].symbol === symbol) {
-                return elements[i];
-            }
-        }
+    function axisWithinTargetRange(axis, target) {
+        return (axis >= target && axis <= (target + elementTargetRange));
+    }
+
+    function withinTargetRange(x, y, targetX, targetY) {
+        return (axisWithinTargetRange(x, targetX) && axisWithinTargetRange(y, targetY));
     }
 
     $('#finish-matching').click(function() {
         for (var i = 0; i < periods[difficultyLevel - 1].lastElement; i++) {
             var element = elements[i];
             var layer = $('canvas').getLayer(element.symbol);
-            var targetX = (periods[element.period - 1].groups[element.group - 1] - 1) * gridSize + gridOffset;
+            var targetX = (element.group - 1) * gridSize + gridOffset;
             var targetY = (element.period - 1) * gridSize + gridOffset;
 
-            console.log("element: ".concat(element.symbol));
-            console.log("x: ".concat(layer.x));
-            console.log("y: ".concat(layer.y));
-            console.log("group: ".concat(element.group));
-            console.log("period: ".concat(element.period));
-            console.log("targetX: ".concat(targetX));
-            console.log("targetY: ".concat(targetY));
+//            console.log("element: ".concat(element.symbol));
+//            console.log("x: ".concat(layer.x));
+//            console.log("y: ".concat(layer.y));
+//            console.log("group: ".concat(element.group));
+//            console.log("period: ".concat(element.period));
+//            console.log("targetX: ".concat(targetX));
+//            console.log("targetY: ".concat(targetY));
 
-            if ((layer.x >= targetX && layer.x <= (targetX + 20)) &&
-                (layer.y >= targetY && layer.y <= (targetY + 20))) {
-                $('#canvas').setLayer(element.symbol, {
-                    fillStyle: 'green'
-                })
-            } else {
-                $('#canvas').setLayer(element.symbol, {
-                    fillStyle: 'red'
-                })
+            var fillStyle = 'red';
+            if (withinTargetRange(layer.x, layer.y, targetX, targetY)) {
+                fillStyle = 'green';
             }
+            $('#canvas').setLayer(element.symbol, {
+                fillStyle: fillStyle
+            })
         }
-
-
-//        var layer = $('canvas').getLayer('H');
-//        var element = getElement('H');
-//        var x = (groups[col] - 1) * gridSize + gridOffset;
-//        var y = row * gridSize + gridOffset;
-//        var targetX = (periods[element.period - 1].groups[element.group - 1] - 1) * gridSize + gridOffset;
-//        var targetY = (element.period - 1) * gridSize + gridOffset;
-
-
-//        if ((layer.x >= targetX && layer.x <= (targetX + 20)) &&
-//            (layer.y >= targetY && layer.y <= (targetY + 20))) {
-//            $('#canvas').setLayer('H', {
-//                fillStyle: 'green'
-//            })
-//        } else {
-//            $('#canvas').setLayer('H', {
-//                fillStyle: 'red'
-//            })
-//        }
 
     });
 })();
