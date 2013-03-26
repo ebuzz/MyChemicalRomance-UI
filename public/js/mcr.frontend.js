@@ -5,6 +5,14 @@ $(document).ready(function(){
     'use strict';
 
     $( "#tabs" ).tabs();
+    var searchDialog = $( "#searchDialog" ).dialog({
+        autoOpen: false,
+        draggable: false,
+        modal: true,
+        resizable:false,
+        title:'Search',
+        position: {at:'center', of:$("canvas")}
+    });
     var currentId = 1;
 
     resetUI();
@@ -36,7 +44,6 @@ $(document).ready(function(){
             });
 
             $.jCanvas.detectEvents(this, ctx, params);
-
         }
     });
 
@@ -46,12 +53,40 @@ $(document).ready(function(){
 
         drawPotentialCount(mcr.undiscoveredCompounds());
         $("canvas").drawImage({
-            name:'trashcan',
+            name:'background',
+            layer: true,
+            source: "images/blackboard.jpg",
+            x: 0, y: 0,
+            scaleX : 1.5
+        });
+
+        $("canvas").drawImage({
+            name:'controls',
             layer: true,
             source: "images/trashcan_full.png",
             x: 875, y: 375,
             scale: 0.3
         });
+
+        $("canvas").drawImage({
+            name:'controls',
+            layer: true,
+            source: "images/search.png",
+            x: 455, y: 375,
+            scale: 0.5,
+            click : function(layer) {
+                $("#searchDialog").dialog('open');
+            }
+        });
+
+        $("canvas").drawImage({
+            name:'controls',
+            layer: true,
+            source: "images/help.png",
+            x: 25, y: 375,
+            scale: 0.3
+        });
+
     }
 
     function drawPotentialCount(count) {
@@ -66,6 +101,14 @@ $(document).ready(function(){
         });
     }
 
+    //Attach Events to Table
+    $(".symbol").each(function(i, periodicElement) {
+        $(periodicElement).on('click', function(event) {
+            var symbol = $(this).find("abbr").text();
+            addElementToCanvas(symbol);
+        });
+    });
+
     $('#chemSymbol').on('change', function() {
         addElementToCanvas();
     });
@@ -74,13 +117,14 @@ $(document).ready(function(){
         addElementToCanvas();
     });
 
-    function addElementToCanvas() {
-        var symbol = $('#chemSymbol').val();
+    function addElementToCanvas(addedSymbol) {
+        var symbol = addedSymbol ? addedSymbol : $('#chemSymbol').val();
+        console.log(addedSymbol);
         if(symbol === '') {
             return;
         }
 
-        var result = mcr.add($('#chemSymbol').val());
+        var result = mcr.add(symbol);
 
         if(result.discovered.length > 0) {
             var chemical = {
@@ -139,7 +183,7 @@ $(document).ready(function(){
 var mixingBoard = {
     chemicals: [],
 
-    addChemicalToCanvas: function(chemical) {
+    addChemical: function(chemical) {
         this.chemicals.push(chemical);
     },
 

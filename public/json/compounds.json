@@ -324,5 +324,347 @@
         },
         "name":"Iron(III) Sulfide",
         "formula":"Fe2S3"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Pb":1,
+            "Br":2
+        },
+        "name":"Lead Bromide",
+        "formula":"PbBr2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Pb":1,
+            "Cl":2
+        },
+        "name":"Lead Chloride",
+        "formula":"PbCl2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Pb":1,
+            "F":2
+        },
+        "name":"Lead Fluoride",
+        "formula":"PbF2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Pb":1,
+            "I":2
+        },
+        "name":"Lead Iodide",
+        "formula":"PbI2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Pb":1,
+            "S":1
+        },
+        "name":"Lead Sulfide",
+        "formula":"PbS"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Mg":1,
+            "Br":2
+        },
+        "name":"Magnesium Bromide",
+        "formula":"MgBr2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Mg":1,
+            "Cl":2
+        },
+        "name":"Magnesium Chloride",
+        "formula":"MgCl2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Mg":1,
+            "F":2
+        },
+        "name":"Magnesium Fluoride",
+        "formula":"MgF2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Mg":1,
+            "I":2
+        },
+        "name":"Magnesium Iodide",
+        "formula":"MgI2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Mn":1,
+            "Br":2
+        },
+        "name":"Manganese(II) Bromide",
+        "formula":"MnBr2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Mn":1,
+            "Cl":2
+        },
+        "name":"Manganese(II) Chloride",
+        "formula":"MnCl2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Mn":1,
+            "I":2
+        },
+        "name":"Manganese(II) Iodide",
+        "formula":"MnI2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Mn":1,
+            "S":1
+        },
+        "name":"Manganese(II) Sulfide",
+        "formula":"MnS"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ni":1,
+            "Br":2
+        },
+        "name":"Nickel Bromide",
+        "formula":"NiBr2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ni":1,
+            "Cl":2
+        },
+        "name":"Nickel Chloride",
+        "formula":"NiCl2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ni":1,
+            "F":2
+        },
+        "name":"Nickel Fluoride",
+        "formula":"NiF2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ni":1,
+            "I":2
+        },
+        "name":"Nickel Fluoride",
+        "formula":"NiI2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ni":1,
+            "S":1
+        },
+        "name":"Nickel Sulfide",
+        "formula":"NiS"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "K":1,
+            "Br":1
+        },
+        "name":"Potassium Bromide",
+        "formula":"KBr"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "K":1,
+            "Cl":1
+        },
+        "name":"Potassium Chloride",
+        "formula":"KCl"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "K":1,
+            "F":1
+        },
+        "name":"Potassium Fluoride",
+        "formula":"KF"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "K":1,
+            "I":1
+        },
+        "name":"Potassium Iodide",
+        "formula":"KI"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "K":2,
+            "S":1
+        },
+        "name":"Potassium Sulfide",
+        "formula":"K2S"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ag":1,
+            "Br":1
+        },
+        "name":"Silver Bromide",
+        "formula":"AgBr"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ag":1,
+            "Cl":1
+        },
+        "name":"Silver Chloride",
+        "formula":"AgCl"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ag":1,
+            "F":1
+        },
+        "name":"Silver Fluoride",
+        "formula":"AgF"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ag":1,
+            "I":1
+        },
+        "name":"Silver Iodide",
+        "formula":"AgI"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ag":2,
+            "S":1
+        },
+        "name":"Silver Sulfide",
+        "formula":"Ag2S"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Na":1,
+            "Br":1
+        },
+        "name":"Sodium Bromide",
+        "formula":"NaBr"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Na":1,
+            "Cl":1
+        },
+        "name":"Sodium Chloride",
+        "formula":"NaCl"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Na":1,
+            "F":1
+        },
+        "name":"Sodium Fluoride",
+        "formula":"NaF"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Na":1,
+            "I":1
+        },
+        "name":"Sodium Iodide",
+        "formula":"NaI"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Na":2,
+            "S":1
+        },
+        "name":"Sodium Sulfide",
+        "formula":"Na2S"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Zn":1,
+            "Br":2
+        },
+        "name":"Zinc Bromide",
+        "formula":"ZnBr2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Zn":1,
+            "Cl":2
+        },
+        "name":"Zinc Chloride",
+        "formula":"ZnCl2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Zn":1,
+            "F":2
+        },
+        "name":"Zinc Fluoride",
+        "formula":"ZnF2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Zn":1,
+            "I":2
+        },
+        "name":"Zinc Iodide",
+        "formula":"ZnI2"
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Zn":1,
+            "S":1
+        },
+        "name":"Zinc Sulfide",
+        "formula":"ZnS"
     }
 ]

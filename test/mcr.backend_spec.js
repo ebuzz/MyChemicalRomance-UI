@@ -75,6 +75,7 @@ describe('mcr.backend', function () {
     });
 
     describe('remove', function() {
+
         it('should be able to recognize water if we add a NOHH then remove N', function() {
             mcr.add('N');
             mcr.add('O');
@@ -87,13 +88,10 @@ describe('mcr.backend', function () {
 
             expect(result.discovered).toEqual(water);
         });
+
     });
 
     describe('previous discoveries', function() {
-
-        beforeEach(function() {
-
-        });
 
         it('should not allow me to discover previous discoveries', function() {
             var result = addH2O();
@@ -105,7 +103,9 @@ describe('mcr.backend', function () {
             result = addH2O();
 
             expect(result.discovered).toEqual([]);
+            expect(result.potential).toBe(0);
         });
+
     });
 
     describe('undiscovered compounds', function() {
@@ -122,5 +122,16 @@ describe('mcr.backend', function () {
         });
     });
 
+    describe('discovered compounds', function() {
+        it('should return a list of compounds for a given group', function() {
+            addH2O();
+
+            mcr.clearWorkspace();
+            
+            var result = mcr.discoveredCompounds('covalent');
+
+            expect(result).toEqual(water);
+        })
+    })
 });
 

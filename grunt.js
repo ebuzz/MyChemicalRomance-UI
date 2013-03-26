@@ -13,7 +13,7 @@ module.exports = function (grunt) {
         },
         jasmine: {
             src: ['public/lib/underscore/**/*.js',
-                'public/lib/jquery/**/*.js', 'public/lib/jcanvas/**/*.js', 'public/js/**/*.js'],
+                'public/lib/jquery/**/*.js', 'public/lib/jquery-ui/**/*.js', 'public/lib/jcanvas/**/*.js', 'public/js/**/*.js'],
             specs: ['test/**/*.js']
         },
         jshint: {
