@@ -8,19 +8,17 @@
         workspace: workspace,
         add: function (symbol) {
             workspace.push(symbol);
-
-            var discovered = findMatchedCompounds();
-            return {
-                workspace: workspace,
-                discovered: discovered,
-                potential: findPotentialCompounds().length
-            };
+            return buildResult();
         },
-
         remove: function(symbol) {
-            return {};
+            for(var i = 0; i < workspace.length; i++) {
+                if(workspace[i] === symbol) {
+                    workspace.splice(i, 1);
+                    break;
+                }
+            }
+            return buildResult();
         },
-
         reset: function() {
             workspace = [];
         },
@@ -30,6 +28,14 @@
         load: load,
         docRoot: ''
     };
+
+    function buildResult() {
+        return {
+            workspace: workspace,
+            discovered: findMatchedCompounds(),
+            potential: findPotentialCompounds().length
+        };
+    }
 
     function findPotentialCompounds() {
         var map = parseWorkspace();

@@ -3,6 +3,17 @@ mcr.load();
 
 describe('mcr.backend', function () {
 
+    var water = [
+        {
+            "name":"Water",
+            "group": "covalent",
+            "elements":{
+                "H":2,
+                "O":1
+            }
+        }
+    ];
+
     beforeEach(function() {
         mcr.reset();
         var done = false;
@@ -27,22 +38,12 @@ describe('mcr.backend', function () {
             expect(result.workspace).toEqual(['H', 'H']);
         });
 
-        it('finds water when given hho', function () {
+        it('finds water when given HHO', function () {
             mcr.add('H');
             mcr.add('H');
             var result = mcr.add('O');
 
-            var expected = [
-                {
-                    "name":"Water",
-                    "group": "covalent",
-                    "elements":{
-                        "H":2,
-                        "O":1
-                    }
-                }
-            ];
-            expect(result.discovered).toEqual(expected);
+            expect(result.discovered).toEqual(water);
         });
 
         it('finds nothing when no match', function () {
@@ -59,6 +60,21 @@ describe('mcr.backend', function () {
             expect(result.potential).toEqual(1);
         });
 
+    });
+
+    describe('remove', function() {
+        it('should be able to recognize water if we add a NOHH then remove N', function() {
+            mcr.add('N');
+            mcr.add('O');
+            mcr.add('H');
+            var result = mcr.add('H');
+
+            expect(result.discovered).toEqual([]);
+
+            result = mcr.remove('N');
+
+            expect(result.discovered).toEqual(water);
+        });
     });
 });
 
