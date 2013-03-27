@@ -666,5 +666,508 @@
         },
         "name":"Zinc Sulfide",
         "formula":"ZnS"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "B":1,
+            "Br":3
+        },
+        "name":"Boron Tribromide",
+        "formula":"BBr3"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "B":1,
+            "Cl":3
+        },
+        "name":"Boron Trichloride",
+        "formula":"BCl3"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "B":1,
+            "F":3
+        },
+        "name":"Boron Trifluoride",
+        "formula":"BF3"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "C":4,
+            "H":10,
+            "O":1
+        },
+        "name":"Butanol",
+        "formula":"C4H10O"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "C":1,
+            "O":2
+        },
+        "name":"Carbon Dioxide",
+        "formula":"CO2"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "C":1,
+            "O":1
+        },
+        "name":"Carbon Monoxide",
+        "formula":"CO"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "C":1,
+            "Br":4
+        },
+        "name":"Carbon Tetrabromide",
+        "formula":"CBr4"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "C":1,
+            "Cl":4
+        },
+        "name":"Carbon Tetrachloride",
+        "formula":"CCl4"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "C":1,
+            "F":4
+        },
+        "name":"Carbon Tetrafluoride",
+        "formula":"CF4"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "C":2,
+            "H":5,
+            "Cl":1
+        },
+        "name":"Chloroethane",
+        "formula":"C2H5Cl"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "Cl":1,
+            "O":3,
+            "F":1
+        },
+        "name":"Chlorylperfluoride",
+        "formula":"ClO3F"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "Si":1,
+            "Br":2,
+            "I":2
+        },
+        "name":"Dibromodiiodosilane",
+        "formula":"SiBr2I2"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "Si":1,
+            "Cl":2,
+            "Br":2
+        },
+        "name":"Dichlorodibromosilane",
+        "formula":"SiCl2Br2"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "Si":1,
+            "Cl":2,
+            "I":2
+        },
+        "name":"Dichlorodiiodosilane",
+        "formula":"SiCl2I2"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "N":2,
+            "O":1
+        },
+        "name":"Dinitrogen Monoxide",
+        "formula":"Ni2O"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "N":2,
+            "F":4
+        },
+        "name":"Dinitrogen Tetrafluoride",
+        "formula":"Ni2F4"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "N":2,
+            "O":4
+        },
+        "name":"Dinitrogen Tetraoxide",
+        "formula":"N2O4"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "O":2,
+            "F":2
+        },
+        "name":"Dioxygen Difluoride",
+        "formula":"O2F2"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "H":4,
+            "P":2,
+            "O":7
+        },
+        "name":"Diphosphoric Acid",
+        "formula":"H4P2O7"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "S":2,
+            "F":10
+        },
+        "name":"Disulfur Decafluoride",
+        "formula":"S2F10"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "S":2,
+            "O":5,
+            "Cl":1
+        },
+        "name":"Disulfur Pentaoxochloride",
+        "formula":"S2O5Cl"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "C":2,
+            "H":6,
+            "O":1
+        },
+        "name":"Ethanol",
+        "formula":"C2H6O"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "C":6,
+            "H":12,
+            "O":6
+        },
+        "name":"Glucose",
+        "formula":"C6H12O6"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "C":3,
+            "H":8,
+            "O":3
+        },
+        "name":"Glycerol",
+        "formula":"C3H8O3"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "C":3,
+            "H":6,
+            "O":3
+        },
+        "name":"Lactic Acid",
+        "formula":"C3H6O3"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "C":1,
+            "H":4,
+            "O":1
+        },
+        "name":"Methanol",
+        "formula":"CH4O"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "C":1,
+            "H":5,
+            "N":1
+        },
+        "name":"Methylamine",
+        "formula":"CH5N"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "B":5,
+            "H":8,
+            "Cl":1
+        },
+        "name":"Monochloro Pentaborane",
+        "formula":"B5H8Cl"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "B":4,
+            "H":9,
+            "Cl":1
+        },
+        "name":"Monochloro Tetraborane",
+        "formula":"B4H9Cl"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "N":1,
+            "O":2
+        },
+        "name":"Nitrogen Dioxide",
+        "formula":"NO2"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "N":1,
+            "O":1
+        },
+        "name":"Nitrogen Monoxide",
+        "formula":"NO"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "N":1,
+            "F":3
+        },
+        "name":"Nitrogen Trifluoride",
+        "formula":"NF3"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "C":5,
+            "H":12,
+            "O":1
+        },
+        "name":"Pentanol",
+        "formula":"C5H12O"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "P":1,
+            "N":1,
+            "Br":2
+        },
+        "name":"Phosphonitrylic Bromide",
+        "formula":"PNBr2"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "P":1,
+            "N":1,
+            "Cl":2
+        },
+        "name":"Phosphonitrylic Chloride",
+        "formula":"PNCl2"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "P":1,
+            "N":1,
+            "F":2
+        },
+        "name":"Phosphonitrylic Fluoride",
+        "formula":"PNF2"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "P":1,
+            "N":1,
+            "I":2
+        },
+        "name":"Phosphonitrylic Iodide",
+        "formula":"PNI2"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "P":1,
+            "Cl":5
+        },
+        "name":"Phosphorus Pentachloride",
+        "formula":"PCl5"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "P":1,
+            "S":1,
+            "Cl":3
+        },
+        "name":"Phosphorus Thiochloride",
+        "formula":"PSCL3"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "P":1,
+            "Cl":3
+        },
+        "name":"Phosphorus Trichloride",
+        "formula":"PCl3"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "P":1,
+            "I":3
+        },
+        "name":"Phosphorus Triiodide",
+        "formula":"PI3"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "C":3,
+            "H":8,
+            "O":1
+        },
+        "name":"Propanol",
+        "formula":"C3H8O"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "Si":1,
+            "O":2
+        },
+        "name":"Silicon Dioxide",
+        "formula":"SiO2"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "S":1,
+            "Cl":2
+        },
+        "name":"Sulfur Dichloride",
+        "formula":"SCl2"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "S":1,
+            "O":2
+        },
+        "name":"Sulfur Dioxide",
+        "formula":"SO2"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "S":1,
+            "F":6
+        },
+        "name":"Sulfur Hexafluoride",
+        "formula":"SF6"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "S":1,
+            "F":4
+        },
+        "name":"Sulfur Tetrafluoride",
+        "formula":"SF4"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "S":1,
+            "O":3
+        },
+        "name":"Sulfur Trioxide",
+        "formula":"SO3"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "S":1,
+            "O":2,
+            "F":2
+        },
+        "name":"Sulfuryl Fluoride",
+        "formula":"SO2F2"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "P":4,
+            "O":10
+        },
+        "name":"Tetraphosphorus Decaoxide",
+        "formula":"P4O10"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "S":1,
+            "O":1,
+            "Cl":2
+        },
+        "name":"Thionylchloride",
+        "formula":"SOCl2"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "Xe":1,
+            "O":1,
+            "F":4
+        },
+        "name":"Xenon Oxotetrafluoride",
+        "formula":"XeOF4"
+    },
+    {
+        "group": "covalent",
+        "elements":{
+            "Xe":1,
+            "O":3
+        },
+        "name":"Xenon Trioxide",
+        "formula":"XeO3"
     }
 ]
