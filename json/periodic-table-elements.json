@@ -1,0 +1,147 @@
+[
+    {
+        "atomicNumber": 1,
+        "group": 1,
+        "period": 1,
+        "name": "Hydrogen",
+        "symbol": "H",
+        "atomicWeight": 1.0079
+    },
+    {
+        "atomicNumber": 2,
+        "group": 18,
+        "period": 1,
+        "name": "Helium",
+        "symbol": "He",
+        "atomicWeight": 4.0026
+    },
+    {
+        "atomicNumber": 3,
+        "group": 1,
+        "period": 2,
+        "name": "Lithium",
+        "symbol": "Li",
+        "atomicWeight": 6.941
+    },
+    {
+        "atomicNumber": 4,
+        "group": 2,
+        "period": 2,
+        "name": "Beryllium",
+        "symbol": "Be",
+        "atomicWeight": 9.0122
+    },
+    {
+        "atomicNumber": 5,
+        "group": 13,
+        "period": 2,
+        "name": "Boron",
+        "symbol": "B",
+        "atomicWeight": 10.811
+    },
+    {
+        "atomicNumber": 6,
+        "group": 14,
+        "period": 2,
+        "name": "Carbon",
+        "symbol": "C",
+        "atomicWeight": 12.0107
+    },
+    {
+        "atomicNumber": 7,
+        "group": 15,
+        "period": 2,
+        "name": "Nitrogen",
+        "symbol": "N",
+        "atomicWeight": 14.0067
+    },
+    {
+        "atomicNumber": 8,
+        "group": 16,
+        "period": 2,
+        "name": "Oxygen",
+        "symbol": "O",
+        "atomicWeight": 15.9994
+    },
+    {
+        "atomicNumber": 9,
+        "group": 17,
+        "period": 2,
+        "name": "Fluorine",
+        "symbol": "F",
+        "atomicWeight": 18.9984
+    },
+    {
+        "atomicNumber": 10,
+        "group": 18,
+        "period": 2,
+        "name": "Neon",
+        "symbol": "Ne",
+        "atomicWeight": 20.1797
+    },
+    {
+        "atomicNumber": 11,
+        "group": 1,
+        "period": 3,
+        "name": "Sodium",
+        "symbol": "Na",
+        "atomicWeight": 22.990
+    },
+    {
+        "atomicNumber": 12,
+        "group": 2,
+        "period": 3,
+        "name": "Magnesium",
+        "symbol": "Mg",
+        "atomicWeight": 24.305
+    },
+    {
+        "atomicNumber": 13,
+        "group": 13,
+        "period": 3,
+        "name": "Aluminum",
+        "symbol": "Al",
+        "atomicWeight": 26.982
+    },
+    {
+        "atomicNumber": 14,
+        "group": 14,
+        "period": 3,
+        "name": "Silicon",
+        "symbol": "Si",
+        "atomicWeight": 28.085
+    },
+    {
+        "atomicNumber": 15,
+        "group": 15,
+        "period": 3,
+        "name": "Phosphorus",
+        "symbol": "P",
+        "atomicWeight": 30.974
+    },
+    {
+        "atomicNumber": 16,
+        "group": 16,
+        "period": 3,
+        "name": "Sulfur",
+        "symbol": "S",
+        "atomicWeight": 32.06
+    },
+    {
+        "atomicNumber": 17,
+        "group": 17,
+        "period": 3,
+        "name": "Chlorine",
+        "symbol": "Cl",
+        "atomicWeight": 35.45
+    },
+    {
+        "atomicNumber": 18,
+        "group": 18,
+        "period": 3,
+        "name": "Argon",
+        "symbol": "Ar",
+        "atomicWeight": 39.948
+    }
+]
+

@@ -1,1 +1,237 @@
-My GitHub Page
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Chemical Romance</title>
+    <script src='lib/underscore/1.4.4/underscore.js'></script>
+    <script src='lib/jquery/1.9.1/jquery.js'></script>
+    <script src='lib/jquery-ui/1.10.2/jquery-ui.js'></script>
+    <script src='lib/jcanvas/13.03.20/jcanvas.js'></script>
+    <script src='js/mcr.explosion.js'></script>
+    <script src='js/mcr.backend.js'></script>
+    <script src='js/mcr.frontend.js'></script>
+    <link rel="stylesheet" type="text/css" media="all" href="css/periodic_table.css" />
+    <link rel="stylesheet" type="text/css" href='lib/jquery-ui/1.10.2/jquery-ui.css'>
+    <style>
+        #canvas {
+            border: 1px solid #696365;
+        }
+    </style>
+
+</head>
+<body style="background-color: #93C1F5">
+<div id="tabs" style="width:900px">
+    <ul>
+        <li><a href="#tabs-1">Periodic Table</a></li>
+        <li><a href="#tabs-2">Ionic Compounds</a></li>
+        <li><a href="#tabs-3">Covalent Compounds</a></li>
+    </ul>
+    <div id="tabs-1">
+    <div class="periodic_table_div">
+    <table summary="This periodic table is used to navigate to the elements" id="pertable">
+        <tbody><tr>
+            <th class="w8">Group</th>
+            <th class="w5">1</th>
+            <th class="w5">2</th>
+            <th class="w2">&nbsp;</th>
+            <th class="w5">3</th>
+            <th class="w5">4</th>
+            <th class="w5">5</th>
+            <th class="w5">6</th>
+            <th class="w5">7</th>
+            <th class="w5">8</th>
+            <th class="w5">9</th>
+            <th class="w5">10</th>
+            <th class="w5">11</th>
+            <th class="w5">12</th>
+            <th class="w5">13</th>
+            <th class="w5">14</th>
+            <th class="w5">15</th>
+            <th class="w5">16</th>
+            <th class="w5">17</th>
+            <th class="w5">18</th>
+        </tr>
+        <tr>
+            <th class="lbl">Period</th>
+            <td colspan="19"></td>
+        </tr>
+        <tr>
+            <th class="lbl">1</th>
+            <td class="xs"><div class="at_num">1</div><div class="symbol"><abbr class="sym" title="hydrogen">H</abbr></div><div class="at_wt">1.008</div></td>
+            <td colspan="17"></td>
+            <td class="xp"><div class="at_num">2</div><div class="symbol"><abbr class="sym" title="helium">He</abbr></div><div class="at_wt">4.0026</div></td>
+        </tr>
+        <tr>
+            <th class="lbl">2</th>
+            <td class="xs"><div class="at_num">3</div><div class="symbol"><abbr class="sym" title="lithium">Li</abbr></div><div class="at_wt">6.94</div></td>
+            <td class="xs"><div class="at_num">4</div><div class="symbol"><abbr class="sym" title="beryllium">Be</abbr></div><div class="at_wt">9.0122</div></td>
+            <td colspan="11"></td>
+            <td class="xp"><div class="at_num">5</div><div class="symbol"><abbr class="sym" title="boron">B</abbr></div><div class="at_wt">10.81</div></td>
+            <td class="xp"><div class="at_num">6</div><div class="symbol"><abbr class="sym" title="carbon">C</abbr></div><div class="at_wt">12.011</div></td>
+            <td class="xp"><div class="at_num">7</div><div class="symbol"><abbr class="sym" title="nitrogen">N</abbr></div><div class="at_wt">14.007</div></td>
+            <td class="xp"><div class="at_num">8</div><div class="symbol"><abbr class="sym" title="oxygen">O</abbr></div><div class="at_wt">15.999</div></td>
+            <td class="xp"><div class="at_num">9</div><div class="symbol"><abbr class="sym" title="fluorine">F</abbr></div><div class="at_wt">18.998</div></td>
+            <td class="xp"><div class="at_num">10</div><div class="symbol"><abbr class="sym" title="neon">Ne</abbr></div><div class="at_wt">20.180</div></td>
+        </tr>
+        <tr>
+            <th class="lbl">3</th>
+            <td class="xs"><div class="at_num">11</div><div class="symbol"><abbr class="sym" title="sodium">Na</abbr></div><div class="at_wt">22.990</div></td>
+            <td class="xs"><div class="at_num">12</div><div class="symbol"><abbr class="sym" title="magnesium">Mg</abbr></div><div class="at_wt">24.305</div></td>
+            <td colspan="11"></td>
+            <td class="xp"><div class="at_num">13</div><div class="symbol"><abbr class="sym" title="aluminium (aluminum in US)">Al</abbr></div><div class="at_wt">26.982</div></td>
+            <td class="xp"><div class="at_num">14</div><div class="symbol"><abbr class="sym" title="silicon">Si</abbr></div><div class="at_wt">28.085</div></td>
+            <td class="xp"><div class="at_num">15</div><div class="symbol"><abbr class="sym" title="phosphorus">P</abbr></div><div class="at_wt">30.974</div></td>
+            <td class="xp"><div class="at_num">16</div><div class="symbol"><abbr class="sym" title="sulfur (sulphur in UK and elsewhere)">S</abbr></div><div class="at_wt">32.06</div></td>
+            <td class="xp"><div class="at_num">17</div><div class="symbol"><abbr class="sym" title="chlorine">Cl</abbr></div><div class="at_wt">35.45</div></td>
+            <td class="xp"><div class="at_num">18</div><div class="symbol"><abbr class="sym" title="argon">Ar</abbr></div><div class="at_wt">39.948</div></td>
+        </tr>
+        <tr>
+            <th class="lbl">4</th>
+            <td class="xs"><div class="at_num">19</div><div class="symbol"><abbr class="sym" title="potassium">K</abbr></div><div class="at_wt">39.098</div></td>
+            <td class="xs"><div class="at_num">20</div><div class="symbol"><abbr class="sym" title="calcium">Ca</abbr></div><div class="at_wt">40.078</div></td>
+            <td></td>
+            <td class="xd"><div class="at_num">21</div><div class="symbol"><abbr class="sym" title="scandium">Sc</abbr></div><div class="at_wt">44.956</div></td>
+            <td class="xd"><div class="at_num">22</div><div class="symbol"><abbr class="sym" title="titanium">Ti</abbr></div><div class="at_wt">47.867</div></td>
+            <td class="xd"><div class="at_num">23</div><div class="symbol"><abbr class="sym" title="vanadium">V</abbr></div><div class="at_wt">50.942</div></td>
+            <td class="xd"><div class="at_num">24</div><div class="symbol"><abbr class="sym" title="chromium">Cr</abbr></div><div class="at_wt">51.996</div></td>
+            <td class="xd"><div class="at_num">25</div><div class="symbol"><abbr class="sym" title="manganese">Mn</abbr></div><div class="at_wt">54.938</div></td>
+            <td class="xd"><div class="at_num">26</div><div class="symbol"><abbr class="sym" title="iron">Fe</abbr></div><div class="at_wt">55.845</div></td>
+            <td class="xd"><div class="at_num">27</div><div class="symbol"><abbr class="sym" title="cobalt">Co</abbr></div><div class="at_wt">58.933</div></td>
+            <td class="xd"><div class="at_num">28</div><div class="symbol"><abbr class="sym" title="nickel">Ni</abbr></div><div class="at_wt">58.693</div></td>
+            <td class="xd"><div class="at_num">29</div><div class="symbol"><abbr class="sym" title="copper">Cu</abbr></div><div class="at_wt">63.546</div></td>
+            <td class="xd"><div class="at_num">30</div><div class="symbol"><abbr class="sym" title="zinc">Zn</abbr></div><div class="at_wt">65.38</div></td>
+            <td class="xp"><div class="at_num">31</div><div class="symbol"><abbr class="sym" title="gallium">Ga</abbr></div><div class="at_wt">69.723</div></td>
+            <td class="xp"><div class="at_num">32</div><div class="symbol"><abbr class="sym" title="germanium">Ge</abbr></div><div class="at_wt">72.63</div></td>
+            <td class="xp"><div class="at_num">33</div><div class="symbol"><abbr class="sym" title="arsenic">As</abbr></div><div class="at_wt">74.922</div></td>
+            <td class="xp"><div class="at_num">34</div><div class="symbol"><abbr class="sym" title="selenium">Se</abbr></div><div class="at_wt">78.96</div></td>
+            <td class="xp"><div class="at_num">35</div><div class="symbol"><abbr class="sym" title="bromine">Br</abbr></div><div class="at_wt">79.904</div></td>
+            <td class="xp"><div class="at_num">36</div><div class="symbol"><abbr class="sym" title="krypton">Kr</abbr></div><div class="at_wt">83.798</div></td>
+        </tr>
+        <tr>
+            <th class="lbl">5</th>
+            <td class="xs"><div class="at_num">37</div><div class="symbol"><abbr class="sym" title="rubidium">Rb</abbr></div><div class="at_wt">85.468</div></td>
+            <td class="xs"><div class="at_num">38</div><div class="symbol"><abbr class="sym" title="strontium">Sr</abbr></div><div class="at_wt">87.62</div></td>
+            <td></td>
+            <td class="xd"><div class="at_num">39</div><div class="symbol"><abbr class="sym" title="yttrium">Y</abbr></div><div class="at_wt">88.906</div></td>
+            <td class="xd"><div class="at_num">40</div><div class="symbol"><abbr class="sym" title="zirconium">Zr</abbr></div><div class="at_wt">91.224</div></td>
+            <td class="xd"><div class="at_num">41</div><div class="symbol"><abbr class="sym" title="niobium">Nb</abbr></div><div class="at_wt">92.906</div></td>
+            <td class="xd"><div class="at_num">42</div><div class="symbol"><abbr class="sym" title="molybdenum">Mo</abbr></div><div class="at_wt">95.96</div></td>
+            <td class="xd"><div class="at_num">43</div><div class="symbol"><abbr class="sym" title="technetium">Tc</abbr></div><div class="at_wt">[97.91]</div></td>
+            <td class="xd"><div class="at_num">44</div><div class="symbol"><abbr class="sym" title="ruthenium">Ru</abbr></div><div class="at_wt">101.07</div></td>
+            <td class="xd"><div class="at_num">45</div><div class="symbol"><abbr class="sym" title="rhodium">Rh</abbr></div><div class="at_wt">102.91</div></td>
+            <td class="xd"><div class="at_num">46</div><div class="symbol"><abbr class="sym" title="palladium">Pd</abbr></div><div class="at_wt">106.42</div></td>
+            <td class="xd"><div class="at_num">47</div><div class="symbol"><abbr class="sym" title="silver">Ag</abbr></div><div class="at_wt">107.87</div></td>
+            <td class="xd"><div class="at_num">48</div><div class="symbol"><abbr class="sym" title="cadmium">Cd</abbr></div><div class="at_wt">112.41</div></td>
+            <td class="xp"><div class="at_num">49</div><div class="symbol"><abbr class="sym" title="indium">In</abbr></div><div class="at_wt">114.82</div></td>
+            <td class="xp"><div class="at_num">50</div><div class="symbol"><abbr class="sym" title="tin">Sn</abbr></div><div class="at_wt">118.71</div></td>
+            <td class="xp"><div class="at_num">51</div><div class="symbol"><abbr class="sym" title="antimony">Sb</abbr></div><div class="at_wt">121.76</div></td>
+            <td class="xp"><div class="at_num">52</div><div class="symbol"><abbr class="sym" title="tellurium">Te</abbr></div><div class="at_wt">127.60</div></td>
+            <td class="xp"><div class="at_num">53</div><div class="symbol"><abbr class="sym" title="iodine">I</abbr></div><div class="at_wt">126.90</div></td>
+            <td class="xp"><div class="at_num">54</div><div class="symbol"><abbr class="sym" title="xenon">Xe</abbr></div><div class="at_wt">131.29</div></td>
+        </tr>
+        <tr>
+            <th class="lbl">6 </th>
+            <td class="xs"><div class="at_num">55</div><div class="symbol"><abbr class="sym" title="caesium (cesium in US)">Cs</abbr></div><div class="at_wt">132.91</div></td>
+            <td class="xs"><div class="at_num">56</div><div class="symbol"><abbr class="sym" title="barium">Ba</abbr></div><div class="at_wt">137.33</div></td>
+            <th class="asterisk"></th>
+            <td class="xd"><div class="at_num">71</div><div class="symbol"><abbr class="sym" title="lutetium">Lu</abbr></div><div class="at_wt">174.97</div></td>
+            <td class="xd"><div class="at_num">72</div><div class="symbol"><abbr class="sym" title="hafnium">Hf</abbr></div><div class="at_wt">178.49</div></td>
+            <td class="xd"><div class="at_num">73</div><div class="symbol"><abbr class="sym" title="tantalum">Ta</abbr></div><div class="at_wt">180.95</div></td>
+            <td class="xd"><div class="at_num">74</div><div class="symbol"><abbr class="sym" title="tungsten">W</abbr></div><div class="at_wt">183.84</div></td>
+            <td class="xd"><div class="at_num">75</div><div class="symbol"><abbr class="sym" title="rhenium">Re</abbr></div><div class="at_wt">186.21</div></td>
+            <td class="xd"><div class="at_num">76</div><div class="symbol"><abbr class="sym" title="osmium">Os</abbr></div><div class="at_wt">190.23</div></td>
+            <td class="xd"><div class="at_num">77</div><div class="symbol"><abbr class="sym" title="iridium">Ir</abbr></div><div class="at_wt">192.22</div></td>
+            <td class="xd"><div class="at_num">78</div><div class="symbol"><abbr class="sym" title="platinum">Pt</abbr></div><div class="at_wt">195.08</div></td>
+            <td class="xd"><div class="at_num">79</div><div class="symbol"><abbr class="sym" title="gold">Au</abbr></div><div class="at_wt">196.97</div></td>
+            <td class="xd"><div class="at_num">80</div><div class="symbol"><abbr class="sym" title="mercury">Hg</abbr></div><div class="at_wt">200.59</div></td>
+            <td class="xp"><div class="at_num">81</div><div class="symbol"><abbr class="sym" title="thallium">Tl</abbr></div><div class="at_wt">204.38</div></td>
+            <td class="xp"><div class="at_num">82</div><div class="symbol"><abbr class="sym" title="lead">Pb</abbr></div><div class="at_wt">207.2</div></td>
+            <td class="xp"><div class="at_num">83</div><div class="symbol"><abbr class="sym" title="bismuth">Bi</abbr></div><div class="at_wt">208.98</div></td>
+            <td class="xp"><div class="at_num">84</div><div class="symbol"><abbr class="sym" title="polonium">Po</abbr></div><div class="at_wt">[208.98]</div></td>
+            <td class="xp"><div class="at_num">85</div><div class="symbol"><abbr class="sym" title="astatine">At</abbr></div><div class="at_wt">[209.99]</div></td>
+            <td class="xp"><div class="at_num">86</div><div class="symbol"><abbr class="sym" title="radon">Rn</abbr></div><div class="at_wt">[222.02]</div></td>
+        </tr>
+        <tr>
+            <th class="lbl">7 </th>
+            <td class="xs"><div class="at_num">87</div><div class="symbol"><abbr class="sym" title="francium">Fr</abbr></div><div class="at_wt">[223.02]</div></td>
+            <td class="xs"><div class="at_num">88</div><div class="symbol"><abbr class="sym" title="radium">Ra</abbr></div><div class="at_wt">[226.03]</div></td>
+            <th class="asterisk"></th>
+            <td class="xd"><div class="at_num">103</div><div class="symbol"><abbr class="sym" title="lawrencium">Lr</abbr></div><div class="at_wt">[262.11]</div></td>
+            <td class="xd"><div class="at_num">104</div><div class="symbol"><abbr class="sym" title="rutherfordium">Rf</abbr></div><div class="at_wt">[265.12]</div></td>
+            <td class="xd"><div class="at_num">105</div><div class="symbol"><abbr class="sym" title="dubnium">Db</abbr></div><div class="at_wt">[268.13]</div></td>
+            <td class="xd"><div class="at_num">106</div><div class="symbol"><abbr class="sym" title="seaborgium">Sg</abbr></div><div class="at_wt">[271.13]</div></td>
+            <td class="xd"><div class="at_num">107</div><div class="symbol"><abbr class="sym" title="bohrium">Bh</abbr></div><div class="at_wt">[270]</div></td>
+            <td class="xd"><div class="at_num">108</div><div class="symbol"><abbr class="sym" title="hassium">Hs</abbr></div><div class="at_wt">[277.15]</div></td>
+            <td class="xd"><div class="at_num">109</div><div class="symbol"><abbr class="sym" title="meitnerium">Mt</abbr></div><div class="at_wt">[276.15]</div></td>
+            <td class="xd"><div class="at_num">110</div><div class="symbol"><abbr class="sym" title="darmstadtium">Ds</abbr></div><div class="at_wt">[281.16]</div></td>
+            <td class="xd"><div class="at_num">111</div><div class="symbol"><abbr class="sym" title="roentgenium">Rg</abbr></div><div class="at_wt">[280.16]</div></td>
+            <td class="xd"><div class="at_num">112</div><div class="symbol"><abbr class="sym" title="copernicium">Cn</abbr></div><div class="at_wt">[285.17]</div></td>
+            <td class="xp"><div class="at_num">113</div><div class="symbol"><abbr class="sym" title="ununtrium">Uut</abbr></div><div class="at_wt">[284.18]</div></td>
+            <td class="xp"><div class="at_num">114</div><div class="symbol"><abbr class="sym" title="flerovium">Fl</abbr></div><div class="at_wt">[289.19]</div></td>
+            <td class="xp"><div class="at_num">115</div><div class="symbol"><abbr class="sym" title="ununpentium">Uup</abbr></div><div class="at_wt">[288.19]</div></td>
+            <td class="xp"><div class="at_num">116</div><div class="symbol"><abbr class="sym" title="livermorium">Lv</abbr></div><div class="at_wt">[293]</div></td>
+            <td class="xp"><div class="at_num">117</div><div class="symbol"><abbr class="sym" title="ununseptium">Uus</abbr></div><div class="at_wt">[294]</div></td>
+            <td class="xp"><div class="at_num">118</div><div class="symbol"><abbr class="sym" title="ununoctium">Uuo</abbr></div><div class="at_wt">[294]</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="19"></td>
+        </tr>
+        <!--tr>
+        <th class="lbl" colspan="3">*Lanthanoids</th>
+        <th class="asterisk">*</th>
+        <td class="xf"><div class="at_num">57</div><div class="symbol"><abbr class="sym" title="lanthanum">La</abbr></div><div class="at_wt">138.91</div></td>
+        <td class="xf"><div class="at_num">58</div><div class="symbol"><abbr class="sym" title="cerium">Ce</abbr></div><div class="at_wt">140.12</div></td>
+        <td class="xf"><div class="at_num">59</div><div class="symbol"><abbr class="sym" title="praseodymium">Pr</abbr></div><div class="at_wt">140.91</div></td>
+        <td class="xf"><div class="at_num">60</div><div class="symbol"><abbr class="sym" title="neodymium">Nd</abbr></div><div class="at_wt">144.24</div></td>
+        <td class="xf"><div class="at_num">61</div><div class="symbol"><abbr class="sym" title="promethium">Pm</abbr></div><div class="at_wt">[144.91]</div></td>
+        <td class="xf"><div class="at_num">62</div><div class="symbol"><abbr class="sym" title="samarium">Sm</abbr></div><div class="at_wt">150.36</div></td>
+        <td class="xf"><div class="at_num">63</div><div class="symbol"><abbr class="sym" title="europium">Eu</abbr></div><div class="at_wt">151.96</div></td>
+        <td class="xf"><div class="at_num">64</div><div class="symbol"><abbr class="sym" title="gadolinium">Gd</abbr></div><div class="at_wt">157.25</div></td>
+        <td class="xf"><div class="at_num">65</div><div class="symbol"><abbr class="sym" title="terbium">Tb</abbr></div><div class="at_wt">158.93</div></td>
+        <td class="xf"><div class="at_num">66</div><div class="symbol"><abbr class="sym" title="dysprosium">Dy</abbr></div><div class="at_wt">162.50</div></td>
+        <td class="xf"><div class="at_num">67</div><div class="symbol"><abbr class="sym" title="holmium">Ho</abbr></div><div class="at_wt">164.93</div></td>
+        <td class="xf"><div class="at_num">68</div><div class="symbol"><abbr class="sym" title="erbium">Er</abbr></div><div class="at_wt">167.26</div></td>
+        <td class="xf"><div class="at_num">69</div><div class="symbol"><abbr class="sym" title="thulium">Tm</abbr></div><div class="at_wt">168.93</div></td>
+        <td class="xf"><div class="at_num">70</div><div class="symbol"><abbr class="sym" title="ytterbium">Yb</abbr></div><div class="at_wt">173.05</div></td>
+        <td colspan="2"></td>
+        </tr>
+        <tr>
+        <th class="lbl" colspan="3">**Actinoids</th>
+        <th class="asterisk">**</th>
+        <td class="xf"><div class="at_num">89</div><div class="symbol"><abbr class="sym" title="actinium">Ac</abbr></div><div class="at_wt">[227.03]</div></td>
+        <td class="xf"><div class="at_num">90</div><div class="symbol"><abbr class="sym" title="thorium">Th</abbr></div><div class="at_wt">232.04</div></td>
+        <td class="xf"><div class="at_num">91</div><div class="symbol"><abbr class="sym" title="protactinium">Pa</abbr></div><div class="at_wt">231.04</div></td>
+        <td class="xf"><div class="at_num">92</div><div class="symbol"><abbr class="sym" title="uranium">U</abbr></div><div class="at_wt">238.03</div></td>
+        <td class="xf"><div class="at_num">93</div><div class="symbol"><abbr class="sym" title="neptunium">Np</abbr></div><div class="at_wt">[237.05]</div></td>
+        <td class="xf"><div class="at_num">94</div><div class="symbol"><abbr class="sym" title="plutonium">Pu</abbr></div><div class="at_wt">[244.06]</div></td>
+        <td class="xf"><div class="at_num">95</div><div class="symbol"><abbr class="sym" title="americium">Am</abbr></div><div class="at_wt">[243.06]</div></td>
+        <td class="xf"><div class="at_num">96</div><div class="symbol"><abbr class="sym" title="curium">Cm</abbr></div><div class="at_wt">[247.07]</div></td>
+        <td class="xf"><div class="at_num">97</div><div class="symbol"><abbr class="sym" title="berkelium">Bk</abbr></div><div class="at_wt">[247.07]</div></td>
+        <td class="xf"><div class="at_num">98</div><div class="symbol"><abbr class="sym" title="californium">Cf</abbr></div><div class="at_wt">[251.08]</div></td>
+        <td class="xf"><div class="at_num">99</div><div class="symbol"><abbr class="sym" title="einsteinium">Es</abbr></div><div class="at_wt">[252.08]</div></td>
+        <td class="xf"><div class="at_num">100</div><div class="symbol"><abbr class="sym" title="fermium">Fm</abbr></div><div class="at_wt">[257.10]</div></td>
+        <td class="xf"><div class="at_num">101</div><div class="symbol"><abbr class="sym" title="mendelevium">Md</abbr></div><div class="at_wt">[258.10]</div></td>
+        <td class="xf"><div class="at_num">102</div><div class="symbol"><abbr class="sym" title="nobelium">No</abbr></div><div class="at_wt">[259.10]</div></td>
+        <td colspan="2"></td>
+        </tr-->
+        </tbody></table>
+    </div>
+
+
+    </div>
+    <div id="tabs-2">
+
+    </div>
+    <div id="tabs-3">
+
+    </div>
+</div>
+    <br/>
+    <canvas id='canvas' height='400px' width='900px'></canvas>
+
+<div id="searchDialog" >
+    <label>Search: </label>
+    <input type="text" id="searchBox"/>
+</div>
+</body>
+</html>
