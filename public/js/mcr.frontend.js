@@ -163,6 +163,7 @@ $(document).ready(function(){
             mixingBoard.addChemical(chemical);
             drawChemical(chemical, x, y);
             mcr.add(chemical.symbol);
+            window.animateExplosion(x, y);
         }else {
             var chemical = {
                 id: currentId++,
