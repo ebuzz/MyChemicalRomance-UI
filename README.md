@@ -6,8 +6,8 @@ UI for Innovation Day
 Instructions
 ============
 
-1. Install node
-2. Install git
+1. Install node: http://nodejs.org/
+2. Install git: http://git-scm.com/
 3. clone repo: git clone git@github.com:megbers/MyChemicalRomance-UI.git
 4. cd to the MyChemicalRomance-UI directory
 5. run "npm install" which will install the needed node dependencies.
