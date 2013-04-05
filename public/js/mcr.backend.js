@@ -140,7 +140,7 @@
     }
 
     function load() {
-        $.when($.ajax(mcr.compoundsUrl), $.ajax(mcr.elementsUrl)).then(function (data1, data2) {
+        $.when($.ajax({url:mcr.compoundsUrl,dataType:'json'}), $.ajax({url:mcr.elementsUrl,dataType:'json'})).then(function (data1, data2) {
             initCompounds(data1[0]);
             initElements(data2[0].PERIODIC_TABLE.ATOM);
             ready.resolve();
