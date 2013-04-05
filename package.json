@@ -10,6 +10,7 @@
     "devDependencies": {
         "grunt-jasmine-runner": "latest",
         "grunt": "0.3.17",
-        "node-static": "latest"
+        "node-static": "latest",
+        "phantom": "latest"
     }
 }
