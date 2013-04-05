@@ -99,24 +99,24 @@ $(document).ready(function(){
             scale: 0.3
         });
 
-        $("canvas").drawImage({
-            name:'controls',
-            layer: true,
-            source: "images/search.png",
-            x: 455, y: 375,
-            scale: 0.5,
-            click : function(layer) {
-                $("#searchDialog").dialog('open');
-            }
-        });
+//        $("canvas").drawImage({
+//            name:'controls',
+//            layer: true,
+//            source: "images/search.png",
+//            x: 455, y: 375,
+//            scale: 0.5,
+//            click : function(layer) {
+//                $("#searchDialog").dialog('open');
+//            }
+//        });
 
-        $("canvas").drawImage({
-            name:'controls',
-            layer: true,
-            source: "images/help.png",
-            x: 25, y: 375,
-            scale: 0.3
-        });
+//        $("canvas").drawImage({
+//            name:'controls',
+//            layer: true,
+//            source: "images/help.png",
+//            x: 25, y: 375,
+//            scale: 0.3
+//        });
 
         drawPotentialCount(mcr.undiscoveredCompounds());
 
@@ -157,38 +157,16 @@ $(document).ready(function(){
             return;
         }
 
-        var result = mcr.add(symbol);
-        var x = Math.floor((Math.random()*700)+100);
+        var x = Math.floor((Math.random()*700)+100) / 2;
         var y = Math.floor((Math.random()*200)+100);
-        if(result.discovered.length > 0) {
-            var group = result.discovered[0].group;
-            console.log(group);
-            renderCompounds(group === "covalent"?"#tabs-3":"#tabs-2",mcr.discoveredCompounds(group));
-            var chemical = {
-                id: currentId++,
-                symbol: result.discovered[0].formula,
-                x: x,
-                y: y
-            };
-            mixingBoard.removeAll();
-            //animateExplosion();
-            resetUI();
-            mixingBoard.addChemical(chemical);
-            drawChemical(chemical, x, y);
-            mcr.add(chemical.symbol);
-            window.animateExplosion(x, y);
-        }else {
-            var chemical = {
-                id: currentId++,
-                symbol: symbol,
-                x: x,
-                y: y
-            };
-            mixingBoard.addChemical(chemical);
-            drawChemical(chemical,x,y);
-        }
-        drawPotentialCount(result.potential);
-
+        var chemical = {
+            id: currentId++,
+            symbol: symbol,
+            x: x,
+            y: y
+        };
+        mixingBoard.addChemical(chemical);
+        drawChemical(chemical, x, y);
     }
 
     function drawChemical(chemical,x,y) {
@@ -208,11 +186,36 @@ $(document).ready(function(){
             y: y,
             dragstop: function(event) {
                 suspendRedraw = false;
-                var withinXBoundary = (event.x > 810);
-                var withinYBoundary = (event.y > 315);
-                if(withinXBoundary && withinYBoundary) {
+
+                if((event.x > 810) && (event.y > 315)) {
                     mixingBoard.removeChemical(chemical);
                     drawPotentialCount(mcr.undiscoveredCompounds());
+                } else if(event.x >= 450) {
+                    var result = mcr.add(chemical.symbol);
+
+                    if(result.discovered.length > 0) {
+                        var x = 750;
+                        var y = 200;
+                        var group = result.discovered[0].group;
+                        console.log(group);
+                        renderCompounds(group === "covalent"?"#tabs-3":"#tabs-2",mcr.discoveredCompounds(group));
+                        mixingBoard.removeAllFromReactor();
+                        var foundChemical = {
+                            id: currentId++,
+                            symbol: result.discovered[0].formula,
+                            x: x,
+                            y: y
+                        };
+                        resetUI();
+                        mixingBoard.addChemical(foundChemical);
+                        drawChemical(foundChemical, x, y);
+                        mcr.add(foundChemical.symbol);
+                        window.animateExplosion(x, y);
+                    }
+                    drawPotentialCount(result.potential);
+                } else if(event.x < 450){
+                    var result = mcr.remove(chemical.symbol);
+                    drawPotentialCount(result.potential);
                 }
             },
             mousedown: function(layer) {
@@ -234,6 +237,14 @@ var mixingBoard = {
 
     addChemical: function(chemical) {
         this.chemicals.push(chemical);
+    },
+
+    removeAllFromReactor: function() {
+        for(var i = this.chemicals.length-1; i >= 0; i--) {
+            if(this.chemicals[i].x > 450) {
+                this.removeChemical(this.chemicals[i]);
+            }
+        }
     },
 
     removeAll: function() {
@@ -263,4 +274,3 @@ var mixingBoard = {
     }
 
 };
-
