@@ -170,7 +170,6 @@ $(document).ready(function(){
     }
 
     function drawChemical(chemical,x,y) {
-        //mixingBoard.addChemical(chemical);
         var x = x !==undefined? x : Math.floor((Math.random()*700)+100);
         var y = y!==undefined? y : Math.floor((Math.random()*200)+100);
         $("canvas").drawChemicalElement({
@@ -192,7 +191,6 @@ $(document).ready(function(){
                     drawPotentialCount(mcr.undiscoveredCompounds());
                 } else if(event.x >= 450) {
                     var result = mcr.add(chemical.symbol);
-
                     if(result.discovered.length > 0) {
                         var x = 750;
                         var y = 200;
