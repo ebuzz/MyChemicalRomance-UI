@@ -32,6 +32,8 @@ $(document).ready(function(){
         for(var i = 0; i < compounds.length; i++) {
             $(tabSelector).append('<div>' + compounds[i].formula + ' - ' + compounds[i].name + '</div>');
         }
+        $(tabSelector + "-count").empty();
+        $(tabSelector + "-count").append(compounds.length);
     }
 
     $( "#tabs" ).tabs();
