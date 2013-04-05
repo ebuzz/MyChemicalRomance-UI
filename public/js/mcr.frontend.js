@@ -94,6 +94,14 @@ $(document).ready(function(){
         $("canvas").drawImage({
             name:'controls',
             layer: true,
+            source: "images/reactor_area.jpg",
+            x: 675, y: 200,
+            scale: 0.6
+        });
+
+        $("canvas").drawImage({
+            name:'controls',
+            layer: true,
             source: "images/trashcan_full.png",
             x: 875, y: 375,
             scale: 0.3
@@ -117,6 +125,8 @@ $(document).ready(function(){
 //            x: 25, y: 375,
 //            scale: 0.3
 //        });
+
+
 
         drawPotentialCount(mcr.undiscoveredCompounds());
 
@@ -195,7 +205,6 @@ $(document).ready(function(){
                         var x = 750;
                         var y = 200;
                         var group = result.discovered[0].group;
-                        console.log(group);
                         renderCompounds(group === "covalent"?"#tabs-3":"#tabs-2",mcr.discoveredCompounds(group));
                         mixingBoard.removeAllFromReactor();
                         var foundChemical = {
