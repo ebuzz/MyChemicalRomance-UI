@@ -27,7 +27,15 @@ $(document).ready(function(){
         }
     }
 
+    function renderCompounds(tabSelector, compounds) {
+        $(tabSelector).empty();
+        for(var i = 0; i < compounds.length; i++) {
+            $(tabSelector).append('<div>' + compounds[i].formula + ' - ' + compounds[i].name + '</div>');
+        }
+    }
+
     $( "#tabs" ).tabs();
+
     var searchDialog = $( "#searchDialog" ).dialog({
         autoOpen: false,
         draggable: false,
@@ -151,6 +159,9 @@ $(document).ready(function(){
         var x = Math.floor((Math.random()*700)+100);
         var y = Math.floor((Math.random()*200)+100);
         if(result.discovered.length > 0) {
+            var group = result.discovered[0].group;
+            console.log(group);
+            renderCompounds(group === "covalent"?"#tabs-3":"#tabs-2",mcr.discoveredCompounds(group));
             var chemical = {
                 id: currentId++,
                 symbol: result.discovered[0].formula,
@@ -250,3 +261,4 @@ var mixingBoard = {
     }
 
 };
+
