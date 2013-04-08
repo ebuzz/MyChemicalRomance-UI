@@ -9,7 +9,7 @@
       "MCR":{
          "action":{
             "uri":"/index.html",
-            "width":900
+            "width":1000
          },
          "icon":"images/PeriodicTableIcon.png",
          "label":"My Chemical Romance"
