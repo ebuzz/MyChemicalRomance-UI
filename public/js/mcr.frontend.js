@@ -30,7 +30,7 @@ $(document).ready(function(){
     function renderCompounds(tabSelector, compounds) {
         $(tabSelector).empty();
         for(var i = 0; i < compounds.length; i++) {
-            $(tabSelector).append('<div>' + compounds[i].formula + ' - ' + compounds[i].name + '</div>');
+            $(tabSelector).append('<div>' + applySubscripts(compounds[i].formula) + ' - ' + compounds[i].name + '</div>');
         }
         $(tabSelector + "-count").empty();
         $(tabSelector + "-count").append(compounds.length);
@@ -179,6 +179,68 @@ $(document).ready(function(){
         drawChemical(chemical, x, y);
     }
 
+    function applySubscripts(symbol) {
+        var numbersRegex = RegExp("[0-9]+");
+        var lettersRegex = RegExp("[A-z]+");
+
+        debugger;
+        var symbols = symbol.split(numbersRegex);
+        var subscripts = symbol.split(lettersRegex);
+
+        for (var i=1; i<subscripts.length; i++) {
+            subscripts[i] = convertToSubscript(subscripts[i]);
+        }
+
+        var convertedSymbol = "";
+        for (var i=0; i<symbols.length; i++) {
+
+            convertedSymbol += subscripts[i];
+            convertedSymbol += symbols[i];
+
+        }
+        return convertedSymbol;
+    }
+
+    function convertToSubscript(number) {
+        var subscript = "";
+        for (var i=0; i < number.length; i++) {
+            switch(number[i])
+            {
+                case '1':
+                    subscript += "\u2081";
+                    break;
+                case '2':
+                    subscript += "\u2082";
+                    break;
+                case '3':
+                    subscript += "\u2083";
+                    break;
+                case '4':
+                    subscript += "\u2084";
+                    break;
+                case '5':
+                    subscript += "\u2085";
+                    break;
+                case '6':
+                    subscript += "\u2086";
+                    break;
+                case '7':
+                    subscript += "\u2087";
+                    break;
+                case '8':
+                    subscript += "\u2088";
+                    break;
+                case '9':
+                    subscript += "\u2089";
+                    break;
+                case '0':
+                    subscript += "\u2080";
+                    break;
+            }
+        }
+        return subscript;
+    }
+
     function drawChemical(chemical,x,y) {
         var x = x !==undefined? x : Math.floor((Math.random()*700)+100);
         var y = y!==undefined? y : Math.floor((Math.random()*200)+100);
@@ -188,7 +250,7 @@ $(document).ready(function(){
             layer: true,
             draggable: true,
             fillStyle: "#fff",
-            symbol: chemical.symbol,
+            symbol: applySubscripts(chemical.symbol),
             width: 50,
             height: 50,
             x: x,
