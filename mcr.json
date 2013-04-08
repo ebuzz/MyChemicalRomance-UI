@@ -1,0 +1,18 @@
+{
+   "creator":"Cengage",
+   "displayName":"My Chemical Romance",
+   "helpURI":"help.html",
+   "name":"MyChemicalRomance",
+   "rootURI":"http://megbers.github.io/MyChemicalRomance-UI/",
+   "version":"1.0",
+   "dockItems":{
+      "MCR":{
+         "action":{
+            "uri":"/index.html",
+            "width":950
+         },
+         "icon":"images/PeriodicTableIcon.png",
+         "label":"My Chemical Romance"
+      }
+   }
+}
