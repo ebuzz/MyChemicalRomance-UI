@@ -1,0 +1,18 @@
+{
+   "creator":"Cengage",
+   "displayName":"Periodic Table Game",
+   "helpURI":"help.html",
+   "name":"PeriodicTableGame",
+   "rootURI":"http://megbers.github.io/MyChemicalRomance-UI/",
+   "version":"1.0",
+   "dockItems":{
+      "MCR":{
+         "action":{
+            "uri":"/periodic-match.html",
+            "width":900
+         },
+         "icon":"/icon_chemical.png",
+         "label":"Periodic Table Game"
+      }
+   }
+}
