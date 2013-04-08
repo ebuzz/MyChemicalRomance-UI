@@ -30,7 +30,7 @@ $(document).ready(function(){
     function renderCompounds(tabSelector, compounds) {
         $(tabSelector).empty();
         for(var i = 0; i < compounds.length; i++) {
-            $(tabSelector).append('<div>' + applySubscripts(compounds[i].formula) + ' - ' + compounds[i].name + '</div>');
+            $(tabSelector).append('<div>' +transformNumbers(compounds[i].formula) + ' - ' + compounds[i].name + '</div>');
         }
         $(tabSelector + "-count").empty();
         $(tabSelector + "-count").append(compounds.length);
@@ -163,6 +163,7 @@ $(document).ready(function(){
     function addElementToCanvas(addedSymbol) {
         var symbol = addedSymbol ? addedSymbol : $('#chemSymbol').val();
 
+        debugger;
         if(symbol === '') {
             return;
         }
@@ -179,67 +180,104 @@ $(document).ready(function(){
         drawChemical(chemical, x, y);
     }
 
-    function applySubscripts(symbol) {
-        var numbersRegex = RegExp("[0-9]+");
-        var lettersRegex = RegExp("[A-z]+");
+        function transformNumbers(symbol) {
+            var numbersRegex = RegExp("[\-\+0-9]+");
+            var lettersRegex = RegExp("[A-z]+");
 
-        debugger;
-        var symbols = symbol.split(numbersRegex);
-        var subscripts = symbol.split(lettersRegex);
+            var symbols = symbol.split(numbersRegex);
+            var numbers = symbol.split(lettersRegex);
 
-        for (var i=1; i<subscripts.length; i++) {
-            subscripts[i] = convertToSubscript(subscripts[i]);
-        }
-
-        var convertedSymbol = "";
-        for (var i=0; i<symbols.length; i++) {
-
-            convertedSymbol += subscripts[i];
-            convertedSymbol += symbols[i];
-
-        }
-        return convertedSymbol;
-    }
-
-    function convertToSubscript(number) {
-        var subscript = "";
-        for (var i=0; i < number.length; i++) {
-            switch(number[i])
-            {
-                case '1':
-                    subscript += "\u2081";
-                    break;
-                case '2':
-                    subscript += "\u2082";
-                    break;
-                case '3':
-                    subscript += "\u2083";
-                    break;
-                case '4':
-                    subscript += "\u2084";
-                    break;
-                case '5':
-                    subscript += "\u2085";
-                    break;
-                case '6':
-                    subscript += "\u2086";
-                    break;
-                case '7':
-                    subscript += "\u2087";
-                    break;
-                case '8':
-                    subscript += "\u2088";
-                    break;
-                case '9':
-                    subscript += "\u2089";
-                    break;
-                case '0':
-                    subscript += "\u2080";
-                    break;
+            if (numbers[0] == '') {
+                for (var i=1; i<numbers.length; i++) {
+                    numbers[i-1] = convertToSubOrSup(numbers[i]);
+                }
+                numbers[numbers.length-1] = "";
+            } else {
+                for (var i=0; i<numbers.length; i++) {
+                    numbers[i] = convertToSubOrSup(numbers[i]);
+                }
             }
+
+
+            var convertedSymbol = "";
+            for (var i=0; i<symbols.length; i++) {
+                debugger;
+                convertedSymbol += symbols[i];
+                if (numbers[i] !== undefined) {
+                    convertedSymbol += numbers[i];
+                }
+            }
+            return convertedSymbol;
         }
-        return subscript;
-    }
+
+        function convertToSubOrSup(number) {
+            var convertedNumber = "";
+            var numberIsSuper = false;
+            for (var i=0; i < number.length; i++) {
+                switch(number[i])
+                {
+                    case '1':
+                        convertedNumber += numberIsSuper ? "\u2071" : "\u2081";
+                        numberIsSuper = false;
+                        break;
+                    case '2':
+                        convertedNumber += numberIsSuper ? "\u00B2" : "\u2082";
+                        numberIsSuper = false;
+                        break;
+                    case '3':
+                        convertedNumber += numberIsSuper ? "\u00B3" : "\u2083";
+                        numberIsSuper = false;
+                        break;
+                    case '4':
+                        convertedNumber += numberIsSuper ? "\u2074" : "\u2084";
+                        numberIsSuper = false;
+                        break;
+                    case '5':
+                        convertedNumber += numberIsSuper ? "\u2075" : "\u2085";
+                        numberIsSuper = false;
+                        break;
+                    case '6':
+                        convertedNumber += numberIsSuper ? "\u2076" : "\u2086";
+                        numberIsSuper = false;
+                        break;
+                    case '7':
+                        convertedNumber += numberIsSuper ? "\u2077" : "\u2087";;
+                        numberIsSuper = false;
+                        break;
+                    case '8':
+                        convertedNumber += numberIsSuper ? "\u2078" : "\u2088";
+                        numberIsSuper = false;
+                        break;
+                    case '9':
+                        convertedNumber += numberIsSuper ? "\u2079" : "\u2089";
+                        numberIsSuper = false;
+                        break;
+                    case '0':
+                        convertedNumber += numberIsSuper ? "\u2070" : "\u2080";
+                        numberIsSuper = false;
+                        break;
+                    case '+':
+                        numberIsSuper = true;
+                        convertedNumber += numberIsSuper ? "\u207A" : "\u208A";
+                        break;
+                    case '-':
+                        numberIsSuper = true;
+                        convertedNumber += numberIsSuper ? "\u207B" : "\u208B";
+                        break;
+                }
+            }
+            var constructedNumber = "";
+            for (var i=0; i < convertedNumber.length; i++) {
+                if (i != (convertedNumber.length-1) && (convertedNumber[i] === "\u207B" || convertedNumber[i] === "\u207A")) {
+                    constructedNumber += convertedNumber[i+1] + convertedNumber[i];
+                    i++;
+                } else {
+                    constructedNumber += convertedNumber[i];
+                }
+            }
+
+            return constructedNumber;
+        }
 
     function drawChemical(chemical,x,y) {
         var x = x !==undefined? x : Math.floor((Math.random()*700)+100);
@@ -250,7 +288,7 @@ $(document).ready(function(){
             layer: true,
             draggable: true,
             fillStyle: "#fff",
-            symbol: applySubscripts(chemical.symbol),
+            symbol: transformNumbers(chemical.symbol),
             width: 50,
             height: 50,
             x: x,
@@ -267,7 +305,17 @@ $(document).ready(function(){
                         var x = 750;
                         var y = 200;
                         var group = result.discovered[0].group;
-                        renderCompounds(group === "covalent"?"#tabs-3":"#tabs-2",mcr.discoveredCompounds(group));
+                        var tabSelect = "";
+                        if (group === "covalent") {
+                            tabSelect = "#tabs-3";
+                        } else if (group === "ionic") {
+                            tabSelect = "#tabs-2";
+                        } else if (group === "cation") {
+                            tabSelect = "#tabs-4";
+                        } else if (group === "anion") {
+                            tabSelect = "#tabs-5";
+                        }
+                        renderCompounds(tabSelect,mcr.discoveredCompounds(group));
                         mixingBoard.removeAllFromReactor();
                         var foundChemical = {
                             id: currentId++,
