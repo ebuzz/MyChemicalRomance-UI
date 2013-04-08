@@ -120,6 +120,10 @@ describe('mcr.backend', function () {
 
             expect(mcr.undiscoveredCompounds()).toBe(1);
         });
+
+        it('should return 0 undiscovered compounds for the given element He', function()  {
+           expect(mcr.undiscoveredCompounds("He")).toBe(0);
+        });
     });
 
     describe('discovered compounds', function() {

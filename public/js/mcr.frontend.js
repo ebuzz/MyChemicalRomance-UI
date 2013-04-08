@@ -4,6 +4,7 @@ $(document).ready(function(){
 
     mcr.ready.done(function() {
     'use strict';
+    drawElements();
     //------Game Loop-----------
     var ONE_FRAME_TIME = 1000 / 60;
     var mainLoop = function() {
@@ -159,11 +160,21 @@ $(document).ready(function(){
 
     //Attach Events to Table
     $(".symbol").each(function(i, periodicElement) {
+        var symbol = $(this).find("abbr").text();
         $(periodicElement).on('click', function(event) {
-            var symbol = $(this).find("abbr").text();
             addElementToCanvas(symbol);
         });
     });
+
+    function drawElements() {
+        $(".symbol").each(function(i, periodicElement) {
+            var symbol = $(this).find("abbr").text();
+            if (mcr.undiscoveredCompounds(symbol) === 0) {
+                debugger;
+                $(this).find("abbr").addClass('noPotential');
+            }
+        });
+    }
 
     $('#chemSymbol').on('change', function() {
         addElementToCanvas();
@@ -341,6 +352,7 @@ $(document).ready(function(){
                         drawChemical(foundChemical, x, y);
                         mcr.add(foundChemical.symbol);
                         window.animateExplosion(x, y);
+                        drawElements();
                     }
                     drawPotentialCount(result.potential);
                 } else if(event.x < 450){
