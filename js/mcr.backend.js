@@ -15,8 +15,8 @@
             }
             return result;
         },
-        undiscoveredCompounds: function() {
-            return findPotentialCompounds().length;
+        undiscoveredCompounds: function(symbol) {
+            return findPotentialCompounds(symbol).length;
         },
         workspace: function() {
             return workspace;
@@ -72,8 +72,14 @@
         };
     }
 
-    function findPotentialCompounds() {
-        var map = parseWorkspace();
+    function findPotentialCompounds(symbol) {
+
+        var map = {};
+        if (symbol === undefined) {
+            map = parseWorkspace();
+        } else {
+            map[symbol] = 1;
+        }
         var result = [];
 
         for (var i= 0, n=compounds.length; i<n; i++) {
@@ -140,7 +146,7 @@
     }
 
     function load() {
-        $.when($.ajax(mcr.compoundsUrl), $.ajax(mcr.elementsUrl)).then(function (data1, data2) {
+        $.when($.ajax({url:mcr.compoundsUrl,dataType:'json'}), $.ajax({url:mcr.elementsUrl,dataType:'json'})).then(function (data1, data2) {
             initCompounds(data1[0]);
             initElements(data2[0].PERIODIC_TABLE.ATOM);
             ready.resolve();

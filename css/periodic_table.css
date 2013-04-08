@@ -89,6 +89,10 @@ caption.periodic_table_caption {
 	border-style: none;
 }
 
+.noPotential {
+    color: #FF0000;
+}
+
 .at_wt {
 	font-size: 0.6em;
 	padding: 0;

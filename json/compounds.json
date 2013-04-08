@@ -806,7 +806,7 @@
             "O":1
         },
         "name":"Dinitrogen Monoxide",
-        "formula":"Ni2O"
+        "formula":"N2O"
     },
     {
         "group": "covalent",
@@ -1169,5 +1169,188 @@
         },
         "name":"Xenon Trioxide",
         "formula":"XeO3"
+    },
+    {
+        "group": "cation",
+        "elements":{
+            "N":1,
+            "H":4,
+            "+":1
+        },
+        "name":"Ammonium",
+        "formula":"NH4+"
+    },
+        {
+        "group": "cation",
+        "elements":{
+            "Li":1,
+            "+":1
+        },
+        "name":"Lithium",
+        "formula":"Li+"
+    },
+        {
+        "group": "cation",
+        "elements":{
+            "Na":1,
+            "+":1
+        },
+        "name":"Sodium",
+        "formula":"Na+"
+    },
+        {
+        "group": "cation",
+        "elements":{
+            "Ca":1,
+            "+":2
+        },
+        "name":"Calcium(II)",
+        "formula":"Ca+2"
+    },
+        {
+        "group": "cation",
+        "elements":{
+            "Ag":1,
+            "+":1
+        },
+        "name":"Silver",
+        "formula":"Ag+"
+    },
+        {
+        "group": "cation",
+        "elements":{
+            "Fe":1,
+            "+":2
+        },
+        "name":"Iron(II)",
+        "formula":"Fe+2"
+    },
+        {
+        "group": "cation",
+        "elements":{
+            "Fe":1,
+            "+":3
+        },
+        "name":"Iron(III)",
+        "formula":"Fe+3"
     }
+    ,
+        {
+        "group": "cation",
+        "elements":{
+            "Al":1,
+            "+":3
+        },
+        "name":"Aluminium(III)",
+        "formula":"Al+3"
+    },
+        {
+        "group": "cation",
+        "elements":{
+            "Pb":1,
+            "+":2
+        },
+        "name":"Lead(II)",
+        "formula":"Pb+2"
+    }
+    ,
+        {
+        "group": "anion",
+        "elements":{
+            "F":1,
+            "-":1
+        },
+        "name":"Fluoride",
+        "formula":"F-"
+    }
+    ,
+        {
+        "group": "anion",
+        "elements":{
+            "Cl":1,
+            "-":1
+        },
+        "name":"Chloride",
+        "formula":"Cl-"
+    } ,
+        {
+        "group": "anion",
+        "elements":{
+            "Br":1,
+            "-":1
+        },
+        "name":"Bromide",
+        "formula":"Br-"
+    } ,
+        {
+        "group": "anion",
+        "elements":{
+            "O":1,
+            "H":1,
+            "-":1
+        },
+        "name":"Hydroxide",
+        "formula":"OH-"
+    } ,
+        {
+        "group": "anion",
+        "elements":{
+            "S":1,
+            "-":2
+        },
+        "name":"Sulfide",
+        "formula":"S-2"
+    } ,
+        {
+        "group": "anion",
+        "elements":{
+            "C":1,
+            "O":3,
+            "-":2
+        },
+        "name":"Carbonate",
+        "formula":"CO3-2"
+    } ,
+        {
+        "group": "anion",
+        "elements":{
+            "S":1,
+            "O":4,
+            "-":2
+        },
+        "name":"Sulfate",
+        "formula":"SO4-2"
+    },
+        {
+        "group": "anion",
+        "elements":{
+            "P":1,
+            "O":4,
+            "-":3
+        },
+        "name":"Phosphate",
+        "formula":"PO4-3"
+    },
+        {
+        "group": "anion",
+        "elements":{
+            "N":1,
+            "O":3,
+            "-":1
+        },
+        "name":"Nitrate",
+        "formula":"NO3-"
+    },
+        {
+        "group": "anion",
+        "elements":{
+            "Cl":1,
+            "O":4,
+            "-":1
+        },
+        "name":"Perchlorate",
+        "formula":"ClO4-"
+    }
+    
+
 ]

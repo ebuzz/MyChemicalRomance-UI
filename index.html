@@ -15,15 +15,20 @@
         #canvas {
             border: 1px solid #696365;
         }
+        .symbol {
+            cursor: pointer;
+        }
     </style>
 
 </head>
 <body style="background-color: #93C1F5">
 <div id="tabs" style="width:900px">
     <ul>
-        <li><a href="#tabs-1">Periodic Table</a></li>
-        <li><a href="#tabs-2">Ionic Compounds</a></li>
-        <li><a href="#tabs-3">Covalent Compounds</a></li>
+        <li><a href="#tabs-1" id="tabs-1-title">Periodic Table</a></li>
+        <li><a href="#tabs-2" id="tabs-2-title">Ionic Compounds (<span id="tabs-2-count">0</span>) </a></li>
+        <li><a href="#tabs-3" id="tabs-3-title">Covalent Compounds (<span id="tabs-3-count">0</span>)</a></li>
+        <li><a href="#tabs-4" id="tabs-4-title">Cations (<span id="tabs-4-count">0</span>)</a></li>
+        <li><a href="#tabs-5" id="tabs-5-title">Anions (<span id="tabs-5-count">0</span>)</a></li>
     </ul>
     <div id="tabs-1">
     <div class="periodic_table_div">
@@ -64,7 +69,12 @@
             <th class="lbl">2</th>
             <td class="xs"><div class="at_num">3</div><div class="symbol"><abbr class="sym" title="lithium">Li</abbr></div><div class="at_wt">6.94</div></td>
             <td class="xs"><div class="at_num">4</div><div class="symbol"><abbr class="sym" title="beryllium">Be</abbr></div><div class="at_wt">9.0122</div></td>
-            <td colspan="11"></td>
+
+            <td colspan="5"></td>
+            <td class="xs"><div class="at_num">1000</div><div class="symbol"><abbr class="sym" title="electron">-</abbr></div><div class="at_wt">0.0001</div></td>
+            <td class="xs"><div class="at_num">1001</div><div class="symbol"><abbr class="sym" title="proton">+</abbr></div><div class="at_wt">0.0001</div></td>
+            <td colspan="4"></td>
+
             <td class="xp"><div class="at_num">5</div><div class="symbol"><abbr class="sym" title="boron">B</abbr></div><div class="at_wt">10.81</div></td>
             <td class="xp"><div class="at_num">6</div><div class="symbol"><abbr class="sym" title="carbon">C</abbr></div><div class="at_wt">12.011</div></td>
             <td class="xp"><div class="at_num">7</div><div class="symbol"><abbr class="sym" title="nitrogen">N</abbr></div><div class="at_wt">14.007</div></td>
@@ -89,6 +99,7 @@
             <td class="xs"><div class="at_num">19</div><div class="symbol"><abbr class="sym" title="potassium">K</abbr></div><div class="at_wt">39.098</div></td>
             <td class="xs"><div class="at_num">20</div><div class="symbol"><abbr class="sym" title="calcium">Ca</abbr></div><div class="at_wt">40.078</div></td>
             <td></td>
+
             <td class="xd"><div class="at_num">21</div><div class="symbol"><abbr class="sym" title="scandium">Sc</abbr></div><div class="at_wt">44.956</div></td>
             <td class="xd"><div class="at_num">22</div><div class="symbol"><abbr class="sym" title="titanium">Ti</abbr></div><div class="at_wt">47.867</div></td>
             <td class="xd"><div class="at_num">23</div><div class="symbol"><abbr class="sym" title="vanadium">V</abbr></div><div class="at_wt">50.942</div></td>
@@ -223,6 +234,12 @@
 
     </div>
     <div id="tabs-3">
+
+    </div>
+    <div id="tabs-4">
+
+    </div>
+    <div id="tabs-5">
 
     </div>
 </div>
