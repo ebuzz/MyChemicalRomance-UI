@@ -11,7 +11,7 @@
             "uri":"/index.html",
             "width":900
          },
-         "icon":"/PeriodicTableIcon.png",
+         "icon":"images/PeriodicTableIcon.png",
          "label":"My Chemical Romance"
       }
    }

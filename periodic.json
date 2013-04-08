@@ -9,9 +9,9 @@
       "MCR":{
          "action":{
             "uri":"/periodic-match.html",
-            "width":900
+            "width":1000
          },
-         "icon":"/icon_chemical.png",
+         "icon":"images/icon_chemical.png",
          "label":"Periodic Table Game"
       }
    }
