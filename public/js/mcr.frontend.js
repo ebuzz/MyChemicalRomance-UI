@@ -55,8 +55,8 @@ $(document).ready(function(){
 
             $('canvas')
                 .drawText({
-                    layer: 'myLayer',
-                    name: 'myText',
+                    layer: true,
+                    name: 'measureText',
                     fillStyle: "#36c",
                     strokeStyle: "#25a",
                     strokeWidth: 2,
@@ -64,7 +64,8 @@ $(document).ready(function(){
                     font: "36pt Verdana, sans-serif",
                     text: params.symbol
                 });
-            var symbolWidth = $('canvas').measureText('myText').width;
+            var symbolWidth = $('canvas').measureText('measureText').width;
+            $("canvas").removeLayer("measureText");
             //$("canvas").removeLayer('myLayer');
 
             $('canvas')
@@ -166,7 +167,6 @@ $(document).ready(function(){
     });
 
     function drawElements(elements) {
-        debugger;
         var keys = _.keys(elements);
         for (var i=0;i < keys.length; i++) {
             var elementSymbol = keys[i];

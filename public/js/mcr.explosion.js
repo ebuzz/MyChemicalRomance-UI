@@ -45,9 +45,9 @@ $(document).ready(function(){
     var animationDone = false;
     function draw() {
         //Fill canvas with black color
-        ctx.globalCompositeOperation = "source-over";
-        ctx.fillStyle = "rgba(0,0,0,0.15)";
-        ctx.fillRect(0, 0, W, H);
+        //ctx.globalCompositeOperation = "source-over";
+        //ctx.fillStyle = "rgba(0,0,0,0.15)";
+        //ctx.fillRect(0, 0, W, H);
 
         //Fill the canvas with circles
         for(var j = 0; j < circles.length; j++){
@@ -65,8 +65,8 @@ $(document).ready(function(){
                 c.radius -= .02;
             }
             //Regeneration
-            //if(c.radius < 0)
-            //    circles[j] = new create();
+            if(c.radius < 0)
+                circles.pop();//[j] = new create();
         }
         animationDone = true;
         for(var j = 0; j < circles.length; j++){
