@@ -246,3 +246,9 @@ ul.menu_hz_categories li a:active, ul.menu_hz_base li a:active.selected {
     text-align: center;
     color: #FF0000;
 }
+
+.compound-tab {
+    overflow: auto;
+    width: 866px;
+    height: 216px;
+}
