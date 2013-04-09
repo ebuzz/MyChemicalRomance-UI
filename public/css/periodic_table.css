@@ -241,3 +241,8 @@ ul.menu_hz_categories li a:active, ul.menu_hz_base li a:active.selected {
 .periodic_table_div {
 
 }
+
+.closeout {
+    text-align: center;
+    color: #FF0000;
+}

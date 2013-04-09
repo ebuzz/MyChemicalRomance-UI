@@ -4,7 +4,6 @@ $(document).ready(function(){
 
     mcr.ready.done(function() {
     'use strict';
-    drawElements();
     //------Game Loop-----------
     var ONE_FRAME_TIME = 1000 / 60;
     var mainLoop = function() {
@@ -110,7 +109,7 @@ $(document).ready(function(){
             layer: true,
             source: "images/reactor_area.jpg",
             x: 675, y: 200,
-            scale: 0.6
+            scale: 1.2
         });
 
         $("canvas").drawImage({
@@ -166,14 +165,18 @@ $(document).ready(function(){
         });
     });
 
-    function drawElements() {
-        $(".symbol").each(function(i, periodicElement) {
-            var symbol = $(this).find("abbr").text();
-            if (mcr.undiscoveredCompounds(symbol) === 0) {
-                debugger;
-                $(this).find("abbr").addClass('noPotential');
-            }
-        });
+    function drawElements(elements) {
+        debugger;
+        var keys = _.keys(elements);
+        for (var i=0;i < keys.length; i++) {
+            var elementSymbol = keys[i];
+            $(".symbol").each(function(j, periodicElement) {
+                var symbol = $(this).find("abbr").text();
+                if (symbol === elementSymbol && mcr.undiscoveredCompounds(symbol) === 0) {
+                    $(this).find("abbr").addClass('noPotential');
+                }
+            });
+        }
     }
 
     $('#chemSymbol').on('change', function() {
@@ -187,7 +190,6 @@ $(document).ready(function(){
     function addElementToCanvas(addedSymbol) {
         var symbol = addedSymbol ? addedSymbol : $('#chemSymbol').val();
 
-        debugger;
         if(symbol === '') {
             return;
         }
@@ -225,7 +227,6 @@ $(document).ready(function(){
 
             var convertedSymbol = "";
             for (var i=0; i<symbols.length; i++) {
-                debugger;
                 convertedSymbol += symbols[i];
                 if (numbers[i] !== undefined) {
                     convertedSymbol += numbers[i];
@@ -325,6 +326,9 @@ $(document).ready(function(){
                     drawPotentialCount(mcr.undiscoveredCompounds());
                 } else if(event.x >= 450) {
                     var result = mcr.add(chemical.symbol);
+                    var map = {};
+                    map[chemical.symbol] = 1;
+                    drawElements(map);
                     if(result.discovered.length > 0) {
                         var x = 750;
                         var y = 200;
@@ -345,14 +349,15 @@ $(document).ready(function(){
                             id: currentId++,
                             symbol: result.discovered[0].formula,
                             x: x,
-                            y: y
+                            y: y,
+                            elements: result.discovered[0].elements
                         };
                         resetUI();
                         mixingBoard.addChemical(foundChemical);
                         drawChemical(foundChemical, x, y);
                         mcr.add(foundChemical.symbol);
+                        drawElements(foundChemical.elements);
                         window.animateExplosion(x, y);
-                        drawElements();
                     }
                     drawPotentialCount(result.potential);
                 } else if(event.x < 450){
