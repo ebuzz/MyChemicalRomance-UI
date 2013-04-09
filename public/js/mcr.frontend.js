@@ -30,7 +30,7 @@ $(document).ready(function(){
     function renderCompounds(tabSelector, compounds) {
         $(tabSelector).empty();
         for(var i = 0; i < compounds.length; i++) {
-            $(tabSelector).append('<div>' +transformNumbers(compounds[i].formula) + ' - ' + compounds[i].name + '</div>');
+            $(tabSelector).append('<div class=\"sym\" id=\"' + compounds[i].formula + '\">' +transformNumbers(compounds[i].formula) + ' - ' + compounds[i].name + '</div>');
         }
         $(tabSelector + "-count").empty();
         $(tabSelector + "-count").append(compounds.length);
