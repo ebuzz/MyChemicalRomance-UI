@@ -11,6 +11,8 @@ $(document).ready(function(){
             };
     })();
 
+    var name = null;
+    var elementW;
     var canvas = document.getElementById("canvas"),
         ctx = canvas.getContext("2d"),
         W = 900,
@@ -49,6 +51,7 @@ $(document).ready(function(){
         //ctx.fillStyle = "rgba(0,0,0,0.15)";
         //ctx.fillRect(0, 0, W, H);
 
+
         //Fill the canvas with circles
         for(var j = 0; j < circles.length; j++){
             var c = circles[j];
@@ -68,6 +71,11 @@ $(document).ready(function(){
             if(c.radius < 0)
                 circles.pop();//[j] = new create();
         }
+        ctx.fillStyle = "rgb(255,0,0)";
+        ctx.fillRect(W/2 - (elementW/2) - 5, H/2 - 25, elementW + 10, 50);
+        ctx.fillStyle = "rgb(255,255,255)";
+        ctx.fillText(name, W/2, H/2);
+
         animationDone = true;
         for(var j = 0; j < circles.length; j++){
             var c = circles[j];
@@ -75,14 +83,18 @@ $(document).ready(function(){
                 animationDone = false;
             }
         }
+
+
     }
 
-    window.animateExplosion = function(x, y) {
+    window.animateExplosion = function(elementName, elementWidth) {
+        name = elementName;
+        elementW = elementWidth;
+        animationDone = false;
         circles = [];
         for (var i = 0; i < 500; i++) {
-            circles.push(new create(x + 25, y + 25));
+            circles.push(new create(W/2, H/2));
         }
-        animationDone = false;
         animateExplosion();
     }
 

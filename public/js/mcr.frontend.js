@@ -1,5 +1,9 @@
 $(document).ready(function(){
     var suspendRedraw = false;
+    var displayDiscoveredName = false;
+    var discoveredName = null;
+    var timeStart = 175;
+    var timer = 0;
     mcr.load();
 
     mcr.ready.done(function() {
@@ -36,6 +40,23 @@ $(document).ready(function(){
         $(tabSelector + "-count").append(compounds.length);
     }
 
+    function getElementNamePixelWidth(name) {
+        $('canvas')
+            .drawText({
+                layer: true,
+                name: 'measureText',
+                fillStyle: "#36c",
+                strokeStyle: "#25a",
+                strokeWidth: 2,
+                x: -100, y: -100,
+                font: "36pt Verdana, sans-serif",
+                text: name
+            });
+        var symbolWidth = $('canvas').measureText('measureText').width;
+        $("canvas").removeLayer("measureText");
+        return symbolWidth;
+    }
+
     $( "#tabs" ).tabs();
 
     var searchDialog = $( "#searchDialog" ).dialog({
@@ -53,19 +74,7 @@ $(document).ready(function(){
         props: {},
         fn: function(ctx, params) {
 
-            $('canvas')
-                .drawText({
-                    layer: true,
-                    name: 'measureText',
-                    fillStyle: "#36c",
-                    strokeStyle: "#25a",
-                    strokeWidth: 2,
-                    x: -100, y: -100,
-                    font: "36pt Verdana, sans-serif",
-                    text: params.symbol
-                });
-            var symbolWidth = $('canvas').measureText('measureText').width;
-            $("canvas").removeLayer("measureText");
+            var symbolWidth = getElementNamePixelWidth(params.symbol);
             //$("canvas").removeLayer('myLayer');
 
             $('canvas')
@@ -304,9 +313,48 @@ $(document).ready(function(){
             return constructedNumber;
         }
 
+    function drawCompoundName(name) {
+        var symbolWidth = getElementNamePixelWidth(name);
+        var alpha;
+        if (timer > (timeStart*(1/6))) {
+            alpha = 1;//(timer/10 % 2) == 0 ? 1 : .75;
+        } else {
+            alpha = timer / (timeStart*(1/6));
+        }
+        var rectFillStyle = 'rgba(255, 0, 0, ' + alpha + ')';
+        var nameFillStyle = 'rgba(255, 255, 255, ' + alpha + ')';
+
+            $('canvas')
+                .drawRect({
+                fillStyle: rectFillStyle,
+                strokeStyle: '#000',
+                strokeWidth: 1,
+                x: $('canvas').width()/2, y: $('canvas').height()/2,
+                width: symbolWidth+10,
+                height: 50,
+                fromCenter: true
+            })
+                .drawText({
+                name: 'myText2',
+                fillStyle: nameFillStyle,
+                strokeWidth: 2,
+                x: $('canvas').width()/2, y: $('canvas').height()/2,
+                fromCenter: true,
+                font: "36pt Verdana, sans-serif",
+                text: name
+            });
+            timer--;
+        if (timer <= 0) {
+            displayDiscoveredName = false;
+        }
+    }
+
     function drawChemical(chemical,x,y) {
         var x = x !==undefined? x : Math.floor((Math.random()*700)+100);
         var y = y!==undefined? y : Math.floor((Math.random()*200)+100);
+        if (displayDiscoveredName) {
+            drawCompoundName(discoveredName);
+        }
         $("canvas").drawChemicalElement({
             name: ''+chemical.id,
             chemical: chemical,
@@ -350,14 +398,18 @@ $(document).ready(function(){
                             symbol: result.discovered[0].formula,
                             x: x,
                             y: y,
-                            elements: result.discovered[0].elements
+                            elements: result.discovered[0].elements,
+                            name: result.discovered[0].name
                         };
                         resetUI();
                         mixingBoard.addChemical(foundChemical);
                         drawChemical(foundChemical, x, y);
                         mcr.add(foundChemical.symbol);
                         drawElements(foundChemical.elements);
-                        window.animateExplosion(x, y);
+                        displayDiscoveredName = true;
+                        timer = timeStart;
+                        discoveredName = foundChemical.name;
+                        //window.animateExplosion(foundChemical.name, getElementNamePixelWidth(foundChemical.name));
                     }
                     drawPotentialCount(result.potential);
                 } else if(event.x < 450){
@@ -366,6 +418,9 @@ $(document).ready(function(){
                 }
             },
             mousedown: function(layer) {
+                if (event.x >= 450) {
+                    mcr.remove(chemical.symbol);
+                }
                 suspendRedraw = true;
             },
             drag: function(layer) {
