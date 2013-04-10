@@ -4,6 +4,10 @@ $(document).ready(function(){
     var discoveredName = null;
     var timeStart = 175;
     var timer = 0;
+
+    var fromMixingBoard = false;
+    var fromWorkspace = false;
+
     mcr.load();
 
     mcr.ready.done(function() {
@@ -372,7 +376,12 @@ $(document).ready(function(){
                 if((event.x > 810) && (event.y > 315)) {
                     mixingBoard.removeChemical(chemical);
                     drawPotentialCount(mcr.undiscoveredCompounds());
+                    fromWorkspace = false;
                 } else if(event.x >= 450) {
+                    if (fromWorkspace) {
+                        fromWorkspace = false;
+                        return;
+                    }
                     var result = mcr.add(chemical.symbol);
                     var map = {};
                     map[chemical.symbol] = 1;
@@ -412,14 +421,15 @@ $(document).ready(function(){
                         //window.animateExplosion(foundChemical.name, getElementNamePixelWidth(foundChemical.name));
                     }
                     drawPotentialCount(result.potential);
-                } else if(event.x < 450){
-                    var result = mcr.remove(chemical.symbol);
-                    drawPotentialCount(result.potential);
+                } else if(event.x < 450) {
+                     var result = mcr.remove(chemical.symbol);
+                     drawPotentialCount(result.potential);
+                    fromWorkspace = false;
                 }
             },
             mousedown: function(layer) {
                 if (event.x >= 450) {
-                    mcr.remove(chemical.symbol);
+                    fromWorkspace = true;
                 }
                 suspendRedraw = true;
             },
