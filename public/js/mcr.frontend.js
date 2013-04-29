@@ -4,9 +4,10 @@ $(document).ready(function(){
     var currentId = 1;
 
     var hotbar1 = new Hotbar();
+    var explosionAnimator = new ExplosionAnimator();
 
 	mcr.load();
-    hotbar1.init(200, 25);
+    hotbar1.init(225, 0);
 
 	mcr.ready.done(function() {
 		'use strict';
@@ -21,6 +22,9 @@ $(document).ready(function(){
             if(!suspendRedraw) {
                 resetUI();
                 drawAllChemicals();
+            }
+            if (!explosionAnimator.animationDone) {
+                explosionAnimator.draw();
             }
         };
 
@@ -51,8 +55,6 @@ $(document).ready(function(){
         function checkHotbarInteraction(event) {
             if (clickedDownHotbar && clickedUpHotbar) { //clicked down and up on hotbar
                 addChemicalToWorkspace(selectedHotbarChemical.symbol);
-                var result = mcr.add(selectedHotbarChemical.symbol);
-                checkForDiscovery(result);
             } else if (clickedDownHotbar && !clickedUpHotbar) { //clicked hotbar and dragged off
                 hotbar1.removeChemicalFromSlot(selectedHotbarIndex);
             } else if (!clickedDownHotbar && clickedUpHotbar) { //clicked workspace and dragged to hotbar
@@ -90,6 +92,7 @@ $(document).ready(function(){
                 drawChemical(foundChemical, x, y);
                 mcr.add(foundChemical.symbol);
                 drawChemicals(foundChemical.elements);
+                explosionAnimator.startExplosion(foundChemical.name, getChemicalNamePixelWidth(foundChemical.name), x, y);
             }
         }
 
@@ -136,8 +139,6 @@ $(document).ready(function(){
                     text: params.symbol
                 });
 
-
-
                 $.jCanvas.detectEvents(this, ctx, params);
             }
         });
@@ -155,20 +156,44 @@ $(document).ready(function(){
                 scaleX : 1.5
             });
 
-            $("canvas").drawImage({
-                name:'controls',
-                layer: true,
-                source: "images/reactor_area.jpg",
-                x: 450, y: 185,
-                scale: 1
+            $("canvas").drawRect({
+                layer: 'controls',
+                strokeStyle: '#888',
+                strokeWidth: 5,
+                x: 450, y: 175,
+                width: 340,
+                height: 340,
+                fromCenter: true
             });
 
-            $("canvas").drawImage({
-                name:'controls',
-                layer: true,
-                source: "images/trashcan_full.png",
-                x: 450, y: 375,
-                scale: 0.3
+            $("canvas").drawText({
+                layer: 'controls',
+                fillStyle: 'rgba(125,125,125,.5)',
+                strokeStyle: 'rgba(125,125,125,.5)',
+                strokeWidth: 1,
+                x: 450, y: 250,
+                font: "40pt Verdana, sans-serif",
+                text: 'Combine\nChemicals\nHere'
+            });
+
+            $("canvas").drawRect({
+                layer: 'controls',
+                strokeStyle: '#888',
+                strokeWidth: 5,
+                x: 450, y: 370,
+                width: 340,
+                height: 50,
+                fromCenter: true
+            });
+
+            $("canvas").drawText({
+                layer: 'controls',
+                fillStyle: 'rgba(125,125,125,.5)',
+                strokeStyle: 'rgba(125,125,125,.5)',
+                strokeWidth: 1,
+                x: 450, y: 370,
+                font: "26pt Verdana, sans-serif",
+                text: 'Trash'
             });
 
             hotbar1.render();
@@ -212,10 +237,9 @@ $(document).ready(function(){
 
         //Attach Events to Table
         $(".symbol").each(function(i, periodicElement) {
-            debugger;
             var symbol = $(this).find("abbr").text();
             $(periodicElement).on('click', function(event) {
-                addChemicalToHotbar(symbol);
+                addChemicalToWorkspace(symbol);
             });
         });
 
@@ -267,6 +291,16 @@ $(document).ready(function(){
 
             workspace.addChemical(chemical);
             drawChemical(chemical, x, y);
+
+            var result = mcr.add(addedSymbol);
+            checkForDiscovery(result);
+        }
+
+        function removeChemicalFromWorkspace(chemical) {
+            debugger;
+            workspace.removeChemical(chemical);
+            var result = mcr.remove(chemical.symbol);
+            checkForDiscovery(result);
         }
 
         function drawChemical(chemical,x,y) {
@@ -284,15 +318,13 @@ $(document).ready(function(){
                 x: x,
                 y: y,
                 dragstop: function(event) {
-                    debugger;
-                    if (event.x > 425 && event.x < 475 && event.y > 350) {
-
-
-                        workspace.removeChemical(chemical);
+                    if (event.x > 275 && event.x < 625 && event.y > 350) {
+                        debugger;
+                        removeChemicalFromWorkspace(chemical);
                     }
                     if (hotbar1.intersects(event.x, event.y)) {
                         hotbar1.addChemicalToSlot(chemical, hotbar1.getIndexFromCoord(event.y));
-                        workspace.removeChemical(chemical);
+                        removeChemicalFromWorkspace(chemical);
                     }
                     suspendRedraw = false;
                 },

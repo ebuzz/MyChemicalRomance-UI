@@ -25,7 +25,7 @@ var workspace = {
         for(var i = 0; i < this.chemicals.length; i++) {
             if(this.chemicals[i].id === chemical.id) {
                 $("canvas").removeLayer(''+this.chemicals[i].id);
-                mcr.remove(this.chemicals[i].symbol);
+                var result = mcr.remove(this.chemicals[i].symbol);
                 this.chemicals.splice(i, 1);
             }
         }

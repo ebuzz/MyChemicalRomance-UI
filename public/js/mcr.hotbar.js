@@ -61,6 +61,16 @@ var hotbar = {
     },
 
     render: function() {
+        this.canvas.drawText({
+            layer: 'hotbarLayer',
+            fillStyle: "rgba(125,125,125,.5)",
+            //strokeStyle:"#fff",
+            x: this.drawX-(this.slotDimension *.33), y:this.drawY+(this.slotDimension*this.numSlots) *.5,
+            font: "24pt Verdana, sans-serif",
+            text: "Shortcut bar",
+            rotate: -90
+        });
+
         for (var i=0; i<this.numSlots; i++) {
             this.canvas.drawRect({
                 layer: 'hotbarLayer',
