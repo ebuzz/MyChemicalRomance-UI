@@ -6,8 +6,11 @@ $(document).ready(function(){
     var hotbar1 = new Hotbar();
     var explosionAnimator = new ExplosionAnimator();
 
+    var workspaceCenter = 700;
+
+
 	mcr.load();
-    hotbar1.init(225, 0);
+    hotbar1.init(workspaceCenter-225, 0);
 
 	mcr.ready.done(function() {
 		'use strict';
@@ -17,11 +20,12 @@ $(document).ready(function(){
         var mainLoop = function() {
             drawGame();
         };
-
+        makeList.generateList();
         var drawGame = function() {
             if(!suspendRedraw) {
                 resetUI();
                 drawAllChemicals();
+                makeList.render();
             }
             if (!explosionAnimator.animationDone) {
                 explosionAnimator.draw();
@@ -64,7 +68,7 @@ $(document).ready(function(){
 
         function checkForDiscovery(result) {
             if(result.discovered.length > 0) {
-                var x = Math.floor((Math.random()*300)+275);
+                var x = Math.floor((Math.random()*300)+(workspaceCenter-175));
                 var y = Math.floor((Math.random()*200)+100);
                 var group = result.discovered[0].group;
                 var tabSelect = "";
@@ -93,6 +97,7 @@ $(document).ready(function(){
                 mcr.add(foundChemical.symbol);
                 drawChemicals(foundChemical.elements);
                 explosionAnimator.startExplosion(foundChemical.name, getChemicalNamePixelWidth(foundChemical.name), x, y);
+                makeList.checkDiscoveryOnList(foundChemical);
             }
         }
 
@@ -160,7 +165,7 @@ $(document).ready(function(){
                 layer: 'controls',
                 strokeStyle: '#888',
                 strokeWidth: 5,
-                x: 450, y: 175,
+                x: workspaceCenter, y: 175,
                 width: 340,
                 height: 340,
                 fromCenter: true
@@ -171,7 +176,7 @@ $(document).ready(function(){
                 fillStyle: 'rgba(125,125,125,.5)',
                 strokeStyle: 'rgba(125,125,125,.5)',
                 strokeWidth: 1,
-                x: 450, y: 250,
+                x: workspaceCenter, y: 250,
                 font: "40pt Verdana, sans-serif",
                 text: 'Combine\nChemicals\nHere'
             });
@@ -180,7 +185,7 @@ $(document).ready(function(){
                 layer: 'controls',
                 strokeStyle: '#888',
                 strokeWidth: 5,
-                x: 450, y: 370,
+                x: workspaceCenter, y: 370,
                 width: 340,
                 height: 50,
                 fromCenter: true
@@ -191,7 +196,7 @@ $(document).ready(function(){
                 fillStyle: 'rgba(125,125,125,.5)',
                 strokeStyle: 'rgba(125,125,125,.5)',
                 strokeWidth: 1,
-                x: 450, y: 370,
+                x: workspaceCenter, y: 370,
                 font: "26pt Verdana, sans-serif",
                 text: 'Trash'
             });
@@ -280,7 +285,7 @@ $(document).ready(function(){
                 return;
             }
 
-            var x = Math.floor((Math.random()*350)+275);
+            var x = Math.floor((Math.random()*350)+(workspaceCenter-175));
             var y = Math.floor((Math.random()*200)+100);
             var chemical = {
                 id: currentId++,
@@ -304,7 +309,7 @@ $(document).ready(function(){
         }
 
         function drawChemical(chemical,x,y) {
-            var x = x !==undefined? x : Math.floor((Math.random()*300)+275);
+            var x = x !==undefined? x : Math.floor((Math.random()*300)+(workspaceCenter-175));
             var y = y!==undefined? y : Math.floor((Math.random()*200)+100);
             $("canvas").drawChemicalElement({
                 name: ''+chemical.id,
@@ -318,7 +323,7 @@ $(document).ready(function(){
                 x: x,
                 y: y,
                 dragstop: function(event) {
-                    if (event.x > 275 && event.x < 625 && event.y > 350) {
+                    if (event.x > (workspaceCenter-175) && event.x < (workspaceCenter+175) && event.y > 350) {
                         debugger;
                         removeChemicalFromWorkspace(chemical);
                     }

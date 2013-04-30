@@ -39,6 +39,7 @@
             returnCompounds();
         },
         clearWorkspace: clearWorkspace,
+        getRandomCompound: getRandomCompound,
         elements: elements,
         ready: ready,
         symbols: {},
@@ -49,6 +50,11 @@
 
     function clearWorkspace() {
         workspace = [];
+    }
+
+    function getRandomCompound() {
+        var idx = Math.floor((compounds.length-1) * Math.random());
+        return compounds[idx];
     }
 
     function checkoutCompound(idx) {

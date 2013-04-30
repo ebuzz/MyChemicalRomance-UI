@@ -2,6 +2,15 @@
 	background: #333 url(../../_media/elements/discharge/blank.png) repeat-y center;
 }
 
+@font-face {
+    font-family: 'chalkDust';
+    src: url('../font/chalkdust.ttf');
+}
+@font-face {
+    font-family: 'squeakyChalk';
+    src: url('../font/SqueakyChalkSound.ttf');
+}
+
 
 /* @group Periodic Table */
 
