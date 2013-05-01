@@ -33,6 +33,15 @@ $(document).ready(function(){
                     text: "GAME OVER"
                 });
                 return;
+            } if (makeList.compounds.length === 0) {
+                $('canvas').drawText({
+                    layer: 'youWin',
+                    fillStyle: '#a0a',
+                    x: 375, y: 200,
+                    font: "56pt chalkdust",
+                    text: "YOU WIN"
+                });
+                return;
             }
             updateTimer();
             drawGame();
