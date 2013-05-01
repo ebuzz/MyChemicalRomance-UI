@@ -8,7 +8,7 @@ $(document).ready(function(){
 
     var workspaceCenter = 700;
 
-    var secondsToBeatLevel = 120;
+    var secondsToBeatLevel = 360;
     var gameTimeAsString = "";
     var lastSystemTime = Math.floor(new Date().getTime()/1000);
     var currentSystemTime = Math.floor(new Date().getTime()/1000);
