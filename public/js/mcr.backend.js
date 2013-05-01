@@ -1,14 +1,14 @@
 (function (root, $, _) {
     'use strict';
 
-    var compounds, checkedOutCompounds = {}, discoveries, elements, ready = $.Deferred();
+    var allCompounds, discoverableCompounds, checkedOutCompounds = {}, discoveries, elements, ready = $.Deferred();
     var workspace= [];
 
     var mcr = root.mcr = {
         discoveredCompounds: function(group) {
             var result = [];
             for(var key in checkedOutCompounds) {
-                var compound = compounds[key];
+                var compound = discoverableCompounds[key];
                 if (compound.group === group) {
                     result.push(compound);
                 }
@@ -17,6 +17,9 @@
         },
         undiscoveredCompounds: function(symbol) {
             return findPotentialCompounds(symbol).length;
+        },
+        discoverableCompounds: function() {
+            return discoverableCompounds;
         },
         workspace: function() {
             return workspace;
@@ -40,6 +43,8 @@
         },
         clearWorkspace: clearWorkspace,
         getRandomCompound: getRandomCompound,
+        setDiscoverableCompounds: setDiscoverableCompounds,
+
         elements: elements,
         ready: ready,
         symbols: {},
@@ -48,13 +53,20 @@
         elementsUrl: 'json/elements.json'
     };
 
+    function setDiscoverableCompounds(discoveryList) {
+        discoverableCompounds = [];
+        for (var i=0; i<discoveryList.length; i++) {
+            discoverableCompounds.push(discoveryList[i]);
+        }
+    }
+
     function clearWorkspace() {
         workspace = [];
     }
 
     function getRandomCompound() {
-        var idx = Math.floor((compounds.length-1) * Math.random());
-        return compounds[idx];
+        var idx = Math.floor((allCompounds.length-1) * Math.random());
+        return allCompounds[idx];
     }
 
     function checkoutCompound(idx) {
@@ -88,9 +100,9 @@
         }
         var result = [];
 
-        for (var i= 0, n=compounds.length; i<n; i++) {
-            if (!checkedOut(i) && isPotentialMatch(map, compounds[i].elements)) {
-                result.push(compounds[i]);
+        for (var i= 0, n=discoverableCompounds.length; i<n; i++) {
+            if (!checkedOut(i) && isPotentialMatch(map, discoverableCompounds[i].elements)) {
+                result.push(discoverableCompounds[i]);
             }
         }
 
@@ -113,10 +125,10 @@
         var map = parseWorkspace();
         var result = [];
 
-        for (var i= 0, n=compounds.length; i<n; i++) {
-            if (isMatch(map, compounds[i]) && !checkedOut(i)) {
+        for (var i= 0, n=discoverableCompounds.length; i<n; i++) {
+            if (isMatch(map, discoverableCompounds[i]) && !checkedOut(i)) {
                 checkoutCompound(i);
-                result.push(compounds[i]);
+                result.push(discoverableCompounds[i]);
             }
         }
 
@@ -141,7 +153,8 @@
     }
 
     function initCompounds(data) {
-        compounds = data;
+        allCompounds = data;
+        discoverableCompounds = allCompounds;
     }
 
     function initElements(data) {

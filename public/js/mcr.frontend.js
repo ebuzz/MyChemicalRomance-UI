@@ -8,6 +8,11 @@ $(document).ready(function(){
 
     var workspaceCenter = 700;
 
+    var secondsToBeatLevel = 5;
+    var gameTimeAsString = "";
+    var lastSystemTime = Math.floor(new Date().getTime()/1000);
+    var currentSystemTime = Math.floor(new Date().getTime()/1000);
+
 
 	mcr.load();
     hotbar1.init(workspaceCenter-225, 0);
@@ -16,11 +21,23 @@ $(document).ready(function(){
 		'use strict';
 		//------Game Loop-----------
         var ONE_FRAME_TIME = 1000 / 60;
-
+        gameTimeAsString = parseGameTimer();
+        makeList.generateList();
         var mainLoop = function() {
+            if (secondsToBeatLevel <= 0) {
+                $('canvas').drawText({
+                    layer: 'gameOver',
+                    fillStyle: '#f00',
+                    x: 375, y: 200,
+                    font: "48pt chalkdust",
+                    text: "GAME OVER"
+                });
+                return;
+            }
+            updateTimer();
             drawGame();
         };
-        makeList.generateList();
+
         var drawGame = function() {
             if(!suspendRedraw) {
                 resetUI();
@@ -29,6 +46,15 @@ $(document).ready(function(){
             }
             if (!explosionAnimator.animationDone) {
                 explosionAnimator.draw();
+            }
+        };
+
+        var updateTimer = function() {
+            currentSystemTime = Math.floor(new Date().getTime()/1000);
+            if (lastSystemTime !== currentSystemTime) {
+                lastSystemTime = currentSystemTime;
+                secondsToBeatLevel--;
+                gameTimeAsString = parseGameTimer();
             }
         };
 
@@ -56,9 +82,20 @@ $(document).ready(function(){
             clickedDownHotbar = clickedUpHotbar = false;
         });
 
+        function parseGameTimer() {
+            var minutes = Math.floor(secondsToBeatLevel/60);
+            var seconds = secondsToBeatLevel - (minutes*60);
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+            return minutes + ":" + seconds;
+        }
+
         function checkHotbarInteraction(event) {
             if (clickedDownHotbar && clickedUpHotbar) { //clicked down and up on hotbar
-                addChemicalToWorkspace(selectedHotbarChemical.symbol);
+                if (selectedHotbarChemical != null) {
+                    addChemicalToWorkspace(selectedHotbarChemical.symbol);
+                }
             } else if (clickedDownHotbar && !clickedUpHotbar) { //clicked hotbar and dragged off
                 hotbar1.removeChemicalFromSlot(selectedHotbarIndex);
             } else if (!clickedDownHotbar && clickedUpHotbar) { //clicked workspace and dragged to hotbar
@@ -70,6 +107,14 @@ $(document).ready(function(){
             if(result.discovered.length > 0) {
                 var x = Math.floor((Math.random()*300)+(workspaceCenter-175));
                 var y = Math.floor((Math.random()*200)+100);
+                var foundChemical = {
+                    id: currentId++,
+                    symbol: result.discovered[0].formula,
+                    x: x,
+                    y: y,
+                    elements: result.discovered[0].elements,
+                    name: result.discovered[0].name
+                };
                 var group = result.discovered[0].group;
                 var tabSelect = "";
                 if (group === "covalent") {
@@ -83,21 +128,14 @@ $(document).ready(function(){
                 }
                 renderCompoundsTabs(tabSelect,mcr.discoveredCompounds(group));
                 workspace.removeAll();
-                var foundChemical = {
-                    id: currentId++,
-                    symbol: result.discovered[0].formula,
-                    x: x,
-                    y: y,
-                    elements: result.discovered[0].elements,
-                    name: result.discovered[0].name
-                };
+
                 resetUI();
                 workspace.addChemical(foundChemical);
                 drawChemical(foundChemical, x, y);
+                makeList.checkDiscoveryOnList(foundChemical);
                 mcr.add(foundChemical.symbol);
                 drawChemicals(foundChemical.elements);
                 explosionAnimator.startExplosion(foundChemical.name, getChemicalNamePixelWidth(foundChemical.name), x, y);
-                makeList.checkDiscoveryOnList(foundChemical);
             }
         }
 
@@ -148,6 +186,8 @@ $(document).ready(function(){
             }
         });
 
+        var redTimeTimer = 0;
+        var lastSeconds = secondsToBeatLevel;
         function resetUI() {
             $("canvas").removeLayers();
             $("canvas").clearCanvas();
@@ -200,6 +240,32 @@ $(document).ready(function(){
                 font: "26pt Verdana, sans-serif",
                 text: 'Trash'
             });
+
+
+            if (secondsToBeatLevel < 11 && (secondsToBeatLevel !== lastSeconds)) {
+                redTimeTimer = 15;
+                lastSeconds = secondsToBeatLevel;
+            }
+            if (redTimeTimer > 0) {
+                $("canvas").drawText({
+                    layer: 'controls',
+                    fillStyle: 'rgba(255,0,0,1)',
+                    strokeWidth: 1,
+                    x: 375, y: 390,
+                    font: "20pt Verdana, sans-serif",
+                    text: "Time left: " + gameTimeAsString
+                });
+                redTimeTimer--;
+            } else {
+                $("canvas").drawText({
+                    layer: 'controls',
+                    fillStyle: 'rgba(125,125,125,1)',
+                    strokeWidth: 1,
+                    x: 375, y: 390,
+                    font: "15pt Verdana, sans-serif",
+                    text: "Time left: " + gameTimeAsString
+                });
+            }
 
             hotbar1.render();
 
@@ -302,7 +368,6 @@ $(document).ready(function(){
         }
 
         function removeChemicalFromWorkspace(chemical) {
-            debugger;
             workspace.removeChemical(chemical);
             var result = mcr.remove(chemical.symbol);
             checkForDiscovery(result);
@@ -324,7 +389,6 @@ $(document).ready(function(){
                 y: y,
                 dragstop: function(event) {
                     if (event.x > (workspaceCenter-175) && event.x < (workspaceCenter+175) && event.y > 350) {
-                        debugger;
                         removeChemicalFromWorkspace(chemical);
                     }
                     if (hotbar1.intersects(event.x, event.y)) {
