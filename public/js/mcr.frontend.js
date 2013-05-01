@@ -377,8 +377,7 @@ $(document).ready(function(){
         }
 
         function removeChemicalFromWorkspace(chemical) {
-            workspace.removeChemical(chemical);
-            var result = mcr.remove(chemical.symbol);
+            var result = workspace.removeChemical(chemical);
             checkForDiscovery(result);
         }
 

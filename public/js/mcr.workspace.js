@@ -27,8 +27,10 @@ var workspace = {
                 $("canvas").removeLayer(''+this.chemicals[i].id);
                 var result = mcr.remove(this.chemicals[i].symbol);
                 this.chemicals.splice(i, 1);
+
             }
         }
+        return result;
     },
 
     updateChemical: function(chemical) {
