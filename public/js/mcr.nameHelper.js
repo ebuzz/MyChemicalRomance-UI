@@ -113,6 +113,24 @@ function getChemicalNamePixelWidth(name) {
     return symbolWidth;
 }
 
+function getChemicalNamePixelWidthFont(font, name) {
+    var font = "20pt " + font;
+    $('canvas')
+        .drawText({
+            layer: true,
+            name: 'measureText',
+            fillStyle: "#36c",
+            strokeStyle: "#25a",
+            strokeWidth: 1,
+            x: -100, y:  -100,
+            font: font,
+            text: name
+        });
+    var symbolWidth = $('canvas').measureText('measureText').width;
+    $("canvas").removeLayer("measureText");
+    return symbolWidth;
+}
+
 function getChemicalNamePixelWidthWithFontSize(symbol, fontSize) {
     var font = fontSize + "pt Verdana, sans-serif";
     $('canvas')

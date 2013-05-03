@@ -8,13 +8,12 @@ $(document).ready(function(){
 
     var workspaceCenter = 700;
 
-    var secondsToBeatLevel = 5;
+    var secondsToBeatLevel = 300;
     var gameTimeAsString = "";
     var lastSystemTime = Math.floor(new Date().getTime()/1000);
     var currentSystemTime = Math.floor(new Date().getTime()/1000);
 
     var gameOverState = false;
-
 
 	mcr.load();
     hotbar1.init(workspaceCenter-225, 0);
@@ -135,9 +134,12 @@ $(document).ready(function(){
                 }
                 renderCompoundsTabs(tabSelect,mcr.discoveredCompounds(group));
                 workspace.removeAll();
-
                 resetUI();
                 makeList.checkDiscoveryOnList(foundChemical);
+                if (makeList.allFound()) {
+                    makeList.currentLevel++;
+                    makeList.generateList();
+                }
                 drawChemicals(foundChemical.elements);
                 explosionAnimator.startExplosion(foundChemical.name, getChemicalNamePixelWidth(foundChemical.name), x, y);
             }
@@ -254,20 +256,20 @@ $(document).ready(function(){
                 $("canvas").drawText({
                     layer: 'controls',
                     fillStyle: 'rgba(255,0,0,1)',
-                    strokeWidth: 1,
-                    x: 375, y: 390,
-                    font: "20pt Verdana, sans-serif",
-                    text: "Time left: " + gameTimeAsString
+                    x: 325, y: 20,
+                    font: "26pt chalkdust",
+                    text: "Time left: " + gameTimeAsString,
+                    fromCenter: true
                 });
                 redTimeTimer--;
             } else {
                 $("canvas").drawText({
                     layer: 'controls',
-                    fillStyle: 'rgba(125,125,125,1)',
-                    strokeWidth: 1,
-                    x: 375, y: 390,
-                    font: "15pt Verdana, sans-serif",
-                    text: "Time left: " + gameTimeAsString
+                    fillStyle: 'rgba(255,255,255,1)',
+                    x: 325, y: 20,
+                    font: "20pt chalkdust",
+                    text: "Time left: " + gameTimeAsString,
+                    fromCenter:true
                 });
             }
 
@@ -304,9 +306,9 @@ $(document).ready(function(){
                 name: "potentialCount",
                 layer: true,
                 fillStyle: "#fff",
-                x: 50, y: 15,
-                font: "10pt Verdana, sans-serif",
-                text: "Potential: " + count
+                x: workspaceCenter, y: 15,
+                font: "14pt chalkdust",
+                text: "Workspace possibilities: " + count
             });
         }
 
@@ -394,9 +396,6 @@ $(document).ready(function(){
                 x: x,
                 y: y,
                 dragstop: function(event) {
-                    if (gameOverState) {
-                        return;
-                    }
                     if (event.x > (workspaceCenter-175) && event.x < (workspaceCenter+175) && event.y > 350) {
                         removeChemicalFromWorkspace(chemical);
                     }
@@ -407,15 +406,9 @@ $(document).ready(function(){
                     suspendRedraw = false;
                 },
                 mousedown: function(event) {
-                    if (gameOverState) {
-                        return;
-                    }
                     suspendRedraw = true;
                 },
                 drag: function(layer) {
-                    if (gameOverState) {
-                        return;
-                    }
                     var chemical = layer.chemical;
                     chemical.x = layer.x;
                     chemical.y = layer.y;

@@ -8,7 +8,7 @@
         },
         "name":"Barium Titanate",
         "formula":"BaTiO3",
-        "level":1
+        "level":3
     },
     {
         "group":"covalent",
@@ -28,7 +28,7 @@
         },
         "name":"Aluminum Bromide",
         "formula":"AlBr3",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -38,7 +38,7 @@
         },
         "name":"Aluminum Chloride",
         "formula":"AlCl3",
-        "level":1
+        "level":2
     },
     {
         "group":"ionic",
@@ -48,7 +48,7 @@
         },
         "name":"Aluminum Iodide",
         "formula":"AlI3",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -58,7 +58,7 @@
         },
         "name":"Barium Bromide",
         "formula":"BaBr2",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -68,7 +68,7 @@
         },
         "name":"Barium Chloride",
         "formula":"BaCl2",
-        "level":1
+        "level":2
     },
     {
         "group":"ionic",
@@ -78,7 +78,7 @@
         },
         "name":"Barium Floride",
         "formula":"BaF2",
-        "level":1
+        "level":2
     },
     {
         "group":"ionic",
@@ -88,7 +88,7 @@
         },
         "name":"Barium Iodide",
         "formula":"BaI2",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -98,7 +98,7 @@
         },
         "name":"Barium Sulfide",
         "formula":"BaS",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -108,7 +108,7 @@
         },
         "name":"Calcium Bromide",
         "formula":"CaBr2",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -118,7 +118,7 @@
         },
         "name":"Calcium Chloride",
         "formula":"CaCl2",
-        "level":1
+        "level":2
     },
     {
         "group":"ionic",
@@ -128,7 +128,7 @@
         },
         "name":"Calcium Fluoride",
         "formula":"CaF2",
-        "level":1
+        "level":2
     },
     {
         "group":"ionic",
@@ -138,7 +138,7 @@
         },
         "name":"Calcium Iodide",
         "formula":"CaI2",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -148,7 +148,7 @@
         },
         "name":"Calcium Sulfide",
         "formula":"CaS",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -158,7 +158,7 @@
         },
         "name":"Chromium(II) Bromide",
         "formula":"CrBr2",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -168,7 +168,7 @@
         },
         "name":"Chromium(II) Chloride",
         "formula":"CrCl2",
-        "level":1
+        "level":2
     },
     {
         "group":"ionic",
@@ -178,7 +178,7 @@
         },
         "name":"Chromium(II) iodide",
         "formula":"CrI2",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -188,7 +188,7 @@
         },
         "name":"Cobalt(II) Bromide",
         "formula":"CoBr2",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -198,7 +198,7 @@
         },
         "name":"Cobalt(II) Chloride",
         "formula":"CoCl2",
-        "level":1
+        "level":2
     },
     {
         "group":"ionic",
@@ -208,7 +208,7 @@
         },
         "name":"Cobalt(II) Fluoride",
         "formula":"CoF2",
-        "level":1
+        "level":2
     },
     {
         "group":"ionic",
@@ -218,7 +218,7 @@
         },
         "name":"Cobalt(II) Iodide",
         "formula":"CoI2",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -228,7 +228,7 @@
         },
         "name":"Cobalt(II) Sulfide",
         "formula":"CoS",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -238,7 +238,7 @@
         },
         "name":"Copper(II) Bromide",
         "formula":"CuBr2",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -248,7 +248,7 @@
         },
         "name":"Copper(II) Chloride",
         "formula":"CuCl2",
-        "level":1
+        "level":2
     },
     {
         "group":"ionic",
@@ -258,7 +258,7 @@
         },
         "name":"Copper(II) Fluoride",
         "formula":"CuF2",
-        "level":1
+        "level":2
 
     },
     {
@@ -269,7 +269,7 @@
         },
         "name":"Copper(II) Iodide",
         "formula":"CuI2",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -279,7 +279,7 @@
         },
         "name":"Copper(II) Sulfide",
         "formula":"CuS",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -289,7 +289,7 @@
         },
         "name":"Iron(II) Bromide",
         "formula":"FeBr2",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -299,7 +299,7 @@
         },
         "name":"Iron(II) Chloride",
         "formula":"FeCl2",
-        "level":1
+        "level":2
     },
     {
         "group":"ionic",
@@ -309,7 +309,7 @@
         },
         "name":"Iron(II) Iodide",
         "formula":"FeI2",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -319,7 +319,7 @@
         },
         "name":"Iron(II) Sulfide",
         "formula":"FeS",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -329,7 +329,7 @@
         },
         "name":"Iron(III) Bromide",
         "formula":"FeBr3",
-        "level":1
+        "level":3
     },
     {
         "group":"ionic",
@@ -339,7 +339,7 @@
         },
         "name":"Iron(III) Chloride",
         "formula":"FeCl3",
-        "level":1
+        "level":2
     },
     {
         "group":"ionic",
@@ -349,7 +349,7 @@
         },
         "name":"Iron(III) Fluoride",
         "formula":"FeF3",
-        "level":1
+        "level":2
     },
     {
         "group":"ionic",
@@ -359,7 +359,7 @@
         },
         "name":"Iron(III) Sulfide",
         "formula":"Fe2S3",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -369,7 +369,7 @@
         },
         "name":"Lead Bromide",
         "formula":"PbBr2",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -379,7 +379,7 @@
         },
         "name":"Lead Chloride",
         "formula":"PbCl2",
-        "level":1
+        "level":2
     },
     {
         "group": "ionic",
@@ -389,7 +389,7 @@
         },
         "name":"Lead Fluoride",
         "formula":"PbF2",
-        "level":1
+        "level":2
     },
     {
         "group": "ionic",
@@ -399,7 +399,7 @@
         },
         "name":"Lead Iodide",
         "formula":"PbI2",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -409,7 +409,7 @@
         },
         "name":"Lead Sulfide",
         "formula":"PbS",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -419,7 +419,7 @@
         },
         "name":"Magnesium Bromide",
         "formula":"MgBr2",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -429,7 +429,7 @@
         },
         "name":"Magnesium Chloride",
         "formula":"MgCl2",
-        "level":1
+        "level":2
     },
     {
         "group": "ionic",
@@ -439,7 +439,7 @@
         },
         "name":"Magnesium Fluoride",
         "formula":"MgF2",
-        "level":1
+        "level":2
     },
     {
         "group": "ionic",
@@ -449,7 +449,7 @@
         },
         "name":"Magnesium Iodide",
         "formula":"MgI2",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -459,7 +459,7 @@
         },
         "name":"Manganese(II) Bromide",
         "formula":"MnBr2",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -469,7 +469,7 @@
         },
         "name":"Manganese(II) Chloride",
         "formula":"MnCl2",
-        "level":1
+        "level":2
     },
     {
         "group": "ionic",
@@ -479,7 +479,7 @@
         },
         "name":"Manganese(II) Iodide",
         "formula":"MnI2",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -489,7 +489,7 @@
         },
         "name":"Manganese(II) Sulfide",
         "formula":"MnS",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -499,7 +499,7 @@
         },
         "name":"Nickel Bromide",
         "formula":"NiBr2",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -509,7 +509,7 @@
         },
         "name":"Nickel Chloride",
         "formula":"NiCl2",
-        "level":1
+        "level":2
     },
     {
         "group": "ionic",
@@ -519,7 +519,7 @@
         },
         "name":"Nickel Fluoride",
         "formula":"NiF2",
-        "level":1
+        "level":2
     },
     {
         "group": "ionic",
@@ -527,9 +527,9 @@
             "Ni":1,
             "I":2
         },
-        "name":"Nickel Fluoride",
+        "name":"Nickel Iodide",
         "formula":"NiI2",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -539,7 +539,7 @@
         },
         "name":"Nickel Sulfide",
         "formula":"NiS",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -549,7 +549,7 @@
         },
         "name":"Potassium Bromide",
         "formula":"KBr",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -559,7 +559,7 @@
         },
         "name":"Potassium Chloride",
         "formula":"KCl",
-        "level":1
+        "level":2
     },
     {
         "group": "ionic",
@@ -569,7 +569,7 @@
         },
         "name":"Potassium Fluoride",
         "formula":"KF",
-        "level":1
+        "level":2
     },
     {
         "group": "ionic",
@@ -579,7 +579,7 @@
         },
         "name":"Potassium Iodide",
         "formula":"KI",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -589,7 +589,7 @@
         },
         "name":"Potassium Sulfide",
         "formula":"K2S",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -599,7 +599,7 @@
         },
         "name":"Silver Bromide",
         "formula":"AgBr",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -609,7 +609,7 @@
         },
         "name":"Silver Chloride",
         "formula":"AgCl",
-        "level":1
+        "level":2
     },
     {
         "group": "ionic",
@@ -619,7 +619,7 @@
         },
         "name":"Silver Fluoride",
         "formula":"AgF",
-        "level":1
+        "level":2
     },
     {
         "group": "ionic",
@@ -629,7 +629,7 @@
         },
         "name":"Silver Iodide",
         "formula":"AgI",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -639,7 +639,7 @@
         },
         "name":"Silver Sulfide",
         "formula":"Ag2S",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -649,7 +649,7 @@
         },
         "name":"Sodium Bromide",
         "formula":"NaBr",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -679,7 +679,7 @@
         },
         "name":"Sodium Iodide",
         "formula":"NaI",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -689,7 +689,7 @@
         },
         "name":"Sodium Sulfide",
         "formula":"Na2S",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -699,7 +699,7 @@
         },
         "name":"Zinc Bromide",
         "formula":"ZnBr2",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -709,7 +709,7 @@
         },
         "name":"Zinc Chloride",
         "formula":"ZnCl2",
-        "level":1
+        "level":2
     },
     {
         "group": "ionic",
@@ -719,7 +719,7 @@
         },
         "name":"Zinc Fluoride",
         "formula":"ZnF2",
-        "level":1
+        "level":2
     },
     {
         "group": "ionic",
@@ -729,7 +729,7 @@
         },
         "name":"Zinc Iodide",
         "formula":"ZnI2",
-        "level":1
+        "level":3
     },
     {
         "group": "ionic",
@@ -739,7 +739,7 @@
         },
         "name":"Zinc Sulfide",
         "formula":"ZnS",
-        "level":1
+        "level":3
     },
     {
         "group": "covalent",
@@ -749,7 +749,7 @@
         },
         "name":"Boron Tribromide",
         "formula":"BBr3",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -759,7 +759,7 @@
         },
         "name":"Boron Trichloride",
         "formula":"BCl3",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -769,7 +769,7 @@
         },
         "name":"Boron Trifluoride",
         "formula":"BF3",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -780,7 +780,7 @@
         },
         "name":"Butanol",
         "formula":"C4H10O",
-        "level":1
+        "level":5
     },
     {
         "group": "covalent",
@@ -810,7 +810,7 @@
         },
         "name":"Carbon Tetrabromide",
         "formula":"CBr4",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -820,7 +820,7 @@
         },
         "name":"Carbon Tetrachloride",
         "formula":"CCl4",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -830,7 +830,7 @@
         },
         "name":"Carbon Tetrafluoride",
         "formula":"CF4",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -841,7 +841,7 @@
         },
         "name":"Chloroethane",
         "formula":"C2H5Cl",
-        "level":1
+        "level":5
     },
     {
         "group": "covalent",
@@ -852,7 +852,7 @@
         },
         "name":"Chlorylperfluoride",
         "formula":"ClO3F",
-        "level":1
+        "level":5
     },
     {
         "group": "covalent",
@@ -863,7 +863,7 @@
         },
         "name":"Dibromodiiodosilane",
         "formula":"SiBr2I2",
-        "level":1
+        "level":5
     },
     {
         "group": "covalent",
@@ -874,7 +874,7 @@
         },
         "name":"Dichlorodibromosilane",
         "formula":"SiCl2Br2",
-        "level":1
+        "level":5
     },
     {
         "group": "covalent",
@@ -885,7 +885,7 @@
         },
         "name":"Dichlorodiiodosilane",
         "formula":"SiCl2I2",
-        "level":1
+        "level":5
     },
     {
         "group": "covalent",
@@ -895,7 +895,7 @@
         },
         "name":"Dinitrogen Monoxide",
         "formula":"N2O",
-        "level":1
+        "level":2
     },
     {
         "group": "covalent",
@@ -905,7 +905,7 @@
         },
         "name":"Dinitrogen Tetrafluoride",
         "formula":"Ni2F4",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -915,7 +915,7 @@
         },
         "name":"Dinitrogen Tetraoxide",
         "formula":"N2O4",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -925,7 +925,7 @@
         },
         "name":"Dioxygen Difluoride",
         "formula":"O2F2",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -936,7 +936,7 @@
         },
         "name":"Diphosphoric Acid",
         "formula":"H4P2O7",
-        "level":1
+        "level":5
     },
     {
         "group": "covalent",
@@ -946,7 +946,7 @@
         },
         "name":"Disulfur Decafluoride",
         "formula":"S2F10",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -957,7 +957,7 @@
         },
         "name":"Disulfur Pentaoxochloride",
         "formula":"S2O5Cl",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -968,7 +968,7 @@
         },
         "name":"Ethanol",
         "formula":"C2H6O",
-        "level":1
+        "level":3
     },
     {
         "group": "covalent",
@@ -979,7 +979,7 @@
         },
         "name":"Glucose",
         "formula":"C6H12O6",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -990,7 +990,7 @@
         },
         "name":"Glycerol",
         "formula":"C3H8O3",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1001,7 +1001,7 @@
         },
         "name":"Lactic Acid",
         "formula":"C3H6O3",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1012,7 +1012,7 @@
         },
         "name":"Methanol",
         "formula":"CH4O",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1023,7 +1023,7 @@
         },
         "name":"Methylamine",
         "formula":"CH5N",
-        "level":1
+        "level":5
     },
     {
         "group": "covalent",
@@ -1034,7 +1034,7 @@
         },
         "name":"Monochloro Pentaborane",
         "formula":"B5H8Cl",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1045,7 +1045,7 @@
         },
         "name":"Monochloro Tetraborane",
         "formula":"B4H9Cl",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1075,7 +1075,7 @@
         },
         "name":"Nitrogen Trifluoride",
         "formula":"NF3",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1086,7 +1086,7 @@
         },
         "name":"Pentanol",
         "formula":"C5H12O",
-        "level":1
+        "level":5
     },
     {
         "group": "covalent",
@@ -1097,7 +1097,7 @@
         },
         "name":"Phosphonitrylic Bromide",
         "formula":"PNBr2",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1108,7 +1108,7 @@
         },
         "name":"Phosphonitrylic Chloride",
         "formula":"PNCl2",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1119,7 +1119,7 @@
         },
         "name":"Phosphonitrylic Fluoride",
         "formula":"PNF2",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1130,7 +1130,7 @@
         },
         "name":"Phosphonitrylic Iodide",
         "formula":"PNI2",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1140,7 +1140,7 @@
         },
         "name":"Phosphorus Pentachloride",
         "formula":"PCl5",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1151,7 +1151,7 @@
         },
         "name":"Phosphorus Thiochloride",
         "formula":"PSCL3",
-        "level":1
+        "level":5
     },
     {
         "group": "covalent",
@@ -1161,7 +1161,7 @@
         },
         "name":"Phosphorus Trichloride",
         "formula":"PCl3",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1171,7 +1171,7 @@
         },
         "name":"Phosphorus Triiodide",
         "formula":"PI3",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1182,7 +1182,7 @@
         },
         "name":"Propanol",
         "formula":"C3H8O",
-        "level":1
+        "level":5
     },
     {
         "group": "covalent",
@@ -1192,7 +1192,7 @@
         },
         "name":"Silicon Dioxide",
         "formula":"SiO2",
-        "level":1
+        "level":2
     },
     {
         "group": "covalent",
@@ -1202,7 +1202,7 @@
         },
         "name":"Sulfur Dichloride",
         "formula":"SCl2",
-        "level":1
+        "level":2
     },
     {
         "group": "covalent",
@@ -1212,7 +1212,7 @@
         },
         "name":"Sulfur Dioxide",
         "formula":"SO2",
-        "level":1
+        "level":2
     },
     {
         "group": "covalent",
@@ -1222,7 +1222,7 @@
         },
         "name":"Sulfur Hexafluoride",
         "formula":"SF6",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1232,7 +1232,7 @@
         },
         "name":"Sulfur Tetrafluoride",
         "formula":"SF4",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1242,7 +1242,7 @@
         },
         "name":"Sulfur Trioxide",
         "formula":"SO3",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1253,7 +1253,7 @@
         },
         "name":"Sulfuryl Fluoride",
         "formula":"SO2F2",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1263,7 +1263,7 @@
         },
         "name":"Tetraphosphorus Decaoxide",
         "formula":"P4O10",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1274,7 +1274,7 @@
         },
         "name":"Thionylchloride",
         "formula":"SOCl2",
-        "level":1
+        "level":5
     },
     {
         "group": "covalent",
@@ -1285,7 +1285,7 @@
         },
         "name":"Xenon Oxotetrafluoride",
         "formula":"XeOF4",
-        "level":1
+        "level":4
     },
     {
         "group": "covalent",
@@ -1295,7 +1295,7 @@
         },
         "name":"Xenon Trioxide",
         "formula":"XeO3",
-        "level":1
+        "level":4
     },
     {
         "group": "cation",
@@ -1306,9 +1306,9 @@
         },
         "name":"Ammonium ion",
         "formula":"NH4+",
-        "level":1
+        "level":3
     },
-        {
+    {
         "group": "cation",
         "elements":{
             "Li":1,
@@ -1318,7 +1318,7 @@
         "formula":"Li+",
         "level":1
     },
-        {
+    {
         "group": "cation",
         "elements":{
             "Na":1,
@@ -1328,7 +1328,7 @@
         "formula":"Na+",
         "level":1
     },
-        {
+    {
         "group": "cation",
         "elements":{
             "Ca":1,
@@ -1336,9 +1336,9 @@
         },
         "name":"Calcium(II) ion",
         "formula":"Ca+2",
-        "level":1
+        "level":2
     },
-        {
+    {
         "group": "cation",
         "elements":{
             "Ag":1,
@@ -1348,7 +1348,7 @@
         "formula":"Ag+",
         "level":1
     },
-        {
+    {
         "group": "cation",
         "elements":{
             "Fe":1,
@@ -1356,9 +1356,9 @@
         },
         "name":"Iron(II) ion",
         "formula":"Fe+2",
-        "level":1
+        "level":2
     },
-        {
+    {
         "group": "cation",
         "elements":{
             "Fe":1,
@@ -1366,10 +1366,9 @@
         },
         "name":"Iron(III) ion",
         "formula":"Fe+3",
-        "level":1
-    }
-    ,
-        {
+        "level":2
+    },
+    {
         "group": "cation",
         "elements":{
             "Al":1,
@@ -1377,9 +1376,9 @@
         },
         "name":"Aluminium(III) ion",
         "formula":"Al+3",
-        "level":1
+        "level":2
     },
-        {
+    {
         "group": "cation",
         "elements":{
             "Pb":1,
@@ -1387,10 +1386,9 @@
         },
         "name":"Lead(II) ion",
         "formula":"Pb+2",
-        "level":1
-    }
-    ,
-        {
+        "level":2
+    },
+    {
         "group": "anion",
         "elements":{
             "F":1,
@@ -1399,9 +1397,8 @@
         "name":"Fluoride ion",
         "formula":"F-",
         "level":1
-    }
-    ,
-        {
+    },
+    {
         "group": "anion",
         "elements":{
             "Cl":1,
@@ -1410,8 +1407,8 @@
         "name":"Chloride ion",
         "formula":"Cl-",
         "level":1
-    } ,
-        {
+    },
+    {
         "group": "anion",
         "elements":{
             "Br":1,
@@ -1420,8 +1417,8 @@
         "name":"Bromide ion",
         "formula":"Br-",
         "level":1
-    } ,
-        {
+    },
+    {
         "group": "anion",
         "elements":{
             "O":1,
@@ -1430,9 +1427,9 @@
         },
         "name":"Hydroxide ion",
         "formula":"OH-",
-        "level":1
-    } ,
-        {
+        "level":2
+    },
+    {
         "group": "anion",
         "elements":{
             "S":1,
@@ -1440,9 +1437,9 @@
         },
         "name":"Sulfide ion",
         "formula":"S-2",
-        "level":1
-    } ,
-        {
+        "level":2
+    },
+    {
         "group": "anion",
         "elements":{
             "C":1,
@@ -1451,9 +1448,9 @@
         },
         "name":"Carbonate ion",
         "formula":"CO3-2",
-        "level":1
-    } ,
-        {
+        "level":3
+    },
+    {
         "group": "anion",
         "elements":{
             "S":1,
@@ -1462,9 +1459,9 @@
         },
         "name":"Sulfate ion",
         "formula":"SO4-2",
-        "level":1
+        "level":3
     },
-        {
+    {
         "group": "anion",
         "elements":{
             "P":1,
@@ -1473,9 +1470,9 @@
         },
         "name":"Phosphate ion",
         "formula":"PO4-3",
-        "level":1
+        "level":3
     },
-        {
+    {
         "group": "anion",
         "elements":{
             "N":1,
@@ -1484,9 +1481,9 @@
         },
         "name":"Nitrate ion",
         "formula":"NO3-",
-        "level":1
+        "level":3
     },
-        {
+    {
         "group": "anion",
         "elements":{
             "Cl":1,
@@ -1495,8 +1492,6 @@
         },
         "name":"Perchlorate ion",
         "formula":"ClO4-",
-        "level":1
+        "level":3
     }
-    
-
 ]

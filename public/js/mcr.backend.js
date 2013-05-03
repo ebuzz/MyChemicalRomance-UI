@@ -64,9 +64,15 @@
         workspace = [];
     }
 
-    function getRandomCompound() {
-        var idx = Math.floor((allCompounds.length-1) * Math.random());
-        return allCompounds[idx];
+    function getRandomCompound(level) {
+        var idx = 0;
+        var compound = null;
+        do {
+            idx = Math.floor((allCompounds.length-1) * Math.random());
+            compound = allCompounds[idx];
+        } while (compound.level > level);
+
+        return compound;
     }
 
     function checkoutCompound(idx) {
