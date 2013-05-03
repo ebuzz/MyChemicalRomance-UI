@@ -139,10 +139,7 @@ $(document).ready(function(){
                 workspace.removeAll();
 
                 resetUI();
-                workspace.addChemical(foundChemical);
-                drawChemical(foundChemical, x, y);
                 makeList.checkDiscoveryOnList(foundChemical);
-                mcr.add(foundChemical.symbol);
                 drawChemicals(foundChemical.elements);
                 explosionAnimator.startExplosion(foundChemical.name, getChemicalNamePixelWidth(foundChemical.name), x, y);
             }
