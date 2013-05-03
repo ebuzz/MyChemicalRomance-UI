@@ -8,10 +8,12 @@ $(document).ready(function(){
 
     var workspaceCenter = 700;
 
-    var secondsToBeatLevel = 300;
+    var secondsToBeatLevel = 5;
     var gameTimeAsString = "";
     var lastSystemTime = Math.floor(new Date().getTime()/1000);
     var currentSystemTime = Math.floor(new Date().getTime()/1000);
+
+    var gameOverState = false;
 
 
 	mcr.load();
@@ -24,7 +26,7 @@ $(document).ready(function(){
         gameTimeAsString = parseGameTimer();
         makeList.generateList();
         var mainLoop = function() {
-            if (secondsToBeatLevel <= 0) {
+            if (gameOverState) {
                 $('canvas').drawText({
                     layer: 'gameOver',
                     fillStyle: '#f00',
@@ -32,15 +34,8 @@ $(document).ready(function(){
                     font: "48pt chalkdust",
                     text: "GAME OVER"
                 });
-                return;
-            } if (makeList.compounds.length === 0) {
-                $('canvas').drawText({
-                    layer: 'youWin',
-                    fillStyle: '#a0a',
-                    x: 375, y: 200,
-                    font: "56pt chalkdust",
-                    text: "YOU WIN"
-                });
+                workspace.removeAll();
+                mcr.clearWorkspace();
                 return;
             }
             updateTimer();
@@ -64,6 +59,9 @@ $(document).ready(function(){
                 lastSystemTime = currentSystemTime;
                 secondsToBeatLevel--;
                 gameTimeAsString = parseGameTimer();
+            }
+            if (secondsToBeatLevel === 0) {
+                gameOverState = true;
             }
         };
 
@@ -379,6 +377,9 @@ $(document).ready(function(){
         }
 
         function drawChemical(chemical,x,y) {
+            if (gameOverState) {
+                return;
+            }
             var x = x !==undefined? x : Math.floor((Math.random()*300)+(workspaceCenter-175));
             var y = y!==undefined? y : Math.floor((Math.random()*200)+100);
             $("canvas").drawChemicalElement({
@@ -393,6 +394,9 @@ $(document).ready(function(){
                 x: x,
                 y: y,
                 dragstop: function(event) {
+                    if (gameOverState) {
+                        return;
+                    }
                     if (event.x > (workspaceCenter-175) && event.x < (workspaceCenter+175) && event.y > 350) {
                         removeChemicalFromWorkspace(chemical);
                     }
@@ -403,9 +407,15 @@ $(document).ready(function(){
                     suspendRedraw = false;
                 },
                 mousedown: function(event) {
+                    if (gameOverState) {
+                        return;
+                    }
                     suspendRedraw = true;
                 },
                 drag: function(layer) {
+                    if (gameOverState) {
+                        return;
+                    }
                     var chemical = layer.chemical;
                     chemical.x = layer.x;
                     chemical.y = layer.y;
