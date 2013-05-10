@@ -2,10 +2,9 @@ $(document).ready(function(){
     var suspendRedraw = false;
     var currentId = 1;
 
-    var hotbar1 = new Hotbar();
     var explosionAnimator = new ExplosionAnimator();
 
-    var workspaceCenter = 700;
+    var workspaceCenter = 675;
 
     var secondsToBeatLevel = 300;
     var gameTimeAsString = "";
@@ -15,7 +14,6 @@ $(document).ready(function(){
     var gameOverState = false;
 
     mcr.load();
-    hotbar1.init(workspaceCenter-225, 0);
 
     mcr.ready.done(function() {
         'use strict';
@@ -66,25 +64,10 @@ $(document).ready(function(){
         setInterval( mainLoop, ONE_FRAME_TIME );
         //--------End Game Loop------
 
-
-        var clickedDownHotbar = false;
-        var clickedUpHotbar = false;
-        var selectedHotbarChemical = null;
-        var selectedHotbarIndex = -1;
         $('canvas').mousedown(function(event) {
-            if (hotbar1.intersects(event.offsetX, event.offsetY)) {
-                clickedDownHotbar = true;
-                selectedHotbarIndex = hotbar1.getIndexFromCoord(event.offsetY);
-                selectedHotbarChemical = hotbar1.getCompoundFromSlot(selectedHotbarIndex);
-            }
         });
 
         $('canvas').mouseup(function(event) {
-            if (hotbar1.intersects(event.offsetX, event.offsetY)) {
-                clickedUpHotbar = true;
-            }
-            checkHotbarInteraction(event);
-            clickedDownHotbar = clickedUpHotbar = false;
         });
 
         function parseGameTimer() {
@@ -94,18 +77,6 @@ $(document).ready(function(){
                 seconds = "0" + seconds;
             }
             return minutes + ":" + seconds;
-        }
-
-        function checkHotbarInteraction(event) {
-            if (clickedDownHotbar && clickedUpHotbar) { //clicked down and up on hotbar
-                if (selectedHotbarChemical != null) {
-                    addChemicalToWorkspace(selectedHotbarChemical.symbol);
-                }
-            } else if (clickedDownHotbar && !clickedUpHotbar) { //clicked hotbar and dragged off
-                hotbar1.removeChemicalFromSlot(selectedHotbarIndex);
-            } else if (!clickedDownHotbar && clickedUpHotbar) { //clicked workspace and dragged to hotbar
-
-            }
         }
 
         function checkForDiscovery(result) {
@@ -271,30 +242,6 @@ $(document).ready(function(){
                     fromCenter:true
                 });
             }
-
-            hotbar1.render();
-
-            //        $("canvas").drawImage({
-            //            name:'controls',
-            //            layer: true,
-            //            source: "images/search.png",
-            //            x: 455, y: 375,
-            //            scale: 0.5,
-            //            click : function(layer) {
-            //                $("#searchDialog").dialog('open');
-            //            }
-            //        });
-
-            //        $("canvas").drawImage({
-            //            name:'controls',
-            //            layer: true,
-            //            source: "images/help.png",
-            //            x: 25, y: 375,
-            //            scale: 0.3
-            //        });
-
-
-
             drawPotentialCount(mcr.undiscoveredCompounds());
 
         }
@@ -338,14 +285,6 @@ $(document).ready(function(){
                 symbol: symbol,
                 x: 0,
                 y: 0
-            }
-        }
-
-        function addChemicalToHotbar(symbol) {
-            var freeHotbarIndex = hotbar1.getNextAvailableIndex();
-            var chemical = createChemical(symbol);
-            if (freeHotbarIndex !== -1) {
-                hotbar1.addChemicalToSlot(chemical, freeHotbarIndex);
             }
         }
 
@@ -396,10 +335,6 @@ $(document).ready(function(){
                 y: y,
                 dragstop: function(event) {
                     if (event.x > (workspaceCenter-175) && event.x < (workspaceCenter+175) && event.y > 350) {
-                        removeChemicalFromWorkspace(chemical);
-                    }
-                    if (hotbar1.intersects(event.x, event.y)) {
-                        hotbar1.addChemicalToSlot(chemical, hotbar1.getIndexFromCoord(event.y));
                         removeChemicalFromWorkspace(chemical);
                     }
                     suspendRedraw = false;
