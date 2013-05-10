@@ -72,9 +72,8 @@ var makeList = {
         this.canvas.drawText({
             layer: 'makeList',
             fillStyle: "#fff",
-            strokeWidth: 1,
             x: 25, y: 5,
-            font: "20pt chalkdust, sans-serif",
+            font: "20pt chalkdust",
             text: this.listAsString,
             align: "left",
             lineHeight: 1.3,
@@ -95,8 +94,8 @@ var makeList = {
                     strokeStyle: "rgba(255,0,0,1)",
                     strokeWidth: 5,
                     rounded: true,
-                    x1: 20, y1: 60+35*i+this.lineInfo[i].y1offset,
-                    x2: 30+this.lineInfo[i].width, y2: 60+35*i+this.lineInfo[i].y2offset
+                    x1: 25, y1: 60+35*i+this.lineInfo[i].y1offset,
+                    x2: 25+this.lineInfo[i].width, y2: 60+35*i+this.lineInfo[i].y2offset
                 });
             }
         }

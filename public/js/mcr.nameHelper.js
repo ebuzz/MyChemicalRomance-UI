@@ -119,9 +119,7 @@ function getChemicalNamePixelWidthFont(font, name) {
         .drawText({
             layer: true,
             name: 'measureText',
-            fillStyle: "#36c",
-            strokeStyle: "#25a",
-            strokeWidth: 1,
+            fillStyle: "#fff",
             x: -100, y:  -100,
             font: font,
             text: name

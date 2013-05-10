@@ -111,7 +111,7 @@ $(document).ready(function(){
                     makeList.generateList();
                 }
                 drawChemicals(foundChemical.elements);
-                explosionAnimator.startExplosion(foundChemical.name, getChemicalNamePixelWidth(foundChemical.name), x, y);
+                explosionAnimator.startExplosion(foundChemical.name, getChemicalNamePixelWidth(foundChemical.name), workspaceCenter, 150);
             }
         }
 
