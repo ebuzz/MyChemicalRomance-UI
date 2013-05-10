@@ -85,11 +85,12 @@ $(document).ready(function(){
                 var y = Math.floor((Math.random()*200)+100);
                 var foundChemical = {
                     id: currentId++,
-                    symbol: result.discovered[0].formula,
+                    formula: result.discovered[0].formula,
                     x: x,
                     y: y,
                     elements: result.discovered[0].elements,
-                    name: result.discovered[0].name
+                    name: result.discovered[0].name,
+                    group: result.discovered[0].group
                 };
                 var group = result.discovered[0].group;
                 var tabSelect = "";
@@ -217,14 +218,14 @@ $(document).ready(function(){
                 text: 'Trash'
             });
 
-
             if (secondsToBeatLevel < 11 && (secondsToBeatLevel !== lastSeconds)) {
                 redTimeTimer = 15;
                 lastSeconds = secondsToBeatLevel;
             }
             if (redTimeTimer > 0) {
                 $("canvas").drawText({
-                    layer: 'controls',
+                    name: "timer",
+                    layer: true,
                     fillStyle: 'rgba(255,0,0,1)',
                     x: 325, y: 20,
                     font: "26pt chalkdust",
@@ -234,7 +235,8 @@ $(document).ready(function(){
                 redTimeTimer--;
             } else {
                 $("canvas").drawText({
-                    layer: 'controls',
+                    name: "timer",
+                    layer: true,
                     fillStyle: 'rgba(255,255,255,1)',
                     x: 325, y: 20,
                     font: "20pt chalkdust",
@@ -242,6 +244,7 @@ $(document).ready(function(){
                     fromCenter:true
                 });
             }
+
             drawPotentialCount(mcr.undiscoveredCompounds());
 
         }
@@ -249,8 +252,7 @@ $(document).ready(function(){
         function drawPotentialCount(count) {
             $("canvas").removeLayer("potentialCount");
             $("canvas").drawText({
-                name: "potentialCount",
-                layer: true,
+                layer: "potentialCount",
                 fillStyle: "#fff",
                 x: workspaceCenter, y: 15,
                 font: "14pt chalkdust",
@@ -350,15 +352,5 @@ $(document).ready(function(){
                 }
             });
         }
-
-        var searchDialog = $( "#searchDialog" ).dialog({
-            autoOpen: false,
-            draggable: false,
-            modal: true,
-            resizable:false,
-            title:'Search',
-            position: {at:'center', of:$("canvas")}
-        });
-
     });
 });
