@@ -6,6 +6,7 @@ var makeList = {
     canvas: null,
     listAsString: "",
     currentLevel: 1,
+    masterList: [],
 
     generateList: function() {
         this.compounds = [];
@@ -18,6 +19,7 @@ var makeList = {
             } while (this.isDuplicate(compound))
             this.found[i] = false;
             this.compounds.push(compound);
+            this.masterList.push(compound);
             this.lineInfo[i] = {
                 width:getChemicalNamePixelWidthFont("chalkdust", this.compounds[i].name),
                 y1offset: Math.floor(Math.random() * 20) - 10,
@@ -32,6 +34,11 @@ var makeList = {
     isDuplicate: function(compound) {
         for (var i=0; i<this.compounds.length; i++) {
             if (compound.name === this.compounds[i].name) {
+                return true;
+            }
+        }
+        for (var i=0; i<this.masterList.length; i++) {
+            if (compound.name === this.masterList[i].name) {
                 return true;
             }
         }

@@ -1,7 +1,7 @@
 (function (root, $, _) {
     'use strict';
 
-    var allCompounds, discoverableCompounds, checkedOutCompounds = {}, discoveries, elements, ready = $.Deferred();
+    var allCompounds, discoverableCompounds, discoveredCompounds = [], checkedOutCompounds = {}, discoveries, elements, ready = $.Deferred();
     var workspace= [];
 
     var mcr = root.mcr = {
@@ -40,6 +40,9 @@
         reset: function() {
             clearWorkspace();
             returnCompounds();
+        },
+        discoveredCompoundsList: function() {
+            return discoveredCompounds;
         },
         clearWorkspace: clearWorkspace,
         getRandomCompound: getRandomCompound,
