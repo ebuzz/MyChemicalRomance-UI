@@ -88,11 +88,11 @@
 }
 .ui-tabs {
 	position: relative;/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
-	padding: .2em;
+	padding: 0;
 }
 .ui-tabs .ui-tabs-nav {
 	margin: 0;
-	padding: .2em .2em 0;
+	padding: 0;
 }
 .ui-tabs .ui-tabs-nav li {
 	list-style: none;
@@ -125,7 +125,7 @@
 .ui-tabs .ui-tabs-panel {
 	display: block;
 	border-width: 0;
-	padding: 1em 1.4em;
+	padding: 0;
 	background: none;
 }
 

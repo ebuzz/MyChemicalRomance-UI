@@ -141,26 +141,78 @@ $(document).ready(function(){
                 var symbolWidth = getChemicalNamePixelWidth(params.symbol);
 
                 $('canvas')
-                    .drawRect({
-                        fillStyle: params.fillStyle,
-                        strokeStyle: '#000',
-                        strokeWidth: 1,
-                        x: params.x, y: params.y,
-                        width: symbolWidth+10,
-                        height: params.height
-                    }).drawText({
-                        name: 'myText',
+//                    .drawRect({
+//                        name: ''+params.chemical.id,
+//                        layer: true,
+//                        draggable: true,
+//                        fillStyle: "#fff",
+//                        strokeStyle: '#000',
+//                        strokeWidth: 1,
+//                        x: params.x, y: params.y,
+//                        width: symbolWidth+10,
+//                        height: 50,
+//                        dragstop: function(event) {
+//                            if (event.x > (workspaceCenter-175) && event.x < (workspaceCenter+175) && event.y > 350) {
+//                                removeChemicalFromWorkspace(params.chemical);
+//                            }
+//                            suspendRedraw = false;
+//                        },
+//                        mousedown: function(event) {
+//                            suspendRedraw = true;
+//                        },
+//                        drag: function(layer) {
+//                            var chemical = layer.chemical;
+//                            chemical.x = layer.x;
+//                            chemical.y = layer.y;
+//                            workspace.updateChemical(chemical);
+//                        }
+//            }).drawText({
+            .drawText({
+                        name: ''+params.chemical.id,
+                        layer: true,
+                        draggable: true,
                         fillStyle: "#36c",
                         strokeStyle: "#25a",
                         strokeWidth: 2,
                         x: params.x, y: params.y,
                         font: "36pt Verdana, sans-serif",
-                        text: params.symbol
+                        text: params.symbol,
+                        dragstop: function(event) {
+                            if (event.x > (workspaceCenter-175) && event.x < (workspaceCenter+175) && event.y > 350) {
+                                removeChemicalFromWorkspace(params.chemical);
+                            }
+                            suspendRedraw = false;
+                        },
+                        mousedown: function(event) {
+                            suspendRedraw = true;
+                        },
+                        drag: function(layer) {
+                            var chemical = layer.chemical;
+                            chemical.x = layer.x;
+                            chemical.y = layer.y;
+                            workspace.updateChemical(chemical);
+                        }
                     });
 
                 $.jCanvas.detectEvents(this, ctx, params);
             }
         });
+
+        function drawChemical(chemical,x,y) {
+            if (gameOverState) {
+                return;
+            }
+            var x = x !==undefined? x : Math.floor((Math.random()*300)+(workspaceCenter-175));
+            var y = y!==undefined? y : Math.floor((Math.random()*200)+100);
+            $("canvas").drawChemicalElement({
+                name: ''+chemical.id,
+                chemical: chemical,
+                layer: true,
+                symbol: transformNumbers(chemical.symbol),
+                x: x,
+                y: y
+            });
+        }
 
         var redTimeTimer = 0;
         var lastSeconds = secondsToBeatLevel;
@@ -314,41 +366,6 @@ $(document).ready(function(){
         function removeChemicalFromWorkspace(chemical) {
             var result = workspace.removeChemical(chemical);
             checkForDiscovery(result);
-        }
-
-        function drawChemical(chemical,x,y) {
-            if (gameOverState) {
-                return;
-            }
-            var x = x !==undefined? x : Math.floor((Math.random()*300)+(workspaceCenter-175));
-            var y = y!==undefined? y : Math.floor((Math.random()*200)+100);
-            $("canvas").drawChemicalElement({
-                name: ''+chemical.id,
-                chemical: chemical,
-                layer: true,
-                draggable: true,
-                fillStyle: "#fff",
-                symbol: transformNumbers(chemical.symbol),
-                width: 50,
-                height: 50,
-                x: x,
-                y: y,
-                dragstop: function(event) {
-                    if (event.x > (workspaceCenter-175) && event.x < (workspaceCenter+175) && event.y > 350) {
-                        removeChemicalFromWorkspace(chemical);
-                    }
-                    suspendRedraw = false;
-                },
-                mousedown: function(event) {
-                    suspendRedraw = true;
-                },
-                drag: function(layer) {
-                    var chemical = layer.chemical;
-                    chemical.x = layer.x;
-                    chemical.y = layer.y;
-                    workspace.updateChemical(chemical);
-                }
-            });
         }
 
         var searchDialog = $( "#searchDialog" ).dialog({
