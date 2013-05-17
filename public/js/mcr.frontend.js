@@ -102,6 +102,7 @@ $(document).ready(function(){
                 } else if (group === "anion") {
                     tabSelect = "#tabs-5";
                 }
+                debugger;
                 renderCompoundsTabs(tabSelect,mcr.discoveredCompounds(group));
                 workspace.removeAll();
                 resetUI();
@@ -301,8 +302,7 @@ $(document).ready(function(){
         function drawPotentialCount(count) {
             $("canvas").removeLayer("potentialCount");
             $("canvas").drawText({
-                name: "potentialCount",
-                layer: true,
+                layer: "potentialCount",
                 fillStyle: "#fff",
                 x: workspaceCenter, y: 15,
                 font: "14pt chalkdust",

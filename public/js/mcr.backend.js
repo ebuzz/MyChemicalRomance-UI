@@ -1,7 +1,7 @@
 (function (root, $, _) {
     'use strict';
 
-    var allCompounds, discoverableCompounds, discoveredCompounds = [], checkedOutCompounds = {}, discoveries, elements, ready = $.Deferred();
+    var allCompounds, discoverableCompounds, checkedOutCompounds = {}, discoveries, elements, ready = $.Deferred();
     var workspace= [];
 
     var mcr = root.mcr = {
@@ -41,9 +41,6 @@
             clearWorkspace();
             returnCompounds();
         },
-        discoveredCompoundsList: function() {
-            return discoveredCompounds;
-        },
         clearWorkspace: clearWorkspace,
         getRandomCompound: getRandomCompound,
         setDiscoverableCompounds: setDiscoverableCompounds,
@@ -71,7 +68,7 @@
         var idx = 0;
         var compound = null;
         do {
-            idx = Math.floor((allCompounds.length-1) * Math.random());
+            idx = Math.floor((allCompounds.length) * Math.random());
             compound = allCompounds[idx];
         } while (compound.level > level);
 

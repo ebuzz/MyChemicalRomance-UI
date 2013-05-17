@@ -1,7 +1,6 @@
 function transformNumbers(symbol) {
     var numbersRegex = RegExp("[\-\+0-9]+");
-    var lettersRegex = RegExp("[A-z]+");
-
+    var lettersRegex = RegExp("[(A-z)]+");
     var symbols = symbol.split(numbersRegex);
     var numbers = symbol.split(lettersRegex);
 

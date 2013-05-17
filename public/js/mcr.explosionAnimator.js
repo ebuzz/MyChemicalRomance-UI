@@ -3,7 +3,7 @@ var explosionAnimator = {
     canvas: null,
     circles: [],
     animationDone: true,
-    numCircles: 175,
+    numCircles: 25,
     radiusDecay:.125,
     name: null,
     nameWidth: 0,

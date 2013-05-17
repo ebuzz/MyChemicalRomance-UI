@@ -1493,5 +1493,427 @@
         "name":"Perchlorate ion",
         "formula":"ClO4-",
         "level":3
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "N":3,
+            "H":12,
+            "P":1,
+            "O":4
+        },
+        "name":"Ammonium Phosphate",
+        "formula":"(NH4)3PO4",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "N":2,
+            "H":8,
+            "C":1,
+            "O":3
+        },
+        "name":"Ammonium Carbonate",
+        "formula":"(NH4)2CO3",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ba":1,
+            "O":2,
+            "H":2
+        },
+        "name":"Barium Hydroxide",
+        "formula":"Ba(OH)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Al":1,
+            "O":3,
+            "H":3
+        },
+        "name":"Aluminum Hydroxide",
+        "formula":"Al(OH)3",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Al":2,
+            "S":3,
+            "O":12
+        },
+        "name":"Aluminum Sulfate",
+        "formula":"Al2(SO4)3",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ca":2,
+            "N":2,
+            "O":6
+        },
+        "name":"Calcium Nitrate",
+        "formula":"Ca(NO3)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Al":1,
+            "N":3,
+            "O":9
+        },
+        "name":"Aluminum Nitrate",
+        "formula":"Ca(NO3)3",
+        "level":5
+    }
+    ,
+    {
+        "group": "ionic",
+        "elements":{
+            "Al":1,
+            "N":3,
+            "O":9
+        },
+        "name":"Aluminum Nitrate",
+        "formula":"Ca(NO3)3",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "N":2,
+            "H":8,
+            "S":1,
+            "O":4
+        },
+        "name":"Ammonium Sulfate",
+        "formula":"(NH4)2SO4",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "N":2,
+            "H":8,
+            "S":2
+        },
+        "name":"Ammonium Sulfide",
+        "formula":"(NH4)2S",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ba":1,
+            "N":2,
+            "O":6
+        },
+        "name":"Barium Nitrate",
+        "formula":"Ba(NO3)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ba":3,
+            "P":2,
+            "O":8
+        },
+        "name":"Barium Phosphate",
+        "formula":"Ba3(PO4)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ca":3,
+            "P":2,
+            "O":8
+        },
+        "name":"Calcium Phosphate",
+        "formula":"Ca3(PO4)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ca":1,
+            "O":2,
+            "H":2
+        },
+        "name":"Calcium Hydroxide",
+        "formula":"Ca(OH)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Cr":1,
+            "N":2,
+            "O":6
+        },
+        "name":"Chromium(II) Nitrate",
+        "formula":"Cr(NO3)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Cr":1,
+            "O":3,
+            "H":3
+        },
+        "name":"Chromium(III) Hydroxide",
+        "formula":"Cr(OH)3",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Cr":2,
+            "S":3,
+            "O":12
+        },
+        "name":"Chromium(III) Sulfate",
+        "formula":"Cr(SO4)3",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Co":1,
+            "O":2,
+            "H":2
+        },
+        "name":"Cobalt(II) Hydroxide",
+        "formula":"Co(OH)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Co":1,
+            "N":2,
+            "O":6
+        },
+        "name":"Cobalt(II) Nitrate",
+        "formula":"Co(NO3)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Cu":1,
+            "O":2,
+            "H":2
+        },
+        "name":"Copper(II) Hydroxide",
+        "formula":"Cu(OH)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Cu":1,
+            "N":2,
+            "O":6
+        },
+        "name":"Copper(II) Nitrate",
+        "formula":"Cu(NO3)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Fe":1,
+            "O":2,
+            "H":2
+        },
+        "name":"Iron(II) Hydroxide",
+        "formula":"Fe(OH)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Fe":1,
+            "N":2,
+            "O":6
+        },
+        "name":"Iron(II) Nitrate",
+        "formula":"Fe(NO3)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Fe":1,
+            "O":3,
+            "H":3
+        },
+        "name":"Iron(III) Hydroxide",
+        "formula":"Fe(OH)3",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Fe":1,
+            "N":3,
+            "O":9
+        },
+        "name":"Iron(III) Nitrate",
+        "formula":"Fe(NO3)3",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Fe":2,
+            "S":3,
+            "O":12
+        },
+        "name":"Iron(III) Sulfate",
+        "formula":"Fe2(SO4)3",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Pb":1,
+            "O":2,
+            "H":2
+        },
+        "name":"Lead Hydroxide",
+        "formula":"Pb(OH)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Pb":1,
+            "N":2,
+            "O":6
+        },
+        "name":"Lead Nitrate",
+        "formula":"Pb(NO3)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Pb":3,
+            "P":2,
+            "O":8
+        },
+        "name":"Lead Phosphate",
+        "formula":"Pb3(PO4)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Mg":1,
+            "O":2,
+            "H":2
+        },
+        "name":"Magnesium Hydroxide",
+        "formula":"Mg(OH)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Mg":1,
+            "N":2,
+            "O":6
+        },
+        "name":"Magnesium Nitrate",
+        "formula":"Mg(NO3)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Mn":1,
+            "O":2,
+            "H":2
+        },
+        "name":"Manganese(II) Hydroxide",
+        "formula":"Mn(OH)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Mn":1,
+            "N":2,
+            "O":6
+        },
+        "name":"Manganese(II) Nitrate",
+        "formula":"Mn(NO3)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ni":1,
+            "O":2,
+            "H":2
+        },
+        "name":"Nickel Hydroxide",
+        "formula":"Ni(OH)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Ni":1,
+            "N":2,
+            "O":6
+        },
+        "name":"Nickel Nitrate",
+        "formula":"Ni(NO3)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Zn":1,
+            "O":2,
+            "H":2
+        },
+        "name":"Zinc Hydroxide",
+        "formula":"Zn(OH)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Zn":1,
+            "N":2,
+            "O":6
+        },
+        "name":"Zinc Nitrate",
+        "formula":"Zn(NO3)2",
+        "level":5
+    },
+    {
+        "group": "ionic",
+        "elements":{
+            "Zn":3,
+            "P":2,
+            "O":8
+        },
+        "name":"Zinc Phosphate",
+        "formula":"Zn3(PO4)2",
+        "level":5
     }
 ]
